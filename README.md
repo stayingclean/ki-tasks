@@ -42,7 +42,7 @@ aufgaben/
   gesuch-krankheitskosten/
 build.py                      Grundgerüst + Aufgabe → dist/<aufgabe>.zip, dazu index.html
 platzhalter/                  Windows-Programm: [Platzhalter] in Word-Dateien einsetzen (uv, EXE)
-anleitung/                    zwei Seiten, die den Ordner beschreiben (holt der Toolbox-Deploy)
+anleitung/                    sechs Seiten: Ordner, Platzhalter, Aufgaben (holt der Toolbox-Deploy)
 ```
 
 `build.py` legt das Grundgerüst hin und die Aufgaben-Schicht darüber — eine reine
@@ -86,19 +86,34 @@ Die EXE baut der Workflow auf einem Windows-Runner und legt sie neben die Zips.
 
 ## Anleitung
 
-`anleitung/` enthält die zwei Seiten, die den Ordner beschreiben:
-`der-ordner.html` (was drinliegt und was Claude darin tut) und
-`platzhalter.html` (Adresse und IBAN am Schluss einsetzen). Der Deploy des Repos
+`anleitung/` enthält sechs Seiten, zwei zur Arbeitsweise und vier zu den
+Aufgaben:
+
+```
+der-ordner.html               was drinliegt und was Claude darin tut
+platzhalter.html              Adresse und IBAN am Schluss einsetzen
+aufgaben.html                 welches Zip wofür, was allen gemeinsam ist
+wohnung.html                  je Aufgabe: was Claude fragt, wo er sucht,
+stelle.html                   was du besorgen musst, was entsteht,
+gesuch-krankheitskosten.html  wo er widerspricht, ein Durchlauf
+```
+
+Der Deploy des Repos
 [stayingclean/toolbox](https://github.com/stayingclean/toolbox) holt den Ordner
 beim Bauen und kopiert ihn nach `docs/claude-anleitung/`. Die Seiten erscheinen
 darum unter [der Toolbox-URL](https://stayingclean.github.io/toolbox/claude-anleitung/)
 und nicht auf der Download-Seite dieses Repos.
 
 Sie liegen hier, weil sie sich mit dem Ordner zusammen ändern müssen: Wer
-`grundgeruest/` umbaut, eine Leitplanke in `grundgeruest/CLAUDE.md` ändert oder
-am Platzhalter-Tool etwas dreht, zieht diese Seiten mit nach. Genau dieser
-Gleichschritt war gebrochen, solange die Anleitung vollständig im anderen Repo
-lag.
+`grundgeruest/` umbaut, eine Leitplanke in `grundgeruest/CLAUDE.md` ändert, am
+Platzhalter-Tool etwas dreht oder ein `wissen.md` anpasst, zieht diese Seiten
+mit nach. Genau dieser Gleichschritt war gebrochen, solange die Anleitung
+vollständig im anderen Repo lag.
+
+Die drei Aufgabenseiten sind die Leseform von `aufgaben/<name>/9_Claude/wissen.md`
+— dieselbe Sache, einmal für Claude und einmal für einen Menschen. Ändert sich
+das `wissen.md`, ändert sich die Seite mit. Neue Regeln gehören aber weiterhin
+ins `wissen.md`, nicht hierher.
 
 Aussehen und Navigation kommen von drüben (`stil.css`, `anleitung.js`): kein
 eigener CSS-Block ausser für wirklich Seitenspezifisches, Links relativ.
@@ -106,6 +121,18 @@ Einzeln im Browser geöffnet sehen die Seiten darum unfertig aus; zum Prüfen
 neben eine Kopie von `stil.css` und `anleitung.js` legen. Eine neue Seite muss
 drüben in `anleitung.js` in die Liste `SEITEN` eingetragen werden, sonst
 erscheint sie in keiner Navigation. `build.py` fasst den Ordner nicht an.
+
+Der Block, der drüben in `SEITEN` stehen muss, damit die Aufgabenseiten
+erscheinen — zwischen den Gruppen «Arbeitsweise» und «Weiterführend»:
+
+```js
+{ gruppe: 'Aufgaben', seiten: [
+  { href: 'aufgaben.html',                 titel: 'Übersicht' },
+  { href: 'wohnung.html',                  titel: 'Wohnung suchen' },
+  { href: 'stelle.html',                   titel: 'Stelle suchen' },
+  { href: 'gesuch-krankheitskosten.html',  titel: 'Gesuche für Krankheitskosten' }
+]},
+```
 
 ## Neue Aufgabe anlegen
 
@@ -117,6 +144,8 @@ erscheint sie in keiner Navigation. `build.py` fasst den Ordner nicht an.
    ausgewählt werden · welche Unterlagen nötig sind · welche Dokumente entstehen ·
    was nach `3_Zum-Versenden/` geht.
 4. `python build.py` ausführen und das Zip einmal selbst entpacken und anschauen.
+5. `anleitung/<name>.html` nach dem Vorbild von `anleitung/wohnung.html`, dazu
+   eine Karte auf `anleitung/aufgaben.html` und ein Eintrag in `SEITEN` drüben.
 
 Was NICHT in eine Aufgabe gehört: Regeln zum Verhalten (die stehen in
 `grundgeruest/CLAUDE.md`), Formulare zum Ausfüllen, Beispieldaten echter Personen.

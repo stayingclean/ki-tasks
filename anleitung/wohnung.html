@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wohnung suchen · Mit Claude arbeiten</title>
+  <meta name="description" content="Was Claude bei der Wohnungssuche fragt, wo er sucht und was am Schluss dasteht">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Gehört eigentlich nach stil.css: main ist ein Grid-Element und schrumpft
+       ohne min-width:0 nicht unter sein breitestes Kind. Ein .tree-Block würde
+       sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
+       breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
+    main { min-width: 0; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="title">Mit Claude arbeiten</span>
+      <span class="back">Anleitung · Toolbox</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Inhalt <span aria-hidden="true">☰</span></button>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main>
+<header class="page">
+  <p class="kicker">Aufgaben</p>
+  <h1>Wohnung suchen</h1>
+  <p class="lead">Inserate finden und ehrlich bewerten, pro Wohnung ein Anschreiben, am Schluss ein Dossier als PDF. Was Claude dabei fragt, wo er sucht und wo er widerspricht.</p>
+</header>
+
+<div class="summary">
+  <h2>Kurzfassung</h2>
+  <ul>
+    <li><strong>Zip:</strong> <code>wohnung.zip</code> von <a href="https://stayingclean.github.io/ki-tasks/">stayingclean.github.io/ki-tasks</a>. Entpacken, Ordner in Cowork verbinden, «Was steht an?» schreiben.</li>
+    <li><strong>Du besorgst:</strong> Betreibungsauszug, Einkommensnachweis, eine Referenz, Haftpflichtpolice. Das ist der Teil, der Zeit braucht.</li>
+    <li><strong>Es entsteht:</strong> eine Inseratsübersicht, pro ausgewählte Wohnung ein Anschreiben mit Beilagenliste, fünf Fragen für die Besichtigung, am Schluss das PDF.</li>
+    <li><strong>Claude widerspricht,</strong> wenn deine Mietobergrenze im gewählten Umkreis nichts hergibt — bevor die Suche wochenlang leer läuft.</li>
+  </ul>
+</div>
+
+<h2>Was Claude am Anfang fragt</h2>
+<p>Fünf Punkte, und auch die nur, soweit sie nicht schon in deinen Unterlagen stehen:</p>
+<ul>
+  <li>Ort und Umkreis — in Kilometern oder in Minuten mit dem ÖV</li>
+  <li>Miete: maximal wie viel, inklusive Nebenkosten</li>
+  <li>Ab wann, und ob es eine Frist gibt</li>
+  <li>Wohnung, Studio oder auch WG-Zimmer</li>
+  <li>Was gar nicht geht — Erdgeschoss an der Hauptstrasse, keine Haustiere erlaubt, kein Lift</li>
+</ul>
+<p>Alles Weitere fragt er erst, wenn ein konkretes Inserat es nötig macht. Antworten kannst du in halben Sätzen; das Aufschreiben übernimmt Claude.</p>
+
+<div class="warn">
+  <p><strong>Zuerst wird nachgerechnet.</strong> Bevor Claude irgendetwas sucht, prüft er dein Budget gegen das, was der Markt im gewählten Umkreis tatsächlich anbietet. Passt es nicht zusammen, sagt er es mit Begründung — zusammen mit den drei Stellschrauben: Budget hoch, Umkreis grösser, oder WG-Zimmer zulassen. Eine Miete, die es dort nicht gibt, produziert sonst wochenlang leere Suchen.</p>
+</div>
+
+<h2>Wo gesucht wird</h2>
+<p>homegate.ch, immoscout24.ch, flatfox.ch und wgzimmer.ch, jeweils die Inserate der letzten 14 Tage.</p>
+<div class="note">
+  <p>wgzimmer.ch und tutti.ch lassen sich oft nicht automatisch auslesen. Claude sagt das, statt den Eindruck zu erwecken, die Suche sei vollständig gewesen. Dort schaust du selbst nach — oder lässt Claude über deinen Chrome-Browser nachsehen.</p>
+</div>
+
+<h2>Was du besorgen musst</h2>
+<p>Das verlangen Vermieter, und ohne diese vier Dinge nützt das beste Anschreiben nichts:</p>
+<div class="tablewrap">
+<table>
+  <tr><th>Unterlage</th><th>Woher</th><th>Zu beachten</th></tr>
+  <tr><td>Betreibungsauszug</td><td>Betreibungsamt deines Wohnorts, ca. CHF 17</td><td>Höchstens 3 Monate alt. Bestellen, sobald du mit der Suche anfängst.</td></tr>
+  <tr><td>Einkommensnachweis</td><td>Arbeitgeber, Sozialdienst oder Institution</td><td>Lohnabrechnung, Bestätigung Arbeitstraining oder des Sozialdienstes</td></tr>
+  <tr><td>Referenz</td><td>Bisheriger Vermieter, Institution oder Arbeitgeber</td><td>Vorher fragen, ob die Person einverstanden ist</td></tr>
+  <tr><td>Haftpflichtversicherung</td><td>Deine Versicherung</td><td>Police oder eine Offerte genügt</td></tr>
+</table>
+</div>
+<p>Alles davon legst du in <code>1_Meine-Unterlagen</code>. Claude liest dort und schreibt nie hinein. Was fehlt, sagt er ungefragt.</p>
+<div class="note">
+  <p><strong>Die ID-Kopie gehört nicht in den Ordner.</strong> Sie kommt erst beim Vertrag, nicht mit der Anfrage. Wer sie vorher herumschickt, gibt sie an Leute, die nie eine Wohnung vergeben.</p>
+</div>
+
+<h2>Was entsteht</h2>
+<div class="tree">2_Arbeitsstand/
+  inserate.md                       <span class="c">Übersicht, eine Zeile je Inserat, nach Passung sortiert</span>
+  inserate/
+    03_lindenstrasse/
+      inserat.pdf                   <span class="c">Druckansicht des Inserats</span>
+      inserat.md                    <span class="c">Eckdaten: Zimmer, Miete, frei ab, Kontakt, Link</span>
+  anschreiben_lindenstrasse.docx    <span class="c">eine halbe Seite, pro ausgewählte Wohnung</span>
+  fragen_besichtigung.md            <span class="c">fünf Fragen, einmal pro Suche</span>
+3_Zum-Versenden/
+  2026-09-20_bewerbung_lindenstrasse.pdf
+  mailtext.md                       <span class="c">höchstens fünf Sätze</span></div>
+<p>In <code>inserate.md</code> steht pro Inserat: Nummer, Strasse, Ort, Zimmer, Miete, frei ab, Kurzbeschrieb, Passung von 1 bis 5, der Hauptgrund dagegen und der Link. Der Hauptgrund dagegen steht auch bei den guten Treffern — eine Liste, in der alles passt, hat niemand geprüft.</p>
+
+<h2>Auswählen läuft im Chat</h2>
+<p>Wenn die Übersicht steht, fragt Claude im Gespräch, welche Nummern weiterverfolgt werden. Du musst keine Tabelle bearbeiten, «2, 5 und 9» genügt.</p>
+<p>Dazu nennt er die aussortierten Inserate mit Grund. Das ist keine Höflichkeit, sondern deine Kontrolle: Wenn er etwas wegen «zu weit weg» gestrichen hat, das du gut erreichbar findest, stimmen die Kriterien nicht — und das merkst du nur hier.</p>
+
+<h2>Was im Anschreiben steht</h2>
+<p>Eine halbe Seite, drei Dinge: wer du bist, warum diese Wohnung, wie die Miete finanziert wird. Dazu eine Beilagenliste, abgeglichen mit dem, was genau dieses Inserat verlangt.</p>
+<p>Offen bleiben nur <code>[ADRESSE]</code>, <code>[TELEFON]</code> und <code>[EMAIL]</code>. Keine AHV-Nummer, keine IBAN — ein Vermieter braucht beides nicht, und solange du nichts unterschrieben hast, hat er auch kein Recht darauf. Eingesetzt werden die Platzhalter am Schluss auf deinem Computer, siehe <a href="platzhalter.html">Platzhalter einsetzen</a>.</p>
+
+<h2>Wo Claude widerspricht</h2>
+<ul>
+  <li><strong>Budget gegen Markt.</strong> Vor der ersten Suche, mit Begründung und mit den Stellschrauben daneben.</li>
+  <li><strong>Unvollständige Suche.</strong> Wenn ein Portal nichts hergibt, steht das da — nicht ein stillschweigend kürzeres Ergebnis.</li>
+  <li><strong>Fehlende Unterlagen.</strong> Ein Anschreiben ohne Betreibungsauszug im Rücken meldet er, bevor du es abschickst.</li>
+  <li><strong>Was nicht in den Ordner gehört.</strong> Liegt etwas in <code>1_Meine-Unterlagen</code>, das für die Wohnungssuche niemand braucht, sagt er es.</li>
+</ul>
+
+<h2>Ein Durchlauf</h2>
+<ol class="steps">
+  <li>
+    <h3>Ordner verbinden, ein Satz <span class="label ok-l">Du</span></h3>
+    <p>Zip entpacken, den Ordner in Cowork verbinden, «Was steht an?» schreiben. Claude sieht, dass <code>stand.md</code> fehlt, und stellt seine fünf Fragen.</p>
+  </li>
+  <li>
+    <h3>Budget prüfen, dann suchen <span class="label">Claude</span></h3>
+    <p>Er rechnet die Obergrenze gegen den Markt, sagt dir das Ergebnis, und durchsucht danach die vier Portale. Die Treffer landen als Übersicht und als Einzelordner in <code>2_Arbeitsstand</code>.</p>
+  </li>
+  <li>
+    <h3>Nummern nennen <span class="label ok-l">Du</span></h3>
+    <p>Du liest die Übersicht, öffnest ein paar Links selbst und sagst im Chat, welche weiterverfolgt werden. Die aussortierten schaust du kurz durch — dort sieht man, ob die Kriterien stimmen.</p>
+  </li>
+  <li>
+    <h3>Anschreiben entwerfen <span class="label">Claude</span></h3>
+    <p>Pro ausgewählte Wohnung ein <code>.docx</code> mit Beilagenliste. Vorher meldet er, was in <code>1_Meine-Unterlagen</code> fehlt oder was das Inserat zusätzlich verlangt.</p>
+  </li>
+  <li>
+    <h3>In Word kommentieren <span class="label ok-l">Du</span></h3>
+    <p>Datei öffnen, an den Stellen, die nicht passen, einen Kommentar setzen — «zu lang», «stimmt nicht», «freundlicher». Speichern, im Chat «Kommentare einarbeiten». Die alte Fassung wandert nach <code>verlauf/</code>. Zwei bis drei Runden sind normal.</p>
+  </li>
+  <li>
+    <h3>Freigeben und versenden <span class="label">Claude</span> <span class="label ok-l">Du</span></h3>
+    <p>Auf deine Freigabe baut Claude das PDF in <code>3_Zum-Versenden</code> und legt einen kurzen Mailtext daneben. Du setzt mit dem <a href="platzhalter.html">Platzhalter-Programm</a> Adresse, Telefon und E-Mail ein und schickst selbst ab.</p>
+  </li>
+</ol>
+
+<h2>Beim nächsten Mal</h2>
+<p>Ordner verbinden, «Was steht an?». Claude liest <code>stand.md</code> und nennt die offenen Punkte: welche Anschreiben draussen sind, wo eine Besichtigung ansteht, welches Inserat abgelaufen ist. Kein Suchen in alten Chats, keine Fragen von vorne.</p>
+<div class="note">
+  <p><strong>Nach einer Zusage.</strong> Erst dann kommen ID-Kopie, Anmeldeformular und Vertragsunterlagen ins Spiel. Sag es Claude — er weiss dann, dass die Suche für diese Wohnung endet und was stattdessen ansteht.</p>
+</div>
+
+<nav class="pager"></nav>
+
+    <footer>
+      <div>Teil der Toolbox · <a href="../index.html">Zur Übersicht</a> · gehostet via GitHub Pages unter <code>stayingclean.github.io/toolbox/</code></div>
+      <div>Stand: September 2026. Preise, Funktionen und Einstellungen der Anbieter ändern sich laufend – im Zweifel die offiziellen Seiten prüfen.</div>
+      <div class="footer-links">
+        <a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener">
+          <img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28">
+          <span>Erstellt von stayingclean</span>
+        </a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a class="footer-coffee" href="https://buymeacoffee.com/stayingclean" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span><span>Kaffee spendieren</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+<script src="anleitung.js"></script>
+</body>
+</html>
