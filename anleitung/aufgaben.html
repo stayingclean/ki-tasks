@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Die Aufgaben · Mit Claude arbeiten</title>
+  <meta name="description" content="Welche Startordner es gibt, welcher wofür, und was allen gemeinsam ist">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Gehört eigentlich nach stil.css: main ist ein Grid-Element und schrumpft
+       ohne min-width:0 nicht unter sein breitestes Kind. Ein .tree-Block würde
+       sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
+       breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
+    main { min-width: 0; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="title">Mit Claude arbeiten</span>
+      <span class="back">Anleitung · Toolbox</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Inhalt <span aria-hidden="true">☰</span></button>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main>
+<header class="page">
+  <p class="kicker">Aufgaben</p>
+  <h1>Die Aufgaben</h1>
+  <p class="lead">Für jede Aufgabe gibt es ein eigenes Zip. Herunterladen, entpacken, den Ordner in Cowork verbinden, «Was steht an?» schreiben — den Rest macht Claude.</p>
+</header>
+
+<div class="summary">
+  <h2>Kurzfassung</h2>
+  <ul>
+    <li>Drei Aufgaben stehen bereit: <a href="wohnung.html">Wohnung</a>, <a href="stelle.html">Stelle</a>, <a href="gesuch-krankheitskosten.html">Gesuche für Krankheitskosten</a>.</li>
+    <li>Der Ordner ist bei allen derselbe, nur das Fachwissen unterscheidet sich. Einmal verstanden reicht.</li>
+    <li>Ausfüllen musst du nichts. Was Claude wissen muss, fragt er im Gespräch.</li>
+    <li>Diese Seiten sind zum Nachschauen, nicht zum Durcharbeiten. Wer loslegen will, entpackt das Zip und schreibt den einen Satz.</li>
+  </ul>
+</div>
+
+<h2>Herunterladen</h2>
+<p>Die Zips liegen auf <a href="https://stayingclean.github.io/ki-tasks/">stayingclean.github.io/ki-tasks</a>. Ein Zip pro Aufgabe, dazu <code>grundgeruest.zip</code> für alles, was keine eigene Aufgabe hat. Es braucht kein Konto und keine Anmeldung.</p>
+
+<h2>Welche Aufgabe wofür</h2>
+<div class="grid">
+  <div class="card">
+    <h3><a href="wohnung.html">Wohnung suchen</a></h3>
+    <p>Inserate finden und bewerten, Anschreiben an Vermieter, Dossier als PDF. Claude rechnet vorher nach, ob dein Budget im gewählten Umkreis überhaupt existiert.</p>
+  </div>
+  <div class="card">
+    <h3><a href="stelle.html">Stelle suchen</a></h3>
+    <p>Inserate finden und gegen deinen Lebenslauf bewerten, Motivationsschreiben pro Stelle, Arbeitsbemühungen fürs RAV. Auf Wunsch gleich Wohnungen in der Nähe.</p>
+  </div>
+  <div class="card">
+    <h3><a href="gesuch-krankheitskosten.html">Gesuche für Krankheitskosten</a></h3>
+    <p>Stiftungen finden, die Franchise, Selbstbehalt oder Spitalkostenbeitrag übernehmen, und pro Stelle ein versandfertiges Gesuch mit allen Beilagen.</p>
+  </div>
+</div>
+
+<h2>Was allen gemeinsam ist</h2>
+<p>Der Ordner, die Leitplanken und der Ablauf sind bei jeder Aufgabe gleich. Beschrieben sind sie einmal, auf zwei Seiten:</p>
+<ul>
+  <li><strong><a href="der-ordner.html">Der Ordner</a></strong> — was drinliegt, wer was tut, wie aus einem Entwurf ein PDF wird und warum ein Dokument seinen Namen behält.</li>
+  <li><strong><a href="platzhalter.html">Platzhalter einsetzen</a></strong> — der letzte Schritt: Adresse, Telefon und IBAN kommen erst ganz am Schluss in die Dateien, und zwar auf deinem Computer.</li>
+</ul>
+<p>Auf den Aufgabenseiten steht darum nur, was diese eine Aufgabe ausmacht: was Claude am Anfang fragt, wo er sucht, was du selbst besorgen musst und wo er widerspricht.</p>
+
+<div class="note">
+  <p><strong>Zwei Aufgaben, zwei Ordner.</strong> Lad ruhig mehrere Zips herunter — sie stören sich nicht. Entpackt wird jedes in einen eigenen Ordner, und in Cowork verbindest du den, an dem du gerade arbeitest. Warum das so ist, steht unter <a href="der-ordner.html">Der Ordner</a>.</p>
+</div>
+
+<h2>Wenn keine Aufgabe passt</h2>
+<p>Dann nimmst du <code>grundgeruest.zip</code>. Darin sind der Ordner und die Leitplanken, aber kein Fachwissen. Claude fragt dich dafür am Anfang mehr: worum es geht, was am Schluss dastehen soll, was du schon hast. Für einen Einspruch gegen eine Verfügung oder einen Brief an die Versicherung reicht das.</p>
+
+<h2>Wie lange das dauert</h2>
+<div class="tablewrap">
+<table>
+  <tr><th>Aufgabe</th><th>Erstes Gespräch</th><th>Danach</th></tr>
+  <tr><td><a href="wohnung.html">Wohnung</a></td><td>10–15 Minuten</td><td>Pro Anschreiben 15–20 Minuten, meist über mehrere Wochen</td></tr>
+  <tr><td><a href="stelle.html">Stelle</a></td><td>10–15 Minuten, der Lebenslauf muss bereitliegen</td><td>Pro Bewerbung 20–30 Minuten</td></tr>
+  <tr><td><a href="gesuch-krankheitskosten.html">Gesuch</a></td><td>Eine halbe bis ganze Stunde, die Belege werden durchgerechnet</td><td>Recherche einmal, dann pro Stelle 10–20 Minuten</td></tr>
+</table>
+</div>
+<p>Das Sammeln der Unterlagen ist bei allen dreien der längere Teil, und den nimmt dir niemand ab. Ein Betreibungsauszug braucht ein paar Tage, ein Stiftungsformular, das nur auf Anfrage kommt, auch.</p>
+
+<nav class="pager"></nav>
+
+    <footer>
+      <div>Teil der Toolbox · <a href="../index.html">Zur Übersicht</a> · gehostet via GitHub Pages unter <code>stayingclean.github.io/toolbox/</code></div>
+      <div>Stand: September 2026. Preise, Funktionen und Einstellungen der Anbieter ändern sich laufend – im Zweifel die offiziellen Seiten prüfen.</div>
+      <div class="footer-links">
+        <a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener">
+          <img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28">
+          <span>Erstellt von stayingclean</span>
+        </a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a class="footer-coffee" href="https://buymeacoffee.com/stayingclean" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span><span>Kaffee spendieren</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+<script src="anleitung.js"></script>
+</body>
+</html>

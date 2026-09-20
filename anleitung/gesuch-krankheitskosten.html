@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesuche für Krankheitskosten · Mit Claude arbeiten</title>
+  <meta name="description" content="Stiftungen finden, die Kostenbeteiligung übernehmen, und pro Stelle ein versandfertiges Gesuch">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Gehört eigentlich nach stil.css: main ist ein Grid-Element und schrumpft
+       ohne min-width:0 nicht unter sein breitestes Kind. Ein .tree-Block würde
+       sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
+       breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
+    main { min-width: 0; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="title">Mit Claude arbeiten</span>
+      <span class="back">Anleitung · Toolbox</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Inhalt <span aria-hidden="true">☰</span></button>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main>
+<header class="page">
+  <p class="kicker">Aufgaben</p>
+  <h1>Gesuche für Krankheitskosten</h1>
+  <p class="lead">Stiftungen finden, die Franchise, Selbstbehalt oder Spitalkostenbeitrag übernehmen — und pro Stelle ein versandfertiges Gesuch. Die Arbeit liegt hier weniger im Formulieren als im Nachrechnen.</p>
+</header>
+
+<div class="summary">
+  <h2>Kurzfassung</h2>
+  <ul>
+    <li><strong>Zip:</strong> <code>gesuch-krankheitskosten.zip</code> von <a href="https://stayingclean.github.io/ki-tasks/">stayingclean.github.io/ki-tasks</a>.</li>
+    <li><strong>Worum es geht:</strong> Behandlungskosten und Kostenbeteiligung. Offene Prämien sind etwas anderes — die meisten Fonds schliessen sie aus.</li>
+    <li><strong>Du besorgst:</strong> Leistungsabrechnung, Rechnung, Policen, Steuerunterlagen, Kontoauszüge mit Stichtag, Einkommensnachweise. Das ist der grösste Teil der Arbeit.</li>
+    <li><strong>Vor dem ersten Gesuch</strong> führt Claude dich durch die vorrangigen Stellen. Stiftungen setzen diese Wege als ausgeschöpft voraus.</li>
+    <li><strong>Diese Seite</strong> ersetzt keine Schulden- oder Rechtsberatung. Lokale Töpfe kennt der Sozialdienst, nicht das Internet.</li>
+  </ul>
+</div>
+
+<h2>Die Unterscheidung, an der alles hängt</h2>
+<p>Stiftungen trennen strikt zwischen zwei Dingen:</p>
+<div class="grid">
+  <div class="card">
+    <h3>Behandlungskosten und Kostenbeteiligung</h3>
+    <p>Franchise, Selbstbehalt, Spitalkostenbeitrag von CHF 15 pro Tag, nicht gedeckte Leistungen. Ein starker Antrag, weil eine konkrete Rechnung dahintersteht.</p>
+  </div>
+  <div class="card">
+    <h3>Offene Prämien</h3>
+    <p>Gelten als Sache der Prämienverbilligung. Mehrere Fonds schliessen sie ausdrücklich aus. Wer beides hat, stellt die Behandlungsrechnung nach vorne und nennt Prämien höchstens nachrangig.</p>
+  </div>
+</div>
+
+<h2>Was Claude am Anfang tut</h2>
+<p>Bevor irgendein Text entsteht, liest er die Zahlen aus den Belegen — er schätzt sie nicht. Die Leistungsabrechnung der Krankenkasse führt Franchise, Selbstbehalt und Spitalkostenbeitrag getrennt auf; das landet in <code>2_Arbeitsstand/kennzahlen.md</code>: Posten, Betrag, Beleg, offen oder bezahlt.</p>
+<p>Das ist keine Pedanterie. Jede spätere Betragsänderung zieht alle Briefe, alle Formulare und die Übersicht nach sich.</p>
+<div class="warn">
+  <p><strong>Erinnerte Beträge weichen regelmässig ab.</strong> Stimmt deine Angabe nicht mit dem Beleg überein, zeigt Claude Zeile, Beleg und die möglichen Lesarten nebeneinander und fragt — statt still zu korrigieren oder deine mündliche Angabe zu übernehmen.</p>
+</div>
+<p>Ebenso geprüft wird das Budget: Prämien gegen die Policen, Einkommen gegen die Abrechnungen, und kein Posten doppelt. Die Kostenbeteiligung steht leicht zweimal drin — als eigene Zeile und nochmals in einem Gesamtbetrag.</p>
+
+<h2>Vorrangige Stellen zuerst</h2>
+<p>Stiftungen setzen voraus, dass diese Wege ausgeschöpft sind. Claude nennt sie mit Frist und hält jede Antwort fest:</p>
+<div class="tablewrap">
+<table>
+  <tr><th>Stelle</th><th>Zu beachten</th></tr>
+  <tr><td>Prämienverbilligung bei der kantonalen SVA</td><td>Frist oft 31.03. Senkt nur künftige Prämien, tilgt keine offene Rechnung.</td></tr>
+  <tr><td>Kantonale Winterhilfe</td><td>Direktgesuch, eigenes Formular, zahlt an den Gläubiger.</td></tr>
+  <tr><td>Gemeinde und Sozialberatung</td><td>Termin nötig. Mehrere Stiftungen bevorzugen Gesuche über eine Fachstelle.</td></tr>
+  <tr><td>Steuern: Raten, Stundung oder Erlass</td><td>Muss <em>vor</em> Einleitung des Bezugsverfahrens kommen. Danach wird abgewiesen.</td></tr>
+  <tr><td>Ratenzahlung beim Rechnungssteller</td><td>Einfach anfragen. Kostet nichts und wirkt im Gesuch.</td></tr>
+</table>
+</div>
+<div class="note">
+  <p><strong>Frag bei jeder Absage nach dem Grund</strong> und leg sie schriftlich ab. War es die Einkommenshöhe, kommen bei gleichem Dossier dieselben Absagen; war es der Verwendungszweck, lässt sich das umbauen. Ohne diese Information schickst du an jede weitere Stelle denselben Fehler los.</p>
+</div>
+<p><strong>Noch keine Rechnung?</strong> Leistungserbringer rechnen oft erst nach Abschluss der Behandlung ab. Dann fordert Claude eine schriftliche Kostenschätzung oder eine Vereinbarung mit Kostenklausel an — Formulare akzeptieren «Offerte oder Kostenvoranschlag» ausdrücklich. Damit sind die Gesuche sofort entscheidungsreif statt erst Wochen später.</p>
+
+<h2>Wie gesucht wird</h2>
+<p>Welche Stellen in Frage kommen, hängt von Kanton, Gemeinde, Kostenart und persönlicher Lage ab. Darum steht im Ordner keine Namensliste, sondern die Methode:</p>
+<ul>
+  <li><strong>Kantonal, der schnellste Weg:</strong> das PDF-Verzeichnis «Gemeinnützige Stiftungen und Unterstützungsfonds» deines Kantons, meist beim Amt für Soziales oder bei der Stipendienstelle. Dort steht pro Stiftung auch, ob Direktgesuche zulässig sind.</li>
+  <li><strong>In jedem Kanton vorhanden:</strong> Winterhilfe, SRK-Kantonalverband, Gemeinnützige Gesellschaft des Kantons, Hilfsfonds der Kirchgemeinde, Frauenzentrale der Region.</li>
+  <li><strong>Schweizweit:</strong> Stiftungen, deren Website Einzelfallhilfe bei Gesundheitskosten ausdrücklich nennt. Quellen: Verzeichnis der Eidg. Stiftungsaufsicht, stiftungschweiz.ch, Übersichten kantonaler Sozialämter.</li>
+  <li><strong>Anknüpfungspunkte systematisch:</strong> Fast jeder Fonds ist an etwas gebunden — Wohnort, Heimatort und Bürgerrecht, Beruf oder Branche, Krankheit, Alter, Konfession, Kinder, frühere Arbeitgeber, Militär, Vereine. Jeder Treffer öffnet einen eigenen Topf.</li>
+</ul>
+<div class="note">
+  <p><strong>Zefix nur zum Verifizieren</strong> — exakter Name, Sitz, c/o-Adresse, aktuelle Organe. Das Register hat keine Zwecksuche, blockt automatisierte Zugriffe und listet pro Kanton hunderte Stiftungen, von denen die meisten Personalvorsorge-, Familien- oder Unternehmensstiftungen sind.</p>
+</div>
+<p>Und: Ein Zweckartikel, der Einzelpersonen nennt, heisst nicht, dass die Stiftung an Einzelpersonen vergibt. Im Zweifel anrufen, bevor ein Dossier rausgeht — ein Telefonat spart einen wertlosen Versand.</p>
+
+<h2>Was du besorgen musst</h2>
+<p>Das Standarddossier, das praktisch alle Stellen verlangen:</p>
+<ul>
+  <li>Monatsbudget als PDF; Prämien müssen mit den Policen übereinstimmen, Steuerrücklage als eigene Position</li>
+  <li>Leistungsabrechnung der Krankenkasse — der Kostenbeleg</li>
+  <li>Rechnung des Leistungserbringers <strong>inklusive Einzahlungsschein</strong>, oder die Kostenschätzung</li>
+  <li>Krankenkassenpolicen, Grund- und Zusatzversicherung</li>
+  <li>Letzte Steuererklärung, definitive und provisorische Steuerrechnungen</li>
+  <li>Einkommensnachweise der letzten 3 Monate</li>
+  <li>Mietvertrag oder Mietzinsbeleg</li>
+  <li>Kontoauszüge aller Konten <strong>mit Stichtag</strong> — nicht Umsatzlisten</li>
+  <li>Nachweise laufender Verpflichtungen und Schulden</li>
+  <li>Absagen der vorrangigen Stellen, mit Grund</li>
+</ul>
+<p>Nur wo verlangt: Veranlagungsverfügung, ausführlicher Lebenslauf, Referenzperson mit Telefonnummer und Schweigepflichtentbindung, das Budget-Excel oder das eigene Formular der Stiftung. Ein Betreibungsauszug wird von keiner ausdrücklich verlangt, stärkt das Dossier aber.</p>
+<div class="warn">
+  <p><strong>Drei Dinge werden regelmässig vergessen,</strong> weil sie im normalen Unterlagensatz nicht dabei sind: der Einzahlungsschein, der Lebenslauf und die Referenzperson. Letztere braucht Vorlauf — man fragt niemanden am Vorabend.</p>
+</div>
+<p>Freizügigkeitsguthaben sind rechtlich gebunden und gehören weder ins Gesuch noch in die beigelegten Kontoauszüge.</p>
+
+<h2>Was entsteht</h2>
+<div class="tree">2_Arbeitsstand/
+  kennzahlen.md                     <span class="c">Posten, Betrag, Beleg, offen oder bezahlt</span>
+  stellen.md                        <span class="c">eine Zeile je geprüfte Stelle, mit Ausschlussgrund</span>
+  formulare/                        <span class="c">Formulare und Merkblätter als PDF</span>
+  gesuch_grundtext.docx             <span class="c">der Brief, rund vier Seiten</span>
+  gesuche/
+    winterhilfe/
+      gesuch.docx                   <span class="c">nur Einleitungsabsatz und Beilagenliste weichen ab</span>
+  uebersicht-gesuche.md             <span class="c">ist selbst eine Beilage</span>
+3_Zum-Versenden/
+  winterhilfe/
+    2026-09-20_gesuch.pdf           <span class="c">Brief, Verzeichnis und Beilagen in dessen Reihenfolge</span>
+    mailtext.md</div>
+<p>In <code>stellen.md</code> steht pro Stelle: Name, Sitz, Reichweite, ob sie Kostenbeteiligung übernimmt, ob Prämien ausgeschlossen sind, Voraussetzungen, Einreichweg, ob das Formular vorhanden oder nur auf Anfrage erhältlich ist, verlangte Beilagen, Sitzungsrhythmus, wann die Adresse geprüft wurde, Passung und Ausschlussgrund. Am Schluss eine Empfehlung der Reihenfolge.</p>
+<div class="note">
+  <p>Formulare, die nur auf Anfrage kommen, hält Claude getrennt fest — die müssen sofort bestellt werden, die Zustellung dauert.</p>
+</div>
+
+<h2>Wie das Gesuch aufgebaut ist</h2>
+<p>Ein Grundtext, pro Stelle ein angepasster Einleitungsabsatz und die Beilagenliste. Rund vier Seiten inklusive Beilagenverzeichnis. Der Aufbau, gekürzt:</p>
+<ol>
+  <li>Briefkopf, Betreff «Gesuch um finanzielle Unterstützung bei …» — Verwendungszweck, keine Diagnose</li>
+  <li>Bezug auf den Stiftungszweck, ein bis zwei Sätze, die den Zweckartikel wörtlich aufgreifen. <strong>Dieser Absatz ist pro Stiftung anders, alles übrige gleich.</strong></li>
+  <li>Der Antrag in einem Satz: Alter, Zivilstand, Wohnsitz seit wann, seit wann in Behandlung, Betrag und Posten</li>
+  <li>Verlauf, zwei Absätze, sachlich, ohne Details, die die Stiftung nicht braucht</li>
+  <li>Einkommen und Vermögen — nennen <em>und einordnen</em>: Budgetfazit mit Fehlbetrag, Kontostand mit Zweckbindung und Restbetrag danach</li>
+  <li>Schulden vollständig, je eine knappe Zeile, und der ausdrückliche Satz, dass dafür kein Beitrag erbeten wird</li>
+  <li>Beantragte Unterstützung: nummerierte Posten mit Betrag, Zeitraum, Beleg, Status; Zahlung direkt an den Rechnungssteller erwünscht; <code>[IBAN]</code> als Platzhalter</li>
+  <li>Weshalb jetzt — was in Gang kommt, wenn der Betrag offen bleibt</li>
+  <li>Eigene Schritte, als Perspektive, nie als Gegenleistung</li>
+  <li>Weitere Gesuche mit Ergebnis und Grund, Zusage, Mehrfachzusagen zu melden</li>
+  <li>Wahrheitserklärung, Unterschrift, Beilagenverzeichnis mit Datum je Position</li>
+</ol>
+
+<div class="grid">
+  <div class="card">
+    <h3>Was ein Gesuch stark macht</h3>
+    <p>Den Zweckartikel wörtlich aufgreifen. Das Einkommen selbst zur Sprache bringen, statt es nur ins Budget zu schreiben. Den Kontostand von sich aus erklären. Eine Absage der vorrangigen Stelle nennen und im Text beantworten. Eine eigene Schwäche selbst benennen — wer das tut, wird beim Rest geglaubt. Anbieten, direkt an den Leistungserbringer zu zahlen.</p>
+  </div>
+  <div class="card">
+    <h3>Was weggehört</h3>
+    <p>Erklärungen des Krankenkassensystems — die Gremien kennen es. Statistiken zum medizinischen Hintergrund. Pathos; es liest sich als Manipulationsversuch. «Der Gesellschaft etwas zurückgeben.» Gegenleistungen wie Freiwilligenarbeit — kein Vergabekriterium, und bei Arbeitsunfähigkeit ein Beleg gegen dich selbst. Und derselbe Brief an zwei Stiftungen mit derselben Geschäftsstelle: das fällt auf.</p>
+  </div>
+</div>
+
+<h2>Wo Claude widerspricht</h2>
+<ul>
+  <li><strong>Bei jeder Zahl, die nicht zum Beleg passt.</strong> Er zeigt beide Lesarten und fragt, statt still zu korrigieren.</li>
+  <li><strong>Bei der Annahme hinter deiner Frage.</strong> Wer nach einer Stiftung fragt, hat oft ein Modell im Kopf, welche Stelle wofür zuständig ist. Trifft es nicht zu, läuft die ganze Suche in die falsche Richtung — das sagt er, bevor er weitersucht.</li>
+  <li><strong>Wenn etwas verändert oder weggelassen werden soll.</strong> Belege werden nie beschnitten, Tatsachen nicht verschwiegen. Kommt so ein Wunsch, erklärt er, warum er dir schadet — Wahrheitserklärung, Belege in der Beilage, Rückforderungsrisiko — und sucht die offene Variante, die den Punkt zu deinem Vorteil wendet. Weglassen, was eine Stelle gar nicht verlangt, ist dagegen in Ordnung.</li>
+  <li><strong>Wenn das Anliegen nicht zur Stelle passt.</strong> Das ist ein Befund, keine Formulierungsaufgabe. Die richtige Anlaufstelle zu finden hilft mehr als ein gut klingendes Gesuch am falschen Ort.</li>
+</ul>
+<p>Entscheiden tust aber du. Claude zeigt die betroffene Stelle im Jetzt-Zustand und seinen Vorschlag daneben, begründet kurz — und hält sich danach an deinen Entscheid, auch wenn er gegen seine Empfehlung geht.</p>
+
+<h2>Ein Durchlauf</h2>
+<ol class="steps">
+  <li>
+    <h3>Belege ablegen, Ordner verbinden <span class="label ok-l">Du</span></h3>
+    <p>Zip entpacken, was du schon hast nach <code>1_Meine-Unterlagen</code>, Ordner in Cowork verbinden, «Was steht an?». Claude fragt nach Kostenart, Kanton und Lage.</p>
+  </li>
+  <li>
+    <h3>Zahlen festschreiben <span class="label">Claude</span></h3>
+    <p>Er liest die Leistungsabrechnung, schreibt <code>kennzahlen.md</code>, prüft das Budget gegen die Policen und meldet, was fehlt oder sich widerspricht. Erst danach entsteht Text.</p>
+  </li>
+  <li>
+    <h3>Vorrangige Stellen abarbeiten <span class="label ok-l">Du</span></h3>
+    <p>SVA, Winterhilfe, Gemeinde, Steuern, Ratenzahlung. Claude nennt sie mit Frist, du gehst hin oder schreibst; jede Absage kommt mit Grund in den Ordner.</p>
+  </li>
+  <li>
+    <h3>Stellen recherchieren <span class="label">Claude</span></h3>
+    <p>Kantonales Verzeichnis, schweizweite Fonds, deine Anknüpfungspunkte. Ergebnis: <code>stellen.md</code> mit Passung und Ausschlussgrund, die Formulare als PDF daneben, und eine empfohlene Reihenfolge.</p>
+  </li>
+  <li>
+    <h3>Grundtext schreiben und kommentieren <span class="label">Claude</span> <span class="label ok-l">Du</span></h3>
+    <p>Ein Grundtext, den du in Word kommentierst. Zwei bis drei Runden. Steht er, entstehen die Einzelfassungen — pro Stelle nur ein anderer Einleitungsabsatz und die passende Beilagenliste.</p>
+  </li>
+  <li>
+    <h3>Gestaffelt versenden <span class="label">Claude</span> <span class="label ok-l">Du</span></h3>
+    <p>Erst drei bis vier Stellen. Vor dem Versand prüft Claude, ob alle Dokumente dieselben Beträge und denselben Stichtag zeigen, und ob Adressen und Ansprechpersonen noch stimmen. Du setzt die <a href="platzhalter.html">Platzhalter</a> ein, unterschreibst und schickst ab. Rückmeldungen abwarten, Text nachschärfen, dann der Rest.</p>
+  </li>
+</ol>
+
+<h2>Nach dem Versand</h2>
+<p><code>uebersicht-gesuche.md</code> führt Stelle, Betrag, Einreichweg, Datum, Frist, Status und Antwort. Mehrere Stiftungen verlangen genau diese Übersicht als Beilage — sie entsteht also nicht nur für dich.</p>
+<p>Der Sitzungsrhythmus ist oft quartalsweise, zwei Monate Antwortzeit sind normal. In <code>stand.md</code> hält Claude fest, was terminlich hängt: Formulare, die nur auf Anfrage kommen, die Referenzperson und wie lange sie zuständig bleibt, eine Schweigepflichtentbindung, die verlängert werden muss, das Nachreichen der Schlussrechnung an alle Stellen mit Grundsatzentscheid, und die Prämienverbilligung fürs Folgejahr.</p>
+
+<div class="warn">
+  <p><strong>Grenzen.</strong> Lokale Töpfe kennt der Sozialdienst, nicht das Internet — viele Fonds nehmen Gesuche ohnehin nur über eine Fachstelle entgegen. Kantonale Regelungen ändern sich; jede Auskunft braucht ein Datum. Und: Eine flüssig formulierte falsche Auskunft wirkt überzeugender als ein ehrliches «weiss ich nicht». Im Zweifel anrufen.</p>
+</div>
+
+<nav class="pager"></nav>
+
+    <footer>
+      <div>Teil der Toolbox · <a href="../index.html">Zur Übersicht</a> · gehostet via GitHub Pages unter <code>stayingclean.github.io/toolbox/</code></div>
+      <div>Stand: September 2026. Preise, Funktionen und Einstellungen der Anbieter ändern sich laufend – im Zweifel die offiziellen Seiten prüfen.</div>
+      <div class="footer-links">
+        <a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener">
+          <img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28">
+          <span>Erstellt von stayingclean</span>
+        </a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a class="footer-coffee" href="https://buymeacoffee.com/stayingclean" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span><span>Kaffee spendieren</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+<script src="anleitung.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stelle suchen · Mit Claude arbeiten</title>
+  <meta name="description" content="Inserate gegen den Lebenslauf bewerten, Motivationsschreiben pro Stelle, Arbeitsbemühungen fürs RAV">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Gehört eigentlich nach stil.css: main ist ein Grid-Element und schrumpft
+       ohne min-width:0 nicht unter sein breitestes Kind. Ein .tree-Block würde
+       sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
+       breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
+    main { min-width: 0; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="title">Mit Claude arbeiten</span>
+      <span class="back">Anleitung · Toolbox</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Inhalt <span aria-hidden="true">☰</span></button>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main>
+<header class="page">
+  <p class="kicker">Aufgaben</p>
+  <h1>Stelle suchen</h1>
+  <p class="lead">Inserate finden und gegen deinen Lebenslauf bewerten, pro Stelle ein Motivationsschreiben, der Nachweis fürs RAV nebenher. Und auf Wunsch gleich Wohnungen in der Nähe.</p>
+</header>
+
+<div class="summary">
+  <h2>Kurzfassung</h2>
+  <ul>
+    <li><strong>Zip:</strong> <code>stelle.zip</code> von <a href="https://stayingclean.github.io/ki-tasks/">stayingclean.github.io/ki-tasks</a>. Entpacken, Ordner in Cowork verbinden, «Was steht an?» schreiben.</li>
+    <li><strong>Voraussetzung:</strong> dein Lebenslauf muss in <code>1_Meine-Unterlagen</code> liegen. Ohne ihn fängt Claude nicht an.</li>
+    <li><strong>Es entsteht:</strong> eine Inseratsübersicht mit Passung, pro ausgewählte Stelle ein Motivationsschreiben mit Beilagenliste, das versandfertige PDF und die Liste der Arbeitsbemühungen.</li>
+    <li><strong>Claude schreibt keinen Lebenslauf.</strong> Er liest deinen und sagt dir im Chat, was er ändern würde — die Datei bleibt deine.</li>
+  </ul>
+</div>
+
+<div class="warn">
+  <p><strong>Ohne Lebenslauf kein Start.</strong> Claude braucht ihn als PDF oder Word-Datei in <code>1_Meine-Unterlagen</code>. Fehlt er, hält er an und sagt es. Der Grund: Ohne Lebenslauf sucht er nach Stichworten statt nach deinem tatsächlichen Werdegang, und die Passung, die er dann hinschreibt, ist geraten.</p>
+</div>
+
+<h2>Was Claude am Anfang fragt</h2>
+<ul>
+  <li>Beruf oder Tätigkeit</li>
+  <li>Ort und Umkreis — in Kilometern oder in Minuten mit dem ÖV</li>
+</ul>
+<p>Mehr nicht. Pensum, Ausschlüsse und Antrittstermin fragt er erst, wenn ein konkretes Inserat es nötig macht. Alles Übrige nimmt er aus dem Lebenslauf.</p>
+
+<h2>Wo gesucht wird</h2>
+<p>jobs.ch, indeed.ch, jobagent.ch und job-room.ch, jeweils die Inserate der letzten 30 Tage.</p>
+<p>Die Passung von 1 bis 5 entsteht aus dem Vergleich Inserat ↔ Lebenslauf, mit dem Hauptgrund dagegen. Was laut Lebenslauf fehlt, benennt Claude — «verlangt Führungserfahrung, im Lebenslauf keine» ist eine brauchbare Auskunft, «Passung 3» allein nicht.</p>
+<div class="note">
+  <p><strong>Job-Room und eigene Konten.</strong> Wenn ein Portal ohne Browser nichts liefert oder du dein RAV-Konto durchsuchen lassen willst, sagst du: «Nutze dafür meinen Chrome-Browser.» Du bist dort selbst eingeloggt, und Claude fragt pro Website um Erlaubnis.</p>
+</div>
+
+<h2>Was entsteht</h2>
+<div class="tree">2_Arbeitsstand/
+  inserate.md                       <span class="c">Übersicht, eine Zeile je Inserat, nach Passung sortiert</span>
+  inserate/
+    04_muster-ag/
+      inserat.pdf                   <span class="c">Druckansicht des Inserats</span>
+      inserat.md                    <span class="c">Firma, Stelle, Ort, Pensum, Anforderungen, Frist, Kontakt</span>
+  bewerbungen/
+    04_muster-ag/
+      motivationsschreiben.docx     <span class="c">höchstens eine Seite</span>
+      beilagen.md                   <span class="c">abgeglichen mit dem Inserat</span>
+  arbeitsbemuehungen.md             <span class="c">Datum, Firma, Stelle, Art, Ergebnis</span>
+3_Zum-Versenden/
+  2026-09-20_muster-ag/
+    motivationsschreiben.pdf
+    lebenslauf.pdf                  <span class="c">deiner, unverändert kopiert</span>
+    mailtext.md</div>
+
+<h2>Auswählen läuft im Chat</h2>
+<p>Steht die Übersicht, fragt Claude, welche Nummern weiterverfolgt werden. «3, 7 und 9» genügt; eine Tabelle bearbeiten musst du nicht.</p>
+<p>Die aussortierten nennt er mit Grund — Vermittler statt Arbeitgeber, Pensum zu tief, Lehrstelle, falsches Berufsfeld. Lies das kurz durch: Dort merkst du, ob er den Beruf richtig verstanden hat.</p>
+
+<h2>Was im Motivationsschreiben steht</h2>
+<p>Höchstens eine Seite, Ich-Form, sachlich, auf das Inserat bezogen — und nur mit Fakten aus deinem Lebenslauf. Was das Inserat verlangt und im Lebenslauf fehlt oder anders dasteht, sagt Claude im Chat, statt es im Brief zu überspielen. Dazu, welche Station für genau dieses Inserat betont gehört.</p>
+<p>Offen bleiben nur <code>[ADRESSE]</code>, <code>[TELEFON]</code> und <code>[EMAIL]</code>. AHV-Nummer und IBAN haben in einer Bewerbung nichts verloren. Eingesetzt wird am Schluss auf deinem Computer, siehe <a href="platzhalter.html">Platzhalter einsetzen</a>.</p>
+<div class="note">
+  <p><strong>Eine Lücke im Lebenslauf</strong> braucht im Schreiben einen Satz, nicht mehr: der Unterbruch benannt, dann der Wiedereinstieg. Wie er benannt wird — und ob er überhaupt vorkommt — entscheidest du. Claude fragt danach, statt eine Formulierung zu setzen.</p>
+</div>
+
+<h2>Der Nachweis fürs RAV</h2>
+<p><code>2_Arbeitsstand/arbeitsbemuehungen.md</code> führt Claude fort, sobald etwas rausgeht: Datum, Firma, Stelle, Art der Bewerbung, Ergebnis. Das RAV verlangt diesen Nachweis monatlich, und er entsteht hier nebenher statt am Stichtag aus dem Gedächtnis.</p>
+
+<h2>Danach: Wohnung in der Nähe?</h2>
+<p>Steht die Auswahl, fragt Claude, ob er auch Wohnungen im Umkreis der ausgewählten Stellen suchen soll. Wenn ja:</p>
+<ul>
+  <li>Er nimmt den Arbeitsort jeder ausgewählten Stelle. Liegen mehrere nahe beieinander, sucht er im gemeinsamen Umkreis, sonst pro Stelle.</li>
+  <li>Portale wie bei der <a href="wohnung.html">Wohnungssuche</a>, Ablage unter <code>2_Arbeitsstand/wohnungen/</code>.</li>
+  <li>Pro Inserat die Pendelzeit mit ÖV zu <em>jeder</em> massgebenden Stelle, Werktag 7 Uhr. Grobe Schätzungen markiert er als solche.</li>
+  <li>Im Anschreiben an den Vermieter erwähnt er, dass eine Stelle in der Nähe in Aussicht steht — ohne Firmennamen, solange nichts unterschrieben ist.</li>
+</ul>
+<div class="warn">
+  <p><strong>Und er sagt dazu, dass das riskant ist.</strong> Eine Wohnung zuzusagen, bevor die Stelle sicher ist, geht schief, wenn die Zusage ausbleibt. Sinnvoll wird die Doppelsuche erst, wenn eine Stelle mündlich zugesagt ist — oder wenn das Gebiet ohnehin passt.</p>
+</div>
+
+<h2>Wo Claude widerspricht</h2>
+<ul>
+  <li><strong>Kein Lebenslauf, kein Start.</strong> Er hält an und sagt es, statt nach Stichworten zu suchen.</li>
+  <li><strong>Keine neue Lebenslauf-Datei.</strong> Änderungsvorschläge kommen als Liste im Chat. Deine Datei bleibt deine.</li>
+  <li><strong>Was im Lebenslauf fehlt.</strong> Verlangt das Inserat etwas, das dort nicht steht, sagt er es — statt es im Schreiben zu behaupten.</li>
+  <li><strong>Keine Formulierung für die Lücke.</strong> Das ist deine Entscheidung, und er fragt danach.</li>
+</ul>
+
+<h2>Ein Durchlauf</h2>
+<ol class="steps">
+  <li>
+    <h3>Lebenslauf ablegen, Ordner verbinden <span class="label ok-l">Du</span></h3>
+    <p>Zip entpacken, Lebenslauf nach <code>1_Meine-Unterlagen</code>, Ordner in Cowork verbinden, «Was steht an?» schreiben. Claude liest den Lebenslauf und fragt nach Beruf und Region.</p>
+  </li>
+  <li>
+    <h3>Suchen und bewerten <span class="label">Claude</span></h3>
+    <p>Vier Portale, 30 Tage. Die Treffer landen als Übersicht und als Einzelordner in <code>2_Arbeitsstand</code>, jeder mit Passung und Hauptgrund dagegen.</p>
+  </li>
+  <li>
+    <h3>Nummern nennen <span class="label ok-l">Du</span></h3>
+    <p>Du liest die Übersicht, öffnest die Links selbst und sagst im Chat, welche Stellen weiterverfolgt werden. Das ist die Entscheidung, die nur du treffen kannst.</p>
+  </li>
+  <li>
+    <h3>Schreiben entwerfen <span class="label">Claude</span></h3>
+    <p>Pro Stelle ein Motivationsschreiben und eine Beilagenliste. Dazu im Chat: was das Inserat verlangt und im Lebenslauf fehlt, und welche Station zu betonen wäre.</p>
+  </li>
+  <li>
+    <h3>In Word kommentieren <span class="label ok-l">Du</span></h3>
+    <p>Kommentare setzen — «zu selbstbewusst», «streichen», «war 2016 nicht 2017» — speichern, im Chat «Kommentare einarbeiten». Die alte Fassung wandert nach <code>verlauf/</code>. Mehr als drei bis vier Bewerbungen gleichzeitig liest man nicht mehr richtig, und das Lesen ist der Teil, der zählt.</p>
+  </li>
+  <li>
+    <h3>Freigeben, versenden, nachführen <span class="label">Claude</span> <span class="label ok-l">Du</span></h3>
+    <p>Auf deine Freigabe baut Claude den Ordner in <code>3_Zum-Versenden</code>, kopiert deinen Lebenslauf unverändert dazu und trägt die Bewerbung in <code>arbeitsbemuehungen.md</code> ein. Du setzt die Platzhalter ein und schickst selbst ab.</p>
+  </li>
+</ol>
+
+<h2>Beim nächsten Mal</h2>
+<p>Ordner verbinden, «Was steht an?». Claude nennt die offenen Punkte aus <code>stand.md</code>: welche Bewerbung draussen ist, wo eine Frist in vier Tagen abläuft, welche Stelle noch im Entwurf liegt. Bekommst du eine Antwort — Absage, Einladung, Zusage — sagst du es ihm; er trägt sie in <code>arbeitsbemuehungen.md</code> nach.</p>
+
+<nav class="pager"></nav>
+
+    <footer>
+      <div>Teil der Toolbox · <a href="../index.html">Zur Übersicht</a> · gehostet via GitHub Pages unter <code>stayingclean.github.io/toolbox/</code></div>
+      <div>Stand: September 2026. Preise, Funktionen und Einstellungen der Anbieter ändern sich laufend – im Zweifel die offiziellen Seiten prüfen.</div>
+      <div class="footer-links">
+        <a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener">
+          <img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28">
+          <span>Erstellt von stayingclean</span>
+        </a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a class="footer-coffee" href="https://buymeacoffee.com/stayingclean" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span><span>Kaffee spendieren</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+<script src="anleitung.js"></script>
+</body>
+</html>
