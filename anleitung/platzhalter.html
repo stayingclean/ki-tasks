@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platzhalter einsetzen · Mit Claude arbeiten</title>
+  <meta name="description" content="Adresse, Telefon und IBAN am Schluss lokal in die Word-Dateien einsetzen">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Gehört eigentlich nach stil.css: main ist ein Grid-Element und schrumpft
+       ohne min-width:0 nicht unter sein breitestes Kind. Ein .tree-Block würde
+       sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
+       breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
+    main { min-width: 0; }
+
+    /* Nur hier: der Download-Knopf. */
+    .download { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #fff;
+      text-decoration: none; font-weight: 600; padding: 14px 22px; border-radius: 14px; margin: 0 0 10px; }
+    .download:hover { background: var(--accent-dark); }
+    .download small { display: block; font-weight: 400; font-size: .78rem; opacity: .85; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="title">Mit Claude arbeiten</span>
+      <span class="back">Anleitung · Toolbox</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Inhalt <span aria-hidden="true">☰</span></button>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main>
+<header class="page">
+  <p class="kicker">Arbeitsweise</p>
+  <h1>Adresse und IBAN am Schluss einsetzen</h1>
+  <p class="lead">Ein kleines Windows-Programm für den letzten Schritt. Es setzt deine echten Angaben in die Word-Dateien ein — auf deinem Computer, ohne Internet.</p>
+</header>
+
+<div class="summary">
+  <h2>Kurzfassung</h2>
+  <ul>
+    <li>Claude lässt jede Lücke als Platzhalter in eckigen Klammern stehen: <code>[ADRESSE]</code>, <code>[IBAN]</code>, <code>[Einzugsdatum]</code>.</li>
+    <li>So kommen Adresse, Telefonnummer und IBAN gar nie in eine Datei, die Claude liest.</li>
+    <li>Am Schluss startest du <code>platzhalter.exe</code>, wählst <code>2_Arbeitsstand</code>, trägst die Werte ein und klickst «Ersetzen».</li>
+    <li>Das Programm läuft lokal. Die Werte gehen nirgendwohin und werden nirgends gespeichert.</li>
+  </ul>
+</div>
+
+<h2>Herunterladen</h2>
+<a class="download" href="https://stayingclean.github.io/ki-tasks/platzhalter.exe">
+  <span aria-hidden="true">↓</span>
+  <span>platzhalter.exe<small>Windows · eine einzelne Datei · keine Installation</small></span>
+</a>
+<p>Die Datei braucht keine Installation und keine Administratorrechte. Leg sie irgendwohin, wo du sie wiederfindest, zum Beispiel auf den Desktop. Du brauchst sie bei jeder Aufgabe wieder.</p>
+
+<div class="warn">
+  <p><strong>Windows warnt beim ersten Start.</strong> «Der Computer wurde durch Windows geschützt» — das erscheint bei jedem Programm, das nicht von einer bezahlten Signatur begleitet wird, und diese hier hat keine. Klick auf <strong>«Weitere Informationen»</strong> und dann auf <strong>«Trotzdem ausführen»</strong>. Beim zweiten Mal kommt die Meldung nicht mehr.</p>
+</div>
+
+<h2>Wozu das gut ist</h2>
+<p>Alles, was im verbundenen Ordner liegt, geht an Anthropic. Für die Unterlagen, gegen die Claude rechnen muss, ist das unvermeidlich. Für deine Adresse, deine Telefonnummer und deine IBAN ist es unnötig: Claude braucht sie nicht, um den Brief zu schreiben.</p>
+<p>Darum schreibt er an diese Stellen einen Platzhalter, der benennt, was dort hingehört:</p>
+<div class="tree">Sehr geehrte Damen und Herren
+
+Ich bewerbe mich um die Wohnung an der [Strasse Inserat].
+Einziehen könnte ich per [Einzugsdatum].
+
+<span class="c">…</span>
+
+[VORNAME NAME]
+[ADRESSE]
+[TELEFON]</div>
+<p>Der Entwurf ist damit vollständig lesbar, und die heikelsten Angaben bleiben ausserhalb. Am Schluss setzt du sie selbst ein. Das kostet zwei Minuten.</p>
+<p>Die Platzhalter heissen nicht alle gleich, und das ist Absicht. Stehen in einem Schreiben zwei verschiedene Beträge, heissen sie zum Beispiel <code>[Monatsmiete]</code> und <code>[Nebenkosten]</code> — sonst würden beide mit derselben Zahl gefüllt.</p>
+
+<h2>So benutzt du es</h2>
+<ol class="steps">
+  <li>
+    <h3><code>platzhalter.exe</code> starten</h3>
+    <p>Doppelklick. Es öffnet sich ein kleines Fenster, sonst passiert nichts.</p>
+  </li>
+  <li>
+    <h3>Den Ordner <code>2_Arbeitsstand</code> wählen</h3>
+    <p>Also den Ordner mit den Entwürfen, nicht den ganzen Aufgabenordner und nicht eine einzelne Datei. Das Programm schaut auch in die Unterordner und zeigt dir dann jeden gefundenen Platzhalter mit Namen, Anzahl und den Dateien, in denen er vorkommt.</p>
+  </li>
+  <li>
+    <h3>Die Werte eintragen</h3>
+    <p>Für jeden Platzhalter ein Feld. Was du leer lässt, bleibt im Dokument stehen — du kannst also heute die Adresse einsetzen und die IBAN später, wenn das Gesuch so weit ist.</p>
+  </li>
+  <li>
+    <h3>«Ersetzen» und bestätigen</h3>
+    <p>Danach zeigt dir das Programm, welche Dateien es geändert hat. Fertig.</p>
+  </li>
+</ol>
+
+<div class="ok">
+  <p><strong>Von jeder geänderten Datei bleibt eine Sicherung liegen</strong>, unter demselben Namen mit <code>.bak</code> hinten dran: <code>gesuch.docx.bak</code>. Hast du dich vertippt, benennst du die Sicherung zurück und machst es nochmals. Die eingegebenen Werte selbst werden nirgends gespeichert; beim nächsten Start sind die Felder wieder leer.</p>
+</div>
+
+<h2>Was das Programm auslässt</h2>
+<ul>
+  <li><strong>Den Unterordner <code>verlauf</code>.</strong> Dort liegen frühere Fassungen, und die sollen bleiben, was du damals verschickt hast. Deine echten Angaben landen so nur im aktuellen Entwurf und nicht nachträglich in zehn alten Fassungen daneben. Wählst du versehentlich einen <code>verlauf</code> direkt aus, sagt dir das Programm das und ersetzt gar nichts.</li>
+  <li><strong>Dateien, die gerade in Word offen sind.</strong> Word hält sie fest. Sie erscheinen im Ergebnis mit einem Fehler. Schliess Word und lass es nochmals laufen.</li>
+  <li><strong>Das alte Word-Format.</strong> Bearbeitet wird nur <code>.docx</code>, nicht das ältere <code>.doc</code>. Claude schreibt ohnehin nur <code>.docx</code>.</li>
+  <li><strong>Quellenverweise.</strong> Etwas wie <code>[1]</code> oder <code>[S. 12]</code> gilt nicht als Platzhalter und bleibt stehen. Als Platzhalter zählt nur, was ein Wort enthält.</li>
+</ul>
+
+<h2>Wann du es laufen lässt</h2>
+<p>Erst am Schluss, wenn der Entwurf inhaltlich steht und du nichts mehr daran ändern willst. Danach macht Claude auf deine Freigabe hin das PDF nach <code>3_Zum-Versenden</code> — und darin stehen dann deine echten Angaben statt der Klammern.</p>
+<p>Läuft später noch eine Korrekturrunde, ist das kein Problem: Claude arbeitet mit dem weiter, was in der Datei steht, und du lässt das Programm am Ende einfach nochmals laufen. Was schon ersetzt ist, findet es nicht mehr.</p>
+
+<div class="note">
+  <p>Wo die Platzhalter herkommen und wie der Ordner aufgebaut ist, steht auf der Seite <a href="der-ordner.html">Der Ordner</a>. Warum die IBAN weniger heikel ist als die AHV-Nummer, steht unter <a href="datenschutz.html">Datenschutz</a>.</p>
+</div>
+
+<nav class="pager"></nav>
+
+    <footer>
+      <div>Teil der Toolbox · <a href="../index.html">Zur Übersicht</a> · gehostet via GitHub Pages unter <code>stayingclean.github.io/toolbox/</code></div>
+      <div>Stand: September 2026. Preise, Funktionen und Einstellungen der Anbieter ändern sich laufend – im Zweifel die offiziellen Seiten prüfen.</div>
+      <div class="footer-links">
+        <a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener">
+          <img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28">
+          <span>Erstellt von stayingclean</span>
+        </a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a class="footer-coffee" href="https://buymeacoffee.com/stayingclean" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span><span>Kaffee spendieren</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+<script src="anleitung.js"></script>
+</body>
+</html>

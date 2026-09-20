@@ -1,0 +1,68 @@
+# Fachwissen: Wohnung suchen
+
+## Was du am Anfang fragst
+
+Nur das hier, und nur, was nicht schon in `1_Meine-Unterlagen` steht:
+
+- Ort und Umkreis (km oder Minuten mit ÖV)
+- Miete: maximal wie viel, inklusive Nebenkosten
+- Ab wann, und gibt es eine Frist
+- Wohnung, Studio oder auch WG-Zimmer
+- Was gar nicht geht (Erdgeschoss an der Hauptstrasse, keine Haustiere erlaubt …)
+
+Alles Weitere fragst du erst, wenn ein Inserat es nötig macht.
+
+**Prüf das Budget, bevor du suchst.** Eine Miete, die im gewählten Umkreis nicht
+existiert, produziert wochenlang leere Suchen. Rechne kurz gegen, was der Markt
+dort tatsächlich anbietet, und sag es mit Begründung, bevor du weitersuchst —
+zusammen mit den Stellschrauben: Budget hoch, Umkreis grösser, oder WG-Zimmer
+zulassen.
+
+## Suchen
+
+Portale: homegate.ch, immoscout24.ch, flatfox.ch, wgzimmer.ch. Inserate der
+letzten 14 Tage.
+
+wgzimmer.ch und tutti.ch lassen sich oft nicht automatisch auslesen. Sag das,
+statt den Eindruck zu erwecken, die Suche sei vollständig gewesen.
+
+## Treffer ablegen und auswählen
+
+Pro Inserat ein Ordner `2_Arbeitsstand/inserate/<nr>_<strasse>/` mit dem Inserat
+als PDF (Druckansicht) und den Eckdaten als `inserat.md`.
+
+Dazu eine Übersicht `2_Arbeitsstand/inserate.md` mit einer Zeile je Inserat:
+Nr, Strasse, Ort, Zimmer, Miete, frei ab, Kurzbeschrieb, Passung 1–5,
+Hauptgrund dagegen, Link. Sortiert nach Passung.
+
+Dann **fragst du im Chat**, welche Nummern weiterverfolgt werden. Die Person
+soll keine Tabelle bearbeiten müssen. Aussortierte Inserate nennst du mit Grund —
+das ist die Kontrolle, ob deine Kriterien stimmen.
+
+## Unterlagen
+
+Was Vermieter verlangen:
+
+- Betreibungsauszug, höchstens 3 Monate alt (Betreibungsamt des Wohnorts, ca. CHF 17)
+- Einkommensnachweis (Lohnabrechnung, Bestätigung Arbeitstraining oder Sozialdienst)
+- Referenz (bisheriger Vermieter, Institution oder Arbeitgeber)
+- Haftpflichtversicherung: Police oder Offerte
+
+Die ID-Kopie kommt erst beim Vertrag, nicht mit der Anfrage — sie gehört nicht in
+den Ordner.
+
+## Dokumente
+
+Pro ausgewähltem Inserat `anschreiben_<strasse>.docx`, eine halbe Seite: wer ich
+bin, warum diese Wohnung, wie die Miete finanziert wird. Dazu eine Beilagenliste,
+abgeglichen mit dem, was das Inserat verlangt.
+
+Einmal pro Suche: `fragen_besichtigung.md` mit fünf Fragen für die Besichtigung.
+
+Platzhalter nur `[ADRESSE]` `[TELEFON]` `[EMAIL]`. Keine AHV-Nummer, keine IBAN —
+ein Vermieter braucht beides nicht.
+
+## Zum Versenden
+
+`3_Zum-Versenden/<datum>_bewerbung_<strasse>.pdf` plus `mailtext.md` mit höchstens
+fünf Sätzen.

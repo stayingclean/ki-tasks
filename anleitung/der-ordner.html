@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Der Ordner · Mit Claude arbeiten</title>
+  <meta name="description" content="Was nach dem Entpacken drinliegt und was Claude darin tut">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Gehört eigentlich nach stil.css: main ist ein Grid-Element und schrumpft
+       ohne min-width:0 nicht unter sein breitestes Kind. Ein .tree-Block würde
+       sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
+       breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
+    main { min-width: 0; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="title">Mit Claude arbeiten</span>
+      <span class="back">Anleitung · Toolbox</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Inhalt <span aria-hidden="true">☰</span></button>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main>
+<header class="page">
+  <p class="kicker">Arbeitsweise</p>
+  <h1>Der Ordner</h1>
+  <p class="lead">Was nach dem Entpacken drinliegt und was Claude darin tut. Zum Nachschauen, wenn du wissen willst, woher eine Datei kommt.</p>
+</header>
+
+<div class="summary">
+  <h2>Kurzfassung</h2>
+  <ul>
+    <li>Vier Ordner und zwei Dateien. Keine davon musst du ausfüllen.</li>
+    <li>Die Ziffern geben die Richtung: <strong>1</strong> deine Unterlagen hinein, <strong>2</strong> die Arbeit in der Mitte, <strong>3</strong> das Fertige hinaus.</li>
+    <li><code>9_Claude</code> ist Claudes Gedächtnis. Darum weiss er nächste Woche noch, wo ihr stehen geblieben seid.</li>
+    <li>Diese Seite beschreibt, wie Claude im Ordner arbeitet. Anwenden musst du davon nichts — der eine Satz «Was steht an?» genügt.</li>
+  </ul>
+</div>
+
+<h2>Was drinliegt</h2>
+<div class="tree">START-HIER.txt          <span class="c">das Einzige, was ein Mensch liest</span>
+CLAUDE.md               <span class="c">die Leitplanken, nur für Claude</span>
+1_Meine-Unterlagen/     <span class="c">deine PDF und Scans</span>
+2_Arbeitsstand/         <span class="c">Funde, Tabellen und Entwürfe als .docx</span>
+  verlauf/              <span class="c">frühere Fassungen, datiert; legt Claude an</span>
+3_Zum-Versenden/        <span class="c">fertige PDF, nur auf Freigabe</span>
+9_Claude/
+  wissen.md             <span class="c">Fachwissen zur Aufgabe, liegt im Zip</span>
+  stand.md              <span class="c">Auftrag und offene Punkte, legt Claude an</span></div>
+<p>Frisch entpackt sind die drei Ordner leer, und zwei Einträge fehlen noch: <code>verlauf</code> entsteht, sobald Claude die erste Fassung archiviert, und <code>stand.md</code> gibt es noch nicht. Genau daran erkennt Claude, dass die Aufgabe neu ist, und stellt seine Fragen.</p>
+
+<h2>Wie Claude darin arbeitet</h2>
+<div class="flow">
+  <div class="box you"><b>Du sagst</b>«Was steht an?»</div>
+  <div class="arrow">→</div>
+  <div class="box"><b>Claude fragt</b>und legt <code>stand.md</code> an</div>
+  <div class="arrow">→</div>
+  <div class="box you"><b>Du legst ab</b>Unterlagen in <code>1_Meine-Unterlagen</code></div>
+  <div class="arrow">→</div>
+  <div class="box"><b>Claude sucht</b>Treffer und Entwürfe in <code>2_Arbeitsstand</code></div>
+  <div class="arrow">→</div>
+  <div class="box you"><b>Du wählst</b>im Chat, dann in Word</div>
+  <div class="arrow">↻</div>
+  <div class="box"><b>Claude bessert nach</b>alte Fassung nach <code>verlauf/</code></div>
+  <div class="arrow">→</div>
+  <div class="box you"><b>Du setzt ein</b>Adresse und IBAN</div>
+  <div class="arrow">→</div>
+  <div class="box"><b>Claude gibt ab</b>PDF in <code>3_Zum-Versenden</code>, auf Freigabe</div>
+</div>
+<p>Die Runde in der Mitte wiederholt sich, bis ein Entwurf passt. Zwei bis drei Durchgänge sind normal. Nach jedem Schritt schreibt Claude nach, was erledigt ist und was offen bleibt.</p>
+
+<h2>Die vier Ordner</h2>
+<div class="grid">
+  <div class="card">
+    <h3><code>1_Meine-Unterlagen</code></h3>
+    <p>Alles, was von dir kommt: Lebenslauf, Zeugnisse, Betreibungsauszug, Rechnungen, Abrechnungen der Krankenkasse. Claude liest hier und schreibt nie hinein. Er sagt ungefragt, wenn etwas fehlt — und auch, wenn etwas darin liegt, das für diese Aufgabe niemand braucht.</p>
+  </div>
+  <div class="card">
+    <h3><code>2_Arbeitsstand</code></h3>
+    <p>Claudes Werkstatt: Trefferlisten, heruntergeladene Formulare, Entwürfe als Word-Datei. Hier kommentierst du, hier setzt du am Schluss die Platzhalter ein. Alles in diesem Ordner darf sich noch ändern.</p>
+  </div>
+  <div class="card">
+    <h3><code>2_Arbeitsstand/verlauf</code></h3>
+    <p>Bevor Claude ein Dokument ändert, kopiert er die bisherige Fassung hierher, mit dem Datum davor. So kannst du nachlesen, was vorher dastand. Hier ändert niemand mehr etwas, auch Claude nicht.</p>
+  </div>
+  <div class="card">
+    <h3><code>3_Zum-Versenden</code></h3>
+    <p>Die fertigen PDF, dazu ein kurzer Mailtext. Claude legt hier erst etwas ab, wenn du ausdrücklich freigibst. Was hier liegt, ist zum Ausdrucken oder Anhängen gedacht und wird nicht mehr bearbeitet.</p>
+  </div>
+</div>
+
+<h2>Die zwei Dateien</h2>
+<p><strong><code>START-HIER.txt</code></strong> ist die einzige Datei für dich: vier Zeilen zum Loslegen und ein Abschnitt zum Datenschutz. Sie öffnet sich mit einem Doppelklick.</p>
+<p><strong><code>CLAUDE.md</code></strong> ist für Claude. Darin stehen die Leitplanken: wo was abgelegt wird, dass ein Beleg mehr gilt als eine mündliche Angabe, dass kein Beleg verändert wird, dass Claude widerspricht, wenn ein Kriterium unrealistisch ist. Er liest sie von selbst, sobald du den Ordner in Cowork verbindest. Du musst sie nicht öffnen.</p>
+<div class="note">
+  <p><code>CLAUDE.md</code> muss zuoberst im Ordner liegen, sonst wird sie nicht gelesen. Beim Entpacken liegt sie dort. Verschieb sie nicht in einen Unterordner.</p>
+</div>
+
+<h2>Das Gedächtnis in <code>9_Claude</code></h2>
+<p>Zwei Dateien, beide nicht zum Bearbeiten:</p>
+<ul>
+  <li><strong><code>wissen.md</code></strong> ist das Fachwissen zur Aufgabe und liegt schon im Zip. Bei der Wohnungssuche steht darin, welche Portale durchsucht werden und was ein Vermieter an Unterlagen verlangt. Das ist für alle gleich, darum wird es mitgeliefert.</li>
+  <li><strong><code>stand.md</code></strong> ist dein Auftrag: was du willst, welche Kriterien gelten, was erledigt ist, was offen bleibt. Die Datei entsteht aus dem ersten Gespräch, und Claude führt sie nach.</li>
+</ul>
+<p>Darum trägt derselbe Satz auch drei Wochen später: Claude liest <code>stand.md</code> und nennt dir die offenen Punkte, statt von vorne zu fragen.</p>
+
+<h2>Wer macht was</h2>
+<div class="tablewrap">
+<table>
+  <tr><th>Claude</th><th>Du</th></tr>
+  <tr><td>Fragt, was er wissen muss, und führt <code>stand.md</code></td><td>Antwortest im Chat, in ganzen oder halben Sätzen</td></tr>
+  <tr><td>Sucht, sammelt, bewertet, legt die Treffer als Tabelle ab</td><td>Sagst im Chat, welche Nummern weiterverfolgt werden</td></tr>
+  <tr><td>Schreibt Entwürfe, nur aus deinen Unterlagen</td><td>Legst die Unterlagen in <code>1_Meine-Unterlagen</code></td></tr>
+  <tr><td>Meldet, was fehlt oder sich widerspricht</td><td>Besorgst oder korrigierst, was er meldet</td></tr>
+  <tr><td>Arbeitet deine Word-Kommentare ein</td><td>Kommentierst in Word, wie bei einem Kollegen</td></tr>
+  <tr><td>Baut das PDF, erst auf deine Freigabe</td><td>Setzt die Platzhalter ein, unterschreibst, versendest</td></tr>
+</table>
+</div>
+
+<h2>Ein Dokument behält seinen Namen</h2>
+<p>Es gibt kein <code>_v2</code> und kein <code>_v3</code>. Das Motivationsschreiben heisst immer <code>motivationsschreiben.docx</code>, und die Fassung, die du offen hast, ist die aktuelle. Bevor Claude sie ändert, kopiert er die bisherige nach <code>2_Arbeitsstand/verlauf/2026-09-20_motivationsschreiben.docx</code>. Zweimal am selben Tag: <code>_2</code> hinten dran.</p>
+<p>Der Grund ist einfach: Bei drei Fassungen nebeneinander weiss nach zwei Tagen niemand mehr, welche gilt.</p>
+
+<h2>Lücken bleiben sichtbar</h2>
+<p>Wo Claude etwas nicht weiss oder nicht wissen soll, schreibt er einen Platzhalter in eckigen Klammern, der benennt, was dort hingehört: <code>[ADRESSE]</code>, <code>[IBAN]</code>, aber auch <code>[Einzugsdatum]</code> oder <code>[Monatsmiete]</code>. Er bleibt im Entwurf stehen, bis du ihn am Schluss ersetzt — mit dem kleinen Programm von der Seite <a href="platzhalter.html">Adresse und IBAN am Schluss einsetzen</a>.</p>
+<p>Etwas anderes sind Angaben, ohne die Claude nicht weiterkommt. Die stehen nicht im Dokument, sondern als offener Punkt in <code>stand.md</code>, und er fragt dich danach.</p>
+
+<h2>Was Claude in diesem Ordner nicht tut</h2>
+<ul>
+  <li><strong>Nichts erfinden.</strong> Fehlt eine Angabe, fragt er. Liegt ein Beleg vor, gilt der Beleg und nicht die mündliche Angabe, und er zitiert die Stelle.</li>
+  <li><strong>Keinen Beleg verändern.</strong> Was in <code>1_Meine-Unterlagen</code> liegt, bleibt, wie es ist. Etwas weglassen, das niemand verlangt, ist in Ordnung.</li>
+  <li><strong>Nicht stillschweigend mitmachen.</strong> Ist eine Mietobergrenze im gewählten Umkreis unrealistisch oder eine Frist nicht mehr zu schaffen, sagt er es mit Begründung, bevor er weiterarbeitet.</li>
+  <li><strong>Nichts von sich aus abschliessen.</strong> In <code>3_Zum-Versenden</code> landet erst etwas, wenn du freigibst. Abgeschickt wird ohnehin von Hand, von dir.</li>
+</ul>
+
+<div class="note">
+  <p><strong>Zwei Aufgaben, zwei Ordner.</strong> Jeder Zip bringt sein eigenes Fachwissen mit. Wer eine Wohnung sucht und ein Gesuch schreibt, lädt beide Zips und entpackt sie in zwei Ordner. In Cowork verbindest du den, an dem du gerade arbeitest.</p>
+</div>
+
+<nav class="pager"></nav>
+
+    <footer>
+      <div>Teil der Toolbox · <a href="../index.html">Zur Übersicht</a> · gehostet via GitHub Pages unter <code>stayingclean.github.io/toolbox/</code></div>
+      <div>Stand: September 2026. Preise, Funktionen und Einstellungen der Anbieter ändern sich laufend – im Zweifel die offiziellen Seiten prüfen.</div>
+      <div class="footer-links">
+        <a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener">
+          <img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28">
+          <span>Erstellt von stayingclean</span>
+        </a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a class="footer-coffee" href="https://buymeacoffee.com/stayingclean" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span><span>Kaffee spendieren</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+<script src="anleitung.js"></script>
+</body>
+</html>

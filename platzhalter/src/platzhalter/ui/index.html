@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platzhalter einsetzen</title>
+<style>
+:root{--bg:#FAF8F5;--card:#fff;--border:#E8E4DF;--text:#1C1C1C;--muted:#7A7268;--accent:#008080;--accent-dark:#006666;--tint:#E6F2F2;--rot:#B3261E;--rot-tint:#FBEAE8}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;display:flex;flex-direction:column}
+header{padding:16px 28px 12px;border-bottom:1px solid var(--border);background:var(--card);display:flex;align-items:center;gap:14px}
+header img.logo{width:44px;height:44px;flex:none;border-radius:50%}
+header .kopf{min-width:0}
+h1{font-family:Georgia,serif;color:var(--accent-dark);font-size:1.5rem;margin:0}
+.pfad{color:var(--muted);font-size:.85rem;margin-top:4px;display:flex;gap:10px;align-items:center;min-width:0}
+.pfad #pfad-text{flex:0 1 auto;min-width:0;display:flex}
+.pfad code{background:var(--bg);border:1px solid var(--border);padding:1px 6px;border-radius:6px;font-size:.85em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;direction:rtl;text-align:left;min-width:0}
+.pfad button.link{flex:none}
+main{flex:1;overflow:auto;padding:20px 28px}
+.view{display:none}.view.aktiv{display:block}
+.box{background:var(--tint);border-left:4px solid var(--accent);padding:12px 16px;border-radius:0 12px 12px 0;margin:0 0 18px}
+.box.rot{background:var(--rot-tint);border-color:var(--rot)}
+button{font:inherit;border-radius:12px;padding:10px 18px;border:1px solid var(--border);background:var(--card);color:var(--accent-dark);cursor:pointer;font-weight:600}
+button:hover{border-color:var(--accent)}button.primaer{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.primaer:hover{background:var(--accent-dark)}button:disabled{opacity:.45;cursor:default}
+button.link{color:var(--accent);cursor:pointer;text-decoration:underline;background:none;border:0;padding:0;font-weight:500;border-radius:0}
+.zentriert{text-align:center;padding:60px 20px;color:var(--muted)}
+.karte{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.zeile{display:grid;grid-template-columns:minmax(140px,1fr) 2fr;gap:14px;align-items:center}
+.name{font-family:Consolas,monospace;font-weight:600;color:var(--accent-dark);word-break:break-all}
+.meta{color:var(--muted);font-size:.82rem;margin-top:2px}
+input[type=text]{font:inherit;width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:10px;background:var(--bg)}
+input[type=text]:focus{outline:2px solid var(--accent);border-color:var(--accent);background:#fff}
+.dateien{display:none;margin:8px 0 0;padding:0 0 0 18px;color:var(--muted);font-size:.82rem}
+.karte.offen .dateien{display:block}
+footer{padding:14px 28px;border-top:1px solid var(--border);background:var(--card);display:flex;justify-content:space-between;align-items:center;gap:12px}
+footer .info{color:var(--muted);font-size:.9rem}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+td,th{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);font-size:.92rem;vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+tr:last-child td{border-bottom:0}.fehler{color:var(--rot)}.ok{color:var(--accent-dark)}
+.schleier{position:fixed;inset:0;background:rgba(28,28,28,.4);display:none;align-items:center;justify-content:center;padding:20px}
+.schleier.aktiv{display:flex}
+.dialog{background:var(--card);border-radius:16px;padding:22px 26px;max-width:480px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.dialog h2{margin:0 0 10px;font-size:1.1rem;color:var(--accent-dark)}.dialog p{margin:0 0 8px}
+.dialog .knoepfe{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.spinner{width:36px;height:36px;border:4px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:dreh 1s linear infinite;margin:0 auto 14px}
+@keyframes dreh{to{transform:rotate(360deg)}}
+</style></head><body>
+<header>
+  <img class="logo" src="data:image/png;base64,{{LOGO}}" alt="stayingclean">
+  <div class="kopf">
+    <h1>Platzhalter einsetzen</h1>
+    <div class="pfad"><span id="pfad-text">Kein Ordner gewählt</span><button class="link" id="anderer-ordner" type="button">Anderer Ordner</button></div>
+  </div>
+</header>
+<main>
+  <section id="view-start" class="view">
+    <div class="zentriert">
+      <p>Wähle den Ordner mit den Word-Dateien. Alle Unterordner werden mitdurchsucht.</p>
+      <button class="primaer" id="ordner-waehlen" type="button">Ordner wählen</button>
+    </div>
+  </section>
+  <section id="view-laden" class="view">
+    <div class="zentriert"><div class="spinner"></div><p id="laden-text">Durchsuche Word-Dateien</p></div>
+  </section>
+  <section id="view-liste" class="view">
+    <div id="hinweise"></div>
+    <div id="karten"></div>
+  </section>
+  <section id="view-ergebnis" class="view">
+    <div class="box" id="ergebnis-kopf"></div>
+    <table><thead><tr><th>Datei</th><th>Ergebnis</th></tr></thead><tbody id="ergebnis-zeilen"></tbody></table>
+  </section>
+</main>
+<footer>
+  <span class="info" id="fuss-info"></span>
+  <span>
+    <button id="knopf-fertig" type="button" style="display:none">Fertig</button>
+    <button class="primaer" id="knopf-ersetzen" type="button" disabled>Ersetzen</button>
+  </span>
+</footer>
+<div class="schleier" id="schleier">
+  <div class="dialog">
+    <h2>Werte einsetzen</h2>
+    <p id="dialog-text"></p>
+    <p class="meta">Leere Felder bleiben als Platzhalter stehen. Von jeder geänderten Datei wird vorher eine Sicherung mit Endung .bak angelegt. Die eingegebenen Werte werden nicht gespeichert.</p>
+    <div class="knoepfe"><button id="dialog-abbrechen" type="button">Abbrechen</button><button class="primaer" id="dialog-ok" type="button">Ersetzen</button></div>
+  </div>
+</div>
+<script>
+const $ = (id) => document.getElementById(id);
+const api = () => window.pywebview.api;
+let ergebnis = null;
+
+function zeige(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('aktiv', v.id === 'view-' + name));
+  $('knopf-ersetzen').style.display = name === 'liste' ? '' : 'none';
+  $('knopf-fertig').style.display = name === 'ergebnis' ? '' : 'none';
+  if (name !== 'liste') $('fuss-info').textContent = '';
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function plural(n, eins, viele) { return n + ' ' + (n === 1 ? eins : viele); }
+
+async function start() {
+  const ordner = await api().hole_ordner();
+  if (ordner) return suchen(ordner);
+  await ordnerWaehlen();
+}
+
+async function ordnerWaehlen() {
+  const ordner = await api().waehle_ordner();
+  if (ordner) suchen(ordner); else if (!ergebnis) zeige('start');
+}
+
+async function suchen(ordner) {
+  // direction:rtl im CSS kürzt lange Pfade vorne statt hinten; der Titel zeigt den ganzen
+  $('pfad-text').innerHTML = '<code title="' + escapeHtml(ordner) + '">' + escapeHtml(ordner) + '</code>';
+  zeige('laden');
+  ergebnis = await api().suche();
+  zeigeListe();
+}
+
+function zeigeListe() {
+  const hinweise = [];
+  if (ergebnis.fehler.length) hinweise.push('<div class="box rot">Nicht lesbar: ' + ergebnis.fehler.map(escapeHtml).join('<br>') + '</div>');
+  // Die Warnung sagt schon alles; ein «keine Dateien gefunden» daneben würde nur verwirren.
+  if (ergebnis.warnung) hinweise.push('<div class="box rot">' + escapeHtml(ergebnis.warnung) + '</div>');
+  else if (!ergebnis.dateien.length) hinweise.push('<div class="box">Keine Word-Dateien (.docx) in diesem Ordner gefunden.</div>');
+  else if (!ergebnis.platzhalter.length) hinweise.push('<div class="box">' + plural(ergebnis.dateien.length, 'Datei', 'Dateien') + ' durchsucht, keine Platzhalter in eckigen Klammern gefunden. Es gibt hier nichts zu ersetzen.</div>');
+  else hinweise.push('<div class="box">' + plural(ergebnis.platzhalter.length, 'Platzhalter', 'Platzhalter') + ' in ' + plural(ergebnis.dateien.length, 'Datei', 'Dateien') + '. Fülle aus, was du ersetzen willst.</div>');
+  $('hinweise').innerHTML = hinweise.join('');
+  $('karten').innerHTML = ergebnis.platzhalter.map((p, i) => `
+    <div class="karte" data-i="${i}">
+      <div class="zeile">
+        <div><div class="name">[${escapeHtml(p.name)}]</div>
+          <div class="meta">${p.anzahl}× in ${plural(p.dateien.length, 'Datei', 'Dateien')} · <button class="link toggle" type="button">anzeigen</button></div></div>
+        <input type="text" data-name="${escapeHtml(p.name)}" autocomplete="off" spellcheck="false" placeholder="Wert für ${escapeHtml(p.name)}">
+      </div>
+      <ul class="dateien">${p.dateien.map(d => '<li>' + escapeHtml(d) + '</li>').join('')}</ul>
+    </div>`).join('');
+  document.querySelectorAll('.toggle').forEach(b => b.addEventListener('click', () => {
+    const k = b.closest('.karte'); k.classList.toggle('offen'); b.textContent = k.classList.contains('offen') ? 'ausblenden' : 'anzeigen';
+  }));
+  document.querySelectorAll('input[data-name]').forEach(inp => inp.addEventListener('input', aktualisiereFuss));
+  zeige('liste');
+  aktualisiereFuss();
+  const erster = document.querySelector('input[data-name]'); if (erster) erster.focus();
+}
+
+function werte() {
+  const w = {};
+  document.querySelectorAll('input[data-name]').forEach(inp => { w[inp.dataset.name] = inp.value.trim(); });
+  return w;
+}
+
+function statistik() {
+  const w = werte();
+  const namen = Object.keys(w).filter(n => w[n]);
+  const dateien = new Set();
+  ergebnis.platzhalter.filter(p => namen.includes(p.name)).forEach(p => p.dateien.forEach(d => dateien.add(d)));
+  return { namen, dateien: dateien.size };
+}
+
+function aktualisiereFuss() {
+  const s = statistik();
+  // Nichts auszufüllen (Warnung, leerer Ordner, keine Platzhalter): Fusszeile ganz leer
+  // statt «Noch nichts ausgefüllt» neben einem toten Knopf. Der Hinweis oben sagt, warum.
+  const nichts = !ergebnis.platzhalter.length;
+  $('knopf-ersetzen').style.display = nichts ? 'none' : '';
+  $('knopf-ersetzen').disabled = s.namen.length === 0;
+  $('fuss-info').textContent = nichts ? '' : s.namen.length ? plural(s.namen.length, 'Platzhalter', 'Platzhalter') + ' ausgefüllt, betrifft ' + plural(s.dateien, 'Datei', 'Dateien') : 'Noch nichts ausgefüllt';
+}
+
+async function ersetzen() {
+  $('schleier').classList.remove('aktiv');
+  $('laden-text').textContent = 'Setze Werte ein';
+  zeige('laden');
+  const resultate = await api().ersetze(werte());
+  const gesamt = resultate.reduce((a, r) => a + r.ersetzt, 0);
+  const fehler = resultate.filter(r => r.fehler).length;
+  $('ergebnis-kopf').className = 'box' + (fehler ? ' rot' : '');
+  $('ergebnis-kopf').textContent = plural(gesamt, 'Ersetzung', 'Ersetzungen') + ' in ' + plural(resultate.filter(r => r.ersetzt).length, 'Datei', 'Dateien') + (fehler ? ', ' + plural(fehler, 'Datei', 'Dateien') + ' mit Fehler' : '') + '.';
+  $('ergebnis-zeilen').innerHTML = resultate.map(r => '<tr><td>' + escapeHtml(r.datei) + '</td><td>' +
+    (r.fehler ? '<span class="fehler">Fehler: ' + escapeHtml(r.fehler) + '</span>' : r.ersetzt ? '<span class="ok">' + plural(r.ersetzt, 'Ersetzung', 'Ersetzungen') + '</span>' : '<span class="meta">nichts zu ersetzen</span>') + '</td></tr>').join('');
+  $('laden-text').textContent = 'Durchsuche Word-Dateien';
+  zeige('ergebnis');
+}
+
+$('ordner-waehlen').addEventListener('click', ordnerWaehlen);
+$('anderer-ordner').addEventListener('click', ordnerWaehlen);
+$('knopf-ersetzen').addEventListener('click', () => {
+  const s = statistik();
+  $('dialog-text').textContent = plural(s.namen.length, 'Platzhalter', 'Platzhalter') + ' in ' + plural(s.dateien, 'Datei', 'Dateien') + ' ersetzen?';
+  $('schleier').classList.add('aktiv');
+  $('dialog-ok').focus();
+});
+$('dialog-abbrechen').addEventListener('click', () => $('schleier').classList.remove('aktiv'));
+$('dialog-ok').addEventListener('click', ersetzen);
+$('knopf-fertig').addEventListener('click', () => api().beende());
+document.addEventListener('keydown', e => { if (e.key === 'Escape') $('schleier').classList.remove('aktiv'); });
+window.addEventListener('pywebviewready', start);
+</script>
+</body></html>

@@ -1,0 +1,58 @@
+# Platzhalter einsetzen
+
+Kleines Windows-Programm für den letzten Schritt des Ablaufs: Es durchsucht einen Ordner
+(mit Unterordnern) nach Word-Dateien, zeigt alle Platzhalter in eckigen Klammern wie
+`[ADRESSE]` oder `[IBAN]` an und setzt die von dir eingegebenen Werte in allen Dateien ein.
+
+Download: https://stayingclean.github.io/ki-tasks/platzhalter.exe
+
+## Benutzen
+
+1. `platzhalter.exe` starten und den Ordner wählen, zum Beispiel `2_Arbeitsstand`.
+2. Für jeden Platzhalter den Wert eintragen. Was du leer lässt, bleibt stehen.
+3. «Ersetzen» und bestätigen. Von jeder geänderten Datei liegt danach eine Sicherung
+   `<name>.docx.bak` daneben. Die eingegebenen Werte werden nirgends gespeichert.
+
+Ordner namens `verlauf` lässt das Programm bewusst aus, auf jeder Ebene: dort liegen frühere
+Fassungen, und die sollen bleiben, was du damals verschickt hast. So landen deine echten
+Angaben nur im aktuellen Entwurf und nicht in jeder alten Fassung daneben. Wählst du einen
+`verlauf` direkt als Ordner aus, sagt dir das Programm das und ersetzt gar nichts — wähle
+dann den Ordner darüber.
+
+Beim ersten Start warnt Windows SmartScreen, weil die Datei nicht signiert ist:
+«Weitere Informationen» und dann «Trotzdem ausführen». Dateien, die gerade in Word offen
+sind, können nicht geändert werden; sie erscheinen im Ergebnis mit Fehler.
+
+Als Platzhalter gilt alles in eckigen Klammern, das ein Wort enthält, also zwei Buchstaben
+am Stück: `[ADRESSE]`, `[Ort]`, `[Grösse]`, `[AHV-Nummer]`, `[PLZ/Ort]`, `[Betrag 2026]`.
+Quellenverweise wie `[1]`, `[1, 2]` oder `[S. 12]` enthalten kein Wort und bleiben darum
+unangetastet. Eine Ausnahme bleibt: `[vgl. 3]` gilt als Platzhalter, weil «vgl» ein Wort ist.
+
+Ersetzt wird in Textkörper, Tabellen, Textfeldern sowie Kopf- und Fusszeilen, auch wenn Word
+einen Platzhalter intern auf mehrere Textstücke verteilt hat. Nicht unterstützt: Platzhalter
+in Kommentaren, Fussnoten oder über Absatzgrenzen hinweg. Nur `.docx`, kein altes `.doc`.
+
+## Entwickeln
+
+Voraussetzung: [uv](https://docs.astral.sh/uv/). Alle Befehle in diesem Ordner.
+
+```
+uv sync                                   # Python 3.12 und Abhängigkeiten
+uv run pytest                             # Tests
+uv run python -m platzhalter <ordner>     # Programm starten
+uv run pyinstaller platzhalter.spec       # dist/platzhalter.exe bauen
+```
+
+Aufbau: `dokument.py` (Absätze, Runs und das Muster), `suche.py` (Dateien finden, Platzhalter
+zählen), `docx_ersetzen.py` (Ersetzen über Run-Grenzen, Sicherung, atomares Schreiben),
+`app.py` und `ui/index.html` (Oberfläche mit pywebview). Die drei erstgenannten Module
+kennen keine Oberfläche und sind einzeln getestet.
+
+Das Logo liegt als `logo.png` bei. Daraus erzeugt
+`uv run --with pillow python werkzeuge/logo_aufbereiten.py` zwei Fassungen, die beide
+eingecheckt sind, damit der Build ohne Pillow auskommt: `logo.ico` als Symbol der EXE und
+`src/platzhalter/ui/logo.txt` als Base64 für den Kopf der Oberfläche. Nach einem Austausch
+von `logo.png` das Skript einmal laufen lassen.
+
+Die EXE baut der GitHub-Actions-Workflow des Repos auf einem Windows-Runner und
+veröffentlicht sie zusammen mit den Zips auf GitHub Pages.

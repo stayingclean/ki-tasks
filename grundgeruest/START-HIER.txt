@@ -1,0 +1,21 @@
+{{TITEL}} - mit Claude
+
+
+SO GEHT ES LOS
+
+  1. Claude Desktop oeffnen
+  2. Auf "Cowork", dann "Ordner hinzufuegen"
+  3. Diesen Ordner auswaehlen
+  4. Schreiben:   Was steht an?
+
+  Mehr musst du nicht wissen. Claude fragt alles Weitere und legt die
+  Dateien selber an. Derselbe Satz gilt immer, auch naechste Woche.
+
+
+DATENSCHUTZ
+
+  Alles in diesem Ordner geht an Anthropic. Was dort damit geschieht,
+  steht in deinen Kontoeinstellungen unter Datenschutz.
+
+  Nie hierher: AHV-Ausweis, Bankkarten, Passwoerter, Unterlagen
+  anderer Personen.
