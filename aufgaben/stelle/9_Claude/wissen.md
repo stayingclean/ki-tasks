@@ -346,8 +346,9 @@ Am Monatsende, in `2_Arbeitsstand/rav/JJJJ-MM/`:
 - `hochladen.md` — welche Dateien aus welchen Bewerbungsordnern in Job-Room
   gehören, mit Pfad, und ob eine über der Grössengrenze liegt.
 - `avp.md` — die Fragen des AvP-Formulars mit den Antworten, soweit du sie
-  kennst (Zwischenverdienst, Krankheit, Ferien, Stellenantritt); den Rest
-  fragst du.
+  kennst (Zwischenverdienst, Tage mit Arbeitsunfähigkeit, Ferien,
+  Stellenantritt); den Rest fragst du. Das Formular fragt nur, ob und von
+  wann bis wann — nie nach dem Grund. Frag auch du nicht danach.
 
 Den Einreichweg (Job-Room oder Papier) fragst du beim ersten Abschluss und
 speicherst ihn in `stand.md`. **Du loggst dich nie in Job-Room ein** und füllst

@@ -109,9 +109,11 @@ hunderte Stiftungen, von denen die meisten Personalvorsorge-, Familien- oder
 Unternehmensstiftungen sind.
 
 **Anknüpfungspunkte systematisch durchgehen.** Fast jeder Fonds ist an etwas
-gebunden: Wohnort, Heimatort und Bürgerrecht, Beruf oder Branche, Krankheit,
-Alter, Konfession, Kinder, frühere Arbeitgeber, Militär, Vereine. Jeder Treffer
-öffnet einen eigenen Topf.
+gebunden: Wohnort, Heimatort und Bürgerrecht, Beruf oder Branche, Alter,
+Konfession, Kinder, frühere Arbeitgeber, Militär, Vereine. Jeder Treffer
+öffnet einen eigenen Topf. Manche Fonds sind an eine bestimmte Krankheit
+gebunden; nach der Diagnose fragst du dafür nicht. Nennt die Person sie von
+sich aus und will diesen Weg, nimm solche Fonds dazu.
 
 **Ausschlusskriterien, jede geprüfte Stelle mit Grund festhalten:**
 Betriebsstiftung (betreibt Heime, vergibt kein Geld) · nur Familien mit Kindern ·
@@ -180,9 +182,11 @@ Rund vier Seiten inklusive Beilagenverzeichnis. Reihenfolge:
    Verwendungszweck, keine Diagnose
 2. Bezug auf den Stiftungszweck, ein bis zwei Sätze, die den Zweckartikel
    wörtlich aufgreifen. Dieser Absatz ist pro Stiftung anders, alles übrige gleich.
-3. Der Antrag in einem Satz: Alter, Zivilstand, Wohnsitz seit wann, seit wann in
-   Behandlung, Betrag und Posten, «vordringlich ist …»
-4. Verlauf, zwei Absätze, sachlich, ohne Details, die die Stiftung nicht braucht
+3. Der Antrag in einem Satz: Alter, Zivilstand, Wohnsitz seit wann, Betrag und
+   Posten, «vordringlich ist …»
+4. Wie es zur finanziellen Lage kam, zwei Absätze, sachlich, ohne Details, die
+   die Stiftung nicht braucht — und ohne Angaben zur Gesundheit, ausser die
+   Person will sie (siehe unten)
 5. Einkommen und Vermögen — nennen **und einordnen**: «über dem Existenzminimum,
    aber gebunden durch …», Budgetfazit mit Fehlbetrag, Kontostand mit
    Zweckbindung und Restbetrag danach
@@ -199,6 +203,19 @@ Rund vier Seiten inklusive Beilagenverzeichnis. Reihenfolge:
     beiliegende Übersicht, Zusage, Mehrfachzusagen zu melden
 11. Sonderabschnitt je Stelle (Selbstverschulden, Bürgerrecht, Bitte um Formular)
 12. Wahrheitserklärung, Unterschrift, Beilagenverzeichnis mit Datum je Position
+
+### Angaben zur Gesundheit: freiwillig
+
+Ein Gesuch braucht keine. Entschieden wird über Rechnung, Budget und Belege;
+in der Schweiz muss niemand einer Stiftung eine Diagnose nennen. Du fragst
+nicht danach und schreibst keine hinein.
+
+Einmal, beim ersten Entwurf, darfst du erwähnen: Will die Person, kann ein
+kurzer, allgemeiner Satz der Stiftung ein besseres Bild geben — etwa, dass eine
+längere Behandlung die Kosten erklärt. Das ist ein Angebot, keine Empfehlung,
+und du kommst nicht darauf zurück. Fragt ein Stiftungsformular danach, sag der
+Person, dass die Antwort freiwillig ist und eine allgemeine Umschreibung
+genügt. Was sie wählt, gilt.
 
 ### Was ein Gesuch stark macht
 
