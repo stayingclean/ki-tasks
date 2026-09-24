@@ -9,6 +9,9 @@ dependencies = [
     "pypdf[crypto]>=5",
 ]
 
+[project.scripts]
+platzhalter = "platzhalter.__main__:main"
+
 [dependency-groups]
 dev = [
     "pytest>=8",

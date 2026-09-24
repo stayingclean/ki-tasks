@@ -1,14 +1,21 @@
 # Platzhalter einsetzen
 
-Kleines Windows-Programm für den letzten Schritt des Ablaufs: Es durchsucht einen Ordner
+Kleines Programm für Windows und Mac, für den letzten Schritt des Ablaufs: Es durchsucht einen Ordner
 (mit Unterordnern) nach Word-Dateien und ausfüllbaren PDF-Formularen, zeigt alle Platzhalter in eckigen Klammern wie
 `[ADRESSE]` oder `[IBAN]` an und setzt die von dir eingegebenen Werte in allen Dateien ein.
 
-Download: https://stayingclean.github.io/ki-tasks/platzhalter.exe
+Download: https://stayingclean.github.io/ki-tasks/platzhalter.exe (Windows),
+https://stayingclean.github.io/ki-tasks/platzhalter-mac.zip (Mac mit Apple-Chip).
+
+Linux, ohne fertiges Programm, mit [uv](https://docs.astral.sh/uv/):
+
+```
+uvx --from "git+https://github.com/stayingclean/ki-tasks#subdirectory=platzhalter" --with "pywebview[qt]" platzhalter
+```
 
 ## Benutzen
 
-1. `platzhalter.exe` starten und den Ordner wählen, zum Beispiel `2_Arbeitsstand`.
+1. `platzhalter.exe` bzw. `Platzhalter` starten und den Ordner wählen, zum Beispiel `2_Arbeitsstand`.
 2. Für jeden Platzhalter den Wert eintragen. Was du leer lässt, bleibt stehen.
 3. «Ersetzen» und bestätigen. Von jeder geänderten Datei liegt danach eine Sicherung
    `<name>.docx.bak` oder `<name>.pdf.bak` daneben. Die eingegebenen Werte werden nirgends gespeichert.
@@ -19,8 +26,9 @@ Angaben nur im aktuellen Entwurf und nicht in jeder alten Fassung daneben. Wähl
 `verlauf` direkt als Ordner aus, sagt dir das Programm das und ersetzt gar nichts — wähle
 dann den Ordner darüber.
 
-Beim ersten Start warnt Windows SmartScreen, weil die Datei nicht signiert ist:
-«Weitere Informationen» und dann «Trotzdem ausführen». Dateien, die gerade in Word offen
+Beim ersten Start warnt das System, weil das Programm nicht signiert ist. Windows
+SmartScreen: «Weitere Informationen» und dann «Trotzdem ausführen». Mac: «Fertig», dann
+Systemeinstellungen → Datenschutz & Sicherheit → «Dennoch öffnen». Dateien, die gerade in Word offen
 sind, können nicht geändert werden; sie erscheinen im Ergebnis mit Fehler.
 
 Als Platzhalter gilt alles in eckigen Klammern, das ein Wort enthält, also zwei Buchstaben
@@ -49,7 +57,7 @@ Voraussetzung: [uv](https://docs.astral.sh/uv/). Alle Befehle in diesem Ordner.
 uv sync                                   # Python 3.12 und Abhängigkeiten
 uv run pytest                             # Tests
 uv run python -m platzhalter <ordner>     # Programm starten
-uv run pyinstaller platzhalter.spec       # dist/platzhalter.exe bauen
+uv run pyinstaller platzhalter.spec       # dist/platzhalter.exe bzw. dist/Platzhalter.app
 ```
 
 Aufbau: `dokument.py` (Absätze, Runs und das Muster), `suche.py` (Dateien finden, Platzhalter
@@ -65,5 +73,6 @@ eingecheckt sind, damit der Build ohne Pillow auskommt: `logo.ico` als Symbol de
 `src/platzhalter/ui/logo.txt` als Base64 für den Kopf der Oberfläche. Nach einem Austausch
 von `logo.png` das Skript einmal laufen lassen.
 
-Die EXE baut der GitHub-Actions-Workflow des Repos auf einem Windows-Runner und
-veröffentlicht sie zusammen mit den Zips auf GitHub Pages.
+EXE und Mac-App baut der GitHub-Actions-Workflow des Repos auf je einem Windows- und
+macOS-Runner und veröffentlicht sie zusammen mit den Zips auf GitHub Pages. Die Mac-App
+hat kein eigenes Symbol (dafür bräuchte es eine `.icns`-Datei).
