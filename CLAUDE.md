@@ -42,7 +42,8 @@ Beim Arbeiten an diesem Repo:
   drüben — hier kein eigener CSS-Block ausser für wirklich Seitenspezifisches,
   Links relativ. Eine neue Seite muss drüben in `anleitung.js` in die Liste
   `SEITEN`, sonst taucht sie in keiner Navigation auf (der nötige Block steht in
-  der README). `build.py` fasst `anleitung/` nicht an; die Seiten gehören in
+  der README). `build.py` schaut in `anleitung/` nur nach, ob `<name>.html` existiert, und
+  verlinkt die Karte der Download-Seite dann dorthin (Toolbox-URL); die Seiten gehören in
   keinen Zip.
 - Die übrige Anleitung (Einstieg, Abos, Datenschutz, Prompts) bleibt im Repo
   `stayingclean/toolbox` unter `docs/claude-anleitung/`.

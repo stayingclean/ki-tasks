@@ -120,7 +120,10 @@ eigener CSS-Block ausser für wirklich Seitenspezifisches, Links relativ.
 Einzeln im Browser geöffnet sehen die Seiten darum unfertig aus; zum Prüfen
 neben eine Kopie von `stil.css` und `anleitung.js` legen. Eine neue Seite muss
 drüben in `anleitung.js` in die Liste `SEITEN` eingetragen werden, sonst
-erscheint sie in keiner Navigation. `build.py` fasst den Ordner nicht an.
+erscheint sie in keiner Navigation. `build.py` kopiert den Ordner nicht, schaut
+aber nach, ob `anleitung/<name>.html` existiert: Dann führt die Karte auf der
+Download-Seite zu dieser Beschreibung unter der Toolbox-URL, der Zip-Link steht
+darunter. Fehlt die Seite, zeigt die Karte direkt aufs Zip.
 
 Der Block, der drüben in `SEITEN` stehen muss, damit die Aufgabenseiten
 erscheinen — zwischen den Gruppen «Arbeitsweise» und «Weiterführend»:
