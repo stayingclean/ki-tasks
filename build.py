@@ -23,10 +23,15 @@ from pathlib import Path
 HERE = Path(__file__).parent
 BASE = HERE / "grundgeruest"
 TASKS = HERE / "aufgaben"
+ANLEITUNG = HERE / "anleitung"
 DIST = HERE / "dist"
 
 START = "START-HIER.txt"
 TITEL_OHNE_AUFGABE = "Papierkram"
+
+# Die Seiten aus anleitung/ veröffentlicht der Toolbox-Deploy, nicht dieses Repo.
+# Darum verlinkt die Download-Seite absolut dorthin.
+ANLEITUNG_URL = "https://stayingclean.github.io/toolbox/claude-anleitung/"
 
 
 def lese_info(task: Path) -> dict[str, str]:
@@ -35,11 +40,17 @@ def lese_info(task: Path) -> dict[str, str]:
         if ":" in zeile:
             k, v = zeile.split(":", 1)
             info[k.strip()] = v.strip()
+    # Die Beschreibung heisst wie die Aufgabe: aufgaben/<name>/ ↔ anleitung/<name>.html
+    if (ANLEITUNG / f"{task.name}.html").exists():
+        info["seite"] = f"{ANLEITUNG_URL}{task.name}.html"
     return info
 
 
 def alle_aufgaben() -> list[Path]:
-    return sorted(p for p in TASKS.iterdir() if p.is_dir() and (p / "INFO.md").exists())
+    """Nach `reihenfolge:` aus INFO.md, dann nach Name. Dieselbe Folge gilt in der
+    Navigation der Anleitung; der Toolbox-Deploy liest das Feld ebenfalls."""
+    tasks = [p for p in TASKS.iterdir() if p.is_dir() and (p / "INFO.md").exists()]
+    return sorted(tasks, key=lambda p: (int(lese_info(p).get("reihenfolge", 1000)), p.name))
 
 
 def kopiere_baum(quelle: Path, ziel: Path) -> None:
@@ -100,9 +111,14 @@ def schreibe_index(infos: list[dict[str, str]]) -> None:
     for g, items in gruppen.items():
         karten.append(f"<h2>{g}</h2><div class='grid'>")
         for i in items:
+            # Die Karte führt zur Beschreibung, dort steht der Download ebenfalls.
+            # Fehlt die Seite noch, bleibt es beim Zip.
+            ziel = i.get("seite", f"{i['name']}.zip")
+            mehr = "<span class='mehr'>Ablauf und Beschreibung →</span>" if "seite" in i else ""
             karten.append(
-                f"<a class='card' href='{i['name']}.zip'><span class='name'>{i['titel']}</span>"
-                f"<span class='meta'>{i['kurz']}</span><span class='dl'>↓ {i['name']}.zip</span></a>"
+                f"<div class='card'><a class='haupt' href='{ziel}'><span class='name'>{i['titel']}</span>"
+                f"<span class='meta'>{i['kurz']}</span>{mehr}</a>"
+                f"<a class='dl' href='{i['name']}.zip'>↓ {i['name']}.zip</a></div>"
             )
         karten.append("</div>")
     html = INDEX_HTML.replace("{{KARTEN}}", "\n".join(karten))
@@ -119,8 +135,9 @@ INDEX_HTML = """<!DOCTYPE html>
 .wrap{max-width:820px;margin:0 auto;padding:44px 20px 64px}h1{font-family:Georgia,serif;color:var(--accent-dark);font-size:2rem;margin:0 0 8px}
 .sub{color:var(--muted);margin:0 0 24px}h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:28px 0 10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-a.card{display:flex;flex-direction:column;gap:4px;padding:16px 18px;background:var(--card);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);transition:transform .15s,border-color .15s}
-a.card:hover{border-color:var(--accent);transform:translateY(-2px)}.name{font-weight:600;color:var(--accent-dark)}.meta{color:var(--muted);font-size:.88rem}.dl{font-size:.8rem;color:var(--accent);margin-top:6px}
+.card{display:flex;flex-direction:column;gap:6px;padding:16px 18px;background:var(--card);border:1px solid var(--border);border-radius:14px;transition:transform .15s,border-color .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}.haupt{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--text);flex:1}
+.name{font-weight:600;color:var(--accent-dark)}.meta{color:var(--muted);font-size:.88rem}.mehr{font-size:.85rem;font-weight:600;color:var(--accent);margin-top:4px}.dl{font-size:.8rem;color:var(--muted);text-decoration:none}.dl:hover{color:var(--accent)}
 .box{background:var(--tint);border-left:4px solid var(--accent);padding:12px 16px;border-radius:0 12px 12px 0;margin:0 0 18px}
 a.big{display:block;padding:18px 20px;background:var(--accent);color:#fff;border-radius:14px;text-decoration:none;font-weight:600;margin:0 0 10px}
 code{background:var(--card);border:1px solid var(--border);padding:1px 6px;border-radius:6px;font-size:.88em}

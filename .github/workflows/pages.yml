@@ -61,3 +61,27 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+  # Die Seiten aus anleitung/ veröffentlicht der Deploy von stayingclean/toolbox.
+  # Damit eine Änderung hier sofort drüben erscheint, stösst dieser Job ihn an.
+  # Das Token stellt eine GitHub App aus, die nur auf toolbox installiert ist
+  # (Repository permissions → Contents: Read and write). Einmalig einrichten:
+  #   Variable TOOLBOX_APP_ID   = App-ID
+  #   Secret   TOOLBOX_APP_KEY  = Private Key (.pem, ganzer Inhalt)
+  # Ohne die Variable wird der Job übersprungen; drüben zieht dann der tägliche
+  # Cron nach.
+  toolbox:
+    needs: deploy
+    if: vars.TOOLBOX_APP_ID != ''
+    runs-on: ubuntu-latest
+    steps:
+      - id: token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.TOOLBOX_APP_ID }}
+          private-key: ${{ secrets.TOOLBOX_APP_KEY }}
+          owner: stayingclean
+          repositories: toolbox
+      - name: Toolbox-Deploy anstossen
+        env:
+          GH_TOKEN: ${{ steps.token.outputs.token }}
+        run: gh api repos/stayingclean/toolbox/dispatches -f event_type=ki-tasks
