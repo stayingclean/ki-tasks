@@ -133,6 +133,10 @@ anleitung/<name>.html       <h1>…</h1>           → Titel in Navigation und K
                             <p class="lead">…</p> → Text der Karte auf aufgaben.html
 ```
 
+Der Lead wird wörtlich zum Kartentext. Er muss darum ohne die Seite verständlich
+sein: die Aufgabe beschreiben, nicht die Seite («Was Claude dabei fragt …» taugt
+als Karte nicht).
+
 Beim Toolbox-Deploy setzt `tools/anleitung_aufgaben.py` drüben daraus den Block
 «Aufgaben» in `SEITEN` und die Karten zwischen `<!-- AUFGABEN-KARTEN -->` auf
 `aufgaben.html` ein. Die Karten, die hier im Repo stehen, sind nur für die
