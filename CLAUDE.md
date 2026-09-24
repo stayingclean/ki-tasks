@@ -18,13 +18,10 @@ Beim Arbeiten an diesem Repo:
 - Ordnernamen im Grundgerüst: Deutsch, ohne Umlaute (ae/oe/ue), mit einstelliger
   Nummer in der Reihenfolge der Benutzung (1_Meine-Unterlagen … 3_Zum-Versenden);
   `9_Claude` ist Claudes Bereich und steht darum am Schluss.
-- Zielsysteme sind Windows und Mac, Linux wo es ohne Aufwand geht. Keine
-  Anleitung und keine Datei, die nur unter Windows funktioniert.
 - `build.py` hat keine Abhängigkeiten; das soll so bleiben (läuft in der Action
   mit blankem Python). `START-HIER.txt` muss mit BOM und CRLF ins Zip — der
   Build läuft auf Linux, die Datei landet in Notepad.
-- `platzhalter/` ist ein eigenes uv-Projekt (Programm für Windows und Mac, per
-  PyInstaller: EXE bzw. `.app`; Linux nur per `uvx`).
+- `platzhalter/` ist ein eigenes uv-Projekt (Windows-Tool, EXE per PyInstaller).
   Befehle dort mit `uv run …`; nach Änderungen `uv run pytest`. Es hat nichts mit
   `build.py` zu tun. Der Ordner `verlauf` wird von der Suche ausgenommen, damit
   Archivfassungen nicht mitgefüllt werden.

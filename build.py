@@ -148,13 +148,12 @@ footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--border);color
 <h1>Aufgaben-Ordner zum Herunterladen</h1>
 <p class="sub">Fertige Startordner für Papierkram mit KI-Unterstützung. Entpacken, in Claude Cowork verbinden, «Was steht an?» schreiben.
 Wie es weitergeht, steht in der <a href="https://stayingclean.github.io/toolbox/claude-anleitung/">Anleitung «Mit Claude arbeiten»</a>.</p>
-<div class="box">Zip in einen neuen Ordner entpacken (Windows: Rechtsklick → «Alle extrahieren»; Mac: Doppelklick). Darin liegt <code>START-HIER.txt</code> — mehr musst du nicht lesen.
+<div class="box">Zip in einen neuen Ordner entpacken (Windows: Rechtsklick → «Alle extrahieren»). Darin liegt <code>START-HIER.txt</code> — mehr musst du nicht lesen.
 Claude stellt die Fragen und legt die Dateien selber an; du legst nur deine Unterlagen in <code>1_Meine-Unterlagen</code>.
 Zwei Aufgaben: zwei Zips herunterladen, in zwei Ordner entpacken.</div>
 {{KARTEN}}
 <a class="big" href="grundgeruest.zip" style="background:var(--card);color:var(--accent-dark);border:1px solid var(--border);margin-top:22px">↓ Leerer Ordner für eine eigene Aufgabe (grundgeruest.zip)</a>
 <a class="big" href="platzhalter.exe" style="background:var(--card);color:var(--accent-dark);border:1px solid var(--border)">↓ platzhalter.exe — Adresse, Telefon und IBAN am Schluss einsetzen</a>
-<a class="big" href="platzhalter-mac.zip" style="background:var(--card);color:var(--accent-dark);border:1px solid var(--border)">↓ platzhalter-mac.zip — dasselbe für den Mac</a>
 <footer>
 <div>Quelle und Mitarbeit: <a href="https://github.com/stayingclean/ki-tasks">github.com/stayingclean/ki-tasks</a> · Teil der <a href="https://stayingclean.github.io/toolbox/">Toolbox</a></div>
 <div class="footer-links"><a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener"><img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28"><span>Erstellt von stayingclean</span></a>

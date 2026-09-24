@@ -37,8 +37,7 @@ Empfänger sehen muss, bleibt draussen und kommt erst beim Versand dazu.
   `[Einzugsdatum]`, `[Monatsmiete]`, dazu `[ADRESSE]` `[TELEFON]`
   `[EMAIL]` `[AHV]` `[IBAN]`. Jeder Name meint im ganzen Ordner dasselbe — zwei
   verschiedene Beträge heissen nie beide `[Betrag]`. Die Person setzt sie am
-  Schluss mit dem Programm Platzhalter ein (`platzhalter.exe` unter Windows,
-  `Platzhalter` auf dem Mac).
+  Schluss mit `platzhalter.exe` ein.
 - Kannst du ohne eine Antwort nicht weiterarbeiten, gehört das nicht ins Dokument,
   sondern als offener Punkt in `stand.md` — und du fragst danach.
 
