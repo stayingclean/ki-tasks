@@ -72,8 +72,9 @@ das ist die Kontrolle, ob deine Kriterien stimmen.
 Was Vermieter verlangen:
 
 - Betreibungsauszug, höchstens 3 Monate alt (Betreibungsamt des Wohnorts, ca. CHF 17)
-- Einkommensnachweis (Lohnabrechnung, Bestätigung Arbeitstraining oder Sozialdienst)
-- Referenz (bisheriger Vermieter, Institution oder Arbeitgeber)
+- Einkommensnachweis (Lohnabrechnung, Taggeldabrechnung oder Bestätigung des
+  Sozialdienstes)
+- Referenz (bisheriger Vermieter oder Arbeitgeber)
 - Haftpflichtversicherung: Police oder Offerte
 
 Die ID-Kopie kommt erst beim Vertrag, nicht mit der Anfrage — sie gehört nicht in
