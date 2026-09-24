@@ -18,6 +18,34 @@ dort tatsächlich anbietet, und sag es mit Begründung, bevor du weitersuchst �
 zusammen mit den Stellschrauben: Budget hoch, Umkreis grösser, oder WG-Zimmer
 zulassen.
 
+## Wohnung in der Nähe einer Stelle
+
+Ist neben diesem Ordner ein Ordner der Aufgabe «Stelle suchen» verbunden
+(erkennbar an `2_Arbeitsstand/bewerbungen/`), kann der Ort statt einer Gemeinde
+der Arbeitsort einer oder mehrerer Stellen sein.
+
+- **Der Stellen-Ordner ist nur Quelle.** Du liest dort, schreibst nichts,
+  verschiebst nichts, legst nichts an. Massgebend für diese Aufgabe sind
+  `stand.md` und die Ablage **dieses** Ordners. Die `CLAUDE.md` und `stand.md`
+  des Stellen-Ordners gelten hier nicht.
+- **Welche Stellen:** Standard sind die in `3_Im-Gespraech/` und `5_Zusage/`.
+  `2_Beworben/` nur, wenn die Person es will. Den Arbeitsort nimmst du aus
+  `inserat.md` im jeweiligen Bewerbungsordner und zeigst die Liste einmal zur
+  Bestätigung. Nennt die Person selbst Stellen, gelten diese.
+- **Umkreis:** Liegen die Arbeitsorte nahe beieinander, ein gemeinsamer
+  Umkreis, sonst einer pro Stelle.
+- **Pendelzeit:** Pro Inserat die Zeit mit ÖV zu **jeder** massgebenden Stelle
+  (sbb.ch, Werktag 7 Uhr), in `inserate.md` als eigene Spalte. Grobe
+  Schätzungen deutlich als solche markieren.
+- **Risiko:** Sag dazu, dass eine Wohnung zuzusagen, bevor die Stelle sicher
+  ist, schiefgehen kann. Sinnvoll wird es mit einer mündlichen Zusage oder wenn
+  das Gebiet ohnehin passt.
+- **Im Anschreiben** darf stehen, dass eine Stelle in der Nähe in Aussicht
+  ist — ohne Firmennamen, solange nichts unterschrieben ist.
+
+Ändert sich im Stellen-Ordner etwas (neue Einladung, Absage), fragst du beim
+nächsten Start, ob der Umkreis angepasst werden soll.
+
 ## Suchen
 
 Portale: homegate.ch, immoscout24.ch, flatfox.ch, wgzimmer.ch. Inserate der

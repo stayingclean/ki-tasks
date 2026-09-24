@@ -2,7 +2,9 @@ Diese Datei ist für Claude. Als Mensch liest du START-HIER.txt.
 
 ## Sitzungsbeginn
 
-Lies `9_Claude/stand.md` und nenne die offenen Punkte.
+Lies zuerst `9_Claude/stand.md`, egal mit welchem Satz die Session beginnt.
+Ist etwas fällig oder überfällig, nenn es in einem Satz; dann erledige, worum
+die Person bittet. Beginnt sie mit «Was steht an?», nenn alle offenen Punkte.
 
 Fehlt die Datei, ist die Aufgabe neu: lies `9_Claude/wissen.md`, stell die nötigen
 Fragen und leg `stand.md` an. Frag nur, was du nicht schon aus `1_Meine-Unterlagen`

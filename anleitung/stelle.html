@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stelle suchen · Mit Claude arbeiten</title>
-  <meta name="description" content="Inserate gegen den Lebenslauf bewerten, Motivationsschreiben pro Stelle, Arbeitsbemühungen fürs RAV">
+  <meta name="description" content="Stellen laufend suchen, Bewerbungen nach Stand geordnet, Motivationsschreiben pro Stelle und der Monatsnachweis fürs RAV">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +15,62 @@
        sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
        breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
     main { min-width: 0; }
+
+    /* Nur hier: der Download-Knopf, wie auf platzhalter.html. */
+    .download { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #fff;
+      text-decoration: none; font-weight: 600; padding: 14px 22px; border-radius: 14px; margin: 0 0 10px; }
+    .download:hover { background: var(--accent-dark); }
+    .download small { display: block; font-weight: 400; font-size: .78rem; opacity: .85; }
+
+    /* Nur hier: die Farben der fünf Status-Ordner. Dieselben im Baum,
+       im Ablauf und in der Tabelle, damit man sie im Explorer wiedererkennt. */
+    .st { display: inline-block; font-family: var(--font-mono); font-size: .82rem; padding: 1px 8px;
+      border-radius: 6px; border-left: 4px solid var(--muted); background: var(--card); white-space: nowrap; }
+    .st1 { border-color: var(--muted); }
+    .st2 { border-color: var(--accent); background: var(--accent-tint); }
+    .st3 { border-color: var(--warn); background: var(--warn-tint); }
+    .st4 { border-color: var(--text); }
+    .st5 { border-color: var(--ok); background: var(--ok-tint); }
+    .tree .st { font-size: inherit; padding: 0 6px; }
+
+    /* Nur hier: Ablauf pro Stelle. Senkrecht, damit er auf dem Handy nicht
+       schrumpft; Abzweigungen als Reihe, die bei wenig Platz umbricht. */
+    .ablauf { list-style: none; padding: 0; margin: 0 0 24px; }
+    .ablauf > li { margin: 0; padding: 0 0 26px; position: relative; }
+    .ablauf > li:not(:last-child)::after { content: '↓'; position: absolute; left: 50%; bottom: 3px;
+      transform: translateX(-50%); color: var(--accent); font-size: 1.1rem; line-height: 1; }
+    .ablauf .reihe { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ablauf .k { flex: 1 1 160px; background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 10px 14px; font-size: .9rem; }
+    .ablauf .k b { display: block; color: var(--accent-dark); margin-bottom: 2px; }
+    .ablauf .k.du { background: var(--accent-tint); border-color: #CDE4E4; }
+    .ablauf .k.opt { border: 1.5px dashed var(--muted); background: transparent; }
+    .ablauf .k.zurueck { color: var(--muted); }
+    .ablauf .k.zurueck b { color: var(--muted); }
+    .ablauf .k .st { margin-top: 6px; }
+    .ablauf .wer { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted);
+      margin: 0 0 4px; }
+    .legende { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .85rem; color: var(--muted); margin: 0 0 14px; }
+    .legende span::before { content: ''; display: inline-block; width: 14px; height: 10px; border-radius: 3px;
+      border: 1px solid var(--border); background: var(--card); margin-right: 6px; vertical-align: -1px; }
+    .legende .l-du::before { background: var(--accent-tint); border-color: #CDE4E4; }
+    .legende .l-opt::before { border-style: dashed; background: transparent; border-color: var(--muted); }
+
+    /* Nur hier: der RAV-Monat als Zeitleiste. */
+    .monat { list-style: none; padding: 0; margin: 0 0 24px; display: flex; gap: 4px; }
+    .monat li { margin: 0; padding: 10px 12px; font-size: .88rem; background: var(--card);
+      border: 1px solid var(--border); border-top: 5px solid var(--accent); border-radius: 10px; }
+    .monat li b { display: block; font-size: .8rem; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+    .monat .laufend { flex: 5; }
+    .monat .avp { flex: 2; border-top-color: var(--warn); }
+    .monat .ende { flex: 1.4; border-top-color: var(--muted); }
+    .monat .frist { flex: 2.4; border-top-color: var(--warn); background: var(--warn-tint); }
+    @media (max-width: 640px) {
+      .monat { flex-direction: column; }
+      .monat li { border-top-width: 1px; border-left: 5px solid var(--accent); }
+      .monat .avp, .monat .frist { border-left-color: var(--warn); }
+      .monat .ende { border-left-color: var(--muted); }
+    }
   </style>
 </head>
 <body>
@@ -31,119 +87,279 @@
 <header class="page">
   <p class="kicker">Aufgaben</p>
   <h1>Stelle suchen</h1>
-  <p class="lead">Inserate finden und gegen deinen Lebenslauf bewerten, pro Stelle ein Motivationsschreiben, der Nachweis fürs RAV nebenher. Und auf Wunsch gleich Wohnungen in der Nähe.</p>
+  <p class="lead">Stellen laufend suchen und gegen deinen Lebenslauf bewerten, pro Stelle ein Motivationsschreiben, jede Bewerbung in dem Ordner, der ihrem Stand entspricht. Bist du beim RAV angemeldet, macht Claude aus denselben Angaben den Monatsnachweis.</p>
 </header>
+
+<a class="download" href="https://stayingclean.github.io/ki-tasks/stelle.zip">
+  <span aria-hidden="true">↓</span>
+  <span>stelle.zip<small>Startordner · entpacken, in Cowork verbinden</small></span>
+</a>
 
 <div class="summary">
   <h2>Kurzfassung</h2>
   <ul>
-    <li><strong>Zip:</strong> <code>stelle.zip</code> von <a href="https://stayingclean.github.io/ki-tasks/">stayingclean.github.io/ki-tasks</a>. Entpacken, Ordner in Cowork verbinden, «Was steht an?» schreiben.</li>
-    <li><strong>Voraussetzung:</strong> dein Lebenslauf muss in <code>1_Meine-Unterlagen</code> liegen. Ohne ihn fängt Claude nicht an.</li>
-    <li><strong>Es entsteht:</strong> eine Inseratsübersicht mit Passung, pro ausgewählte Stelle ein Motivationsschreiben mit Beilagenliste, das versandfertige PDF und die Liste der Arbeitsbemühungen.</li>
-    <li><strong>Claude schreibt keinen Lebenslauf.</strong> Er liest deinen und sagt dir im Chat, was er ändern würde — die Datei bleibt deine.</li>
+    <li><strong>Start:</strong> Zip entpacken, Lebenslauf nach <code>1_Meine-Unterlagen</code>, den Ordner in Cowork verbinden, «Was steht an?» schreiben. Jeder andere Satz geht auch.</li>
+    <li><strong>Suchen:</strong> Claude sucht auf den gängigen Schweizer Portalen, auf Wunsch täglich oder wöchentlich von selbst, und schlägt nur vor, was du noch nicht gesehen hast.</li>
+    <li><strong>Bewerben:</strong> Du wählst, Claude schreibt, du prüfst. Das fertige Dossier liegt im Postausgang, gesendet wird von dir.</li>
+    <li><strong>Übersicht:</strong> Jede Bewerbung ist ein Ordner, der mit ihrem Stand wandert — von <span class="st st1">1_in-Vorbereitung</span> bis <span class="st st5">5_Zusage</span>.</li>
+    <li><strong>RAV:</strong> Wenn du angemeldet bist, erinnert Claude an die Fristen und bereitet den Nachweis und das AvP vor. Einreichen tust du.</li>
   </ul>
 </div>
 
-<div class="warn">
-  <p><strong>Ohne Lebenslauf kein Start.</strong> Claude braucht ihn als PDF oder Word-Datei in <code>1_Meine-Unterlagen</code>. Fehlt er, hält er an und sagt es. Der Grund: Ohne Lebenslauf sucht er nach Stichworten statt nach deinem tatsächlichen Werdegang, und die Passung, die er dann hinschreibt, ist geraten.</p>
-</div>
-
-<h2>Was Claude am Anfang fragt</h2>
+<h2>Was du brauchst</h2>
 <ul>
-  <li>Beruf oder Tätigkeit</li>
-  <li>Ort und Umkreis — in Kilometern oder in Minuten mit dem ÖV</li>
+  <li><strong>Lebenslauf</strong> als PDF oder Word in <code>1_Meine-Unterlagen</code>. Ohne ihn fängt Claude nicht an: Er würde nach Stichworten suchen statt nach deinem Werdegang.</li>
+  <li><strong>Arbeitszeugnisse und Diplome</strong> als PDF. Sie kommen ins Dossier.</li>
+  <li><strong>Vorlage für das Motivationsschreiben</strong>, freiwillig, als Word-Datei. Hast du eine, übernimmt Claude Aufbau, Absender und Ton und schreibt nur den Inhalt auf jede Stelle um.</li>
 </ul>
-<p>Mehr nicht. Pensum, Ausschlüsse und Antrittstermin fragt er erst, wenn ein konkretes Inserat es nötig macht. Alles Übrige nimmt er aus dem Lebenslauf.</p>
-
-<h2>Wo gesucht wird</h2>
-<p>jobs.ch, indeed.ch, jobagent.ch und job-room.ch, jeweils die Inserate der letzten 30 Tage.</p>
-<p>Die Passung von 1 bis 5 entsteht aus dem Vergleich Inserat ↔ Lebenslauf, mit dem Hauptgrund dagegen. Was laut Lebenslauf fehlt, benennt Claude — «verlangt Führungserfahrung, im Lebenslauf keine» ist eine brauchbare Auskunft, «Passung 3» allein nicht.</p>
+<p>Nicht in den Ordner gehören AHV-Ausweis, RAV-Verfügungen, Taggeldabrechnungen und Kontoauszüge. Für diese Aufgabe braucht sie niemand.</p>
 <div class="note">
-  <p><strong>Job-Room und eigene Konten.</strong> Wenn ein Portal ohne Browser nichts liefert oder du dein RAV-Konto durchsuchen lassen willst, sagst du: «Nutze dafür meinen Chrome-Browser.» Du bist dort selbst eingeloggt, und Claude fragt pro Website um Erlaubnis.</p>
+  <p><strong>Keine Platzhalter in dieser Aufgabe.</strong> Anders als bei den anderen Aufgaben setzt Claude deine Adresse, Telefonnummer und E-Mail direkt ein — sie stehen ohnehin in deinem Lebenslauf. Fehlt eine Angabe wie das Eintrittsdatum, fragt er einmal und merkt sie sich. <code>platzhalter.exe</code> brauchst du hier nicht.</p>
 </div>
 
-<h2>Was entsteht</h2>
-<div class="tree">2_Arbeitsstand/
-  inserate.md                       <span class="c">Übersicht, eine Zeile je Inserat, nach Passung sortiert</span>
-  inserate/
-    04_muster-ag/
-      inserat.pdf                   <span class="c">Druckansicht des Inserats</span>
-      inserat.md                    <span class="c">Firma, Stelle, Ort, Pensum, Anforderungen, Frist, Kontakt</span>
-  bewerbungen/
-    04_muster-ag/
-      motivationsschreiben.docx     <span class="c">höchstens eine Seite</span>
-      beilagen.md                   <span class="c">abgeglichen mit dem Inserat</span>
-  arbeitsbemuehungen.md             <span class="c">Datum, Firma, Stelle, Art, Ergebnis</span>
-3_Zum-Versenden/
-  2026-09-20_muster-ag/
-    motivationsschreiben.pdf
-    lebenslauf.pdf                  <span class="c">deiner, unverändert kopiert</span>
-    mailtext.md</div>
+<h2>Der Start</h2>
+<p>Beim ersten Mal liest Claude den Lebenslauf und fragt nur, was dort fehlt: Beruf, falls unklar, Ort und Umkreis, und ob du beim RAV angemeldet bist oder dich bald anmeldest. Aus Lebenslauf und Antworten baut er ein Suchprofil — Berufsbezeichnungen mit Varianten, Region, Pensum, Ausschlüsse — und zeigt es dir einmal zur Bestätigung.</p>
+<p>Die RAV-Frage ist ein Schalter. Bei <em>nein</em> fallen die Monatsaufgaben weg, die Bewerbungen werden trotzdem so geführt, dass ein Nachweis jederzeit möglich ist. Meldest du dich später an, sagst du es; ab dann gilt <em>ja</em>.</p>
 
-<h2>Auswählen läuft im Chat</h2>
-<p>Steht die Übersicht, fragt Claude, welche Nummern weiterverfolgt werden. «3, 7 und 9» genügt; eine Tabelle bearbeiten musst du nicht.</p>
-<p>Die aussortierten nennt er mit Grund — Vermittler statt Arbeitgeber, Pensum zu tief, Lehrstelle, falsches Berufsfeld. Lies das kurz durch: Dort merkst du, ob er den Beruf richtig verstanden hat.</p>
-
-<h2>Was im Motivationsschreiben steht</h2>
-<p>Höchstens eine Seite, Ich-Form, sachlich, auf das Inserat bezogen — und nur mit Fakten aus deinem Lebenslauf. Was das Inserat verlangt und im Lebenslauf fehlt oder anders dasteht, sagt Claude im Chat, statt es im Brief zu überspielen. Dazu, welche Station für genau dieses Inserat betont gehört.</p>
-<p>Offen bleiben nur <code>[ADRESSE]</code>, <code>[TELEFON]</code> und <code>[EMAIL]</code>. AHV-Nummer und IBAN haben in einer Bewerbung nichts verloren. Eingesetzt wird am Schluss auf deinem Computer, siehe <a href="platzhalter.html">Platzhalter einsetzen</a>.</p>
-<div class="note">
-  <p><strong>Eine Lücke im Lebenslauf</strong> braucht im Schreiben einen Satz, nicht mehr: der Unterbruch benannt, dann der Wiedereinstieg. Wie er benannt wird — und ob er überhaupt vorkommt — entscheidest du. Claude fragt danach, statt eine Formulierung zu setzen.</p>
+<h2>Der Ablauf pro Stelle</h2>
+<div class="legende">
+  <span>Claude</span><span class="l-du">Du</span><span class="l-opt">nur mit Projekt oder RAV</span>
 </div>
-
-<h2>Der Nachweis fürs RAV</h2>
-<p><code>2_Arbeitsstand/arbeitsbemuehungen.md</code> führt Claude fort, sobald etwas rausgeht: Datum, Firma, Stelle, Art der Bewerbung, Ergebnis. Das RAV verlangt diesen Nachweis monatlich, und er entsteht hier nebenher statt am Stichtag aus dem Gedächtnis.</p>
-
-<h2>Danach: Wohnung in der Nähe?</h2>
-<p>Steht die Auswahl, fragt Claude, ob er auch Wohnungen im Umkreis der ausgewählten Stellen suchen soll. Wenn ja:</p>
-<ul>
-  <li>Er nimmt den Arbeitsort jeder ausgewählten Stelle. Liegen mehrere nahe beieinander, sucht er im gemeinsamen Umkreis, sonst pro Stelle.</li>
-  <li>Portale wie bei der <a href="wohnung.html">Wohnungssuche</a>, Ablage unter <code>2_Arbeitsstand/wohnungen/</code>.</li>
-  <li>Pro Inserat die Pendelzeit mit ÖV zu <em>jeder</em> massgebenden Stelle, Werktag 7 Uhr. Grobe Schätzungen markiert er als solche.</li>
-  <li>Im Anschreiben an den Vermieter erwähnt er, dass eine Stelle in der Nähe in Aussicht steht — ohne Firmennamen, solange nichts unterschrieben ist.</li>
-</ul>
-<div class="warn">
-  <p><strong>Und er sagt dazu, dass das riskant ist.</strong> Eine Wohnung zuzusagen, bevor die Stelle sicher ist, geht schief, wenn die Zusage ausbleibt. Sinnvoll wird die Doppelsuche erst, wenn eine Stelle mündlich zugesagt ist — oder wenn das Gebiet ohnehin passt.</p>
-</div>
-
-<h2>Wo Claude widerspricht</h2>
-<ul>
-  <li><strong>Kein Lebenslauf, kein Start.</strong> Er hält an und sagt es, statt nach Stichworten zu suchen.</li>
-  <li><strong>Keine neue Lebenslauf-Datei.</strong> Änderungsvorschläge kommen als Liste im Chat. Deine Datei bleibt deine.</li>
-  <li><strong>Was im Lebenslauf fehlt.</strong> Verlangt das Inserat etwas, das dort nicht steht, sagt er es — statt es im Schreiben zu behaupten.</li>
-  <li><strong>Keine Formulierung für die Lücke.</strong> Das ist deine Entscheidung, und er fragt danach.</li>
-</ul>
-
-<h2>Ein Durchlauf</h2>
-<ol class="steps">
+<ol class="ablauf">
   <li>
-    <h3>Lebenslauf ablegen, Ordner verbinden <span class="label ok-l">Du</span></h3>
-    <p>Zip entpacken, Lebenslauf nach <code>1_Meine-Unterlagen</code>, Ordner in Cowork verbinden, «Was steht an?» schreiben. Claude liest den Lebenslauf und fragt nach Beruf und Region.</p>
+    <p class="wer">Suchen</p>
+    <div class="reihe">
+      <div class="k opt"><b>Geplant</b>täglich oder wöchentlich, wenn ein Projekt eingerichtet ist</div>
+      <div class="k du"><b>Auf deine Bitte</b>oder beim Sessionstart, wenn die letzte Suche zu lange her ist</div>
+    </div>
   </li>
   <li>
-    <h3>Suchen und bewerten <span class="label">Claude</span></h3>
-    <p>Vier Portale, 30 Tage. Die Treffer landen als Übersicht und als Einzelordner in <code>2_Arbeitsstand</code>, jeder mit Passung und Hauptgrund dagegen.</p>
+    <div class="reihe">
+      <div class="k"><b>Neue Stellen</b>als Tabelle im Chat, nach Passung sortiert. «Keine neuen Stellen» ist auch eine Antwort.</div>
+    </div>
   </li>
   <li>
-    <h3>Nummern nennen <span class="label ok-l">Du</span></h3>
-    <p>Du liest die Übersicht, öffnest die Links selbst und sagst im Chat, welche Stellen weiterverfolgt werden. Das ist die Entscheidung, die nur du treffen kannst.</p>
+    <p class="wer">Du entscheidest</p>
+    <div class="reihe">
+      <div class="k du"><b>Ja</b>weiter mit dem Entwurf</div>
+      <div class="k zurueck"><b>Nein ↺</b>steht in <code>stellen.md</code>. Kommt lange nichts Neues, schlägt Claude sie ein einziges Mal wieder vor, wenn sie noch offen ist.</div>
+      <div class="k opt"><b>Zuweisung RAV</b>kein Nein möglich, sonst drohen Einstelltage</div>
+    </div>
   </li>
   <li>
-    <h3>Schreiben entwerfen <span class="label">Claude</span></h3>
-    <p>Pro Stelle ein Motivationsschreiben und eine Beilagenliste. Dazu im Chat: was das Inserat verlangt und im Lebenslauf fehlt, und welche Station zu betonen wäre.</p>
+    <div class="reihe">
+      <div class="k"><b>Entwurf</b>Inserat gesichert, Motivationsschreiben aus deiner Vorlage, Text zuerst im Chat<br><span class="st st1">1_in-Vorbereitung</span></div>
+    </div>
   </li>
   <li>
-    <h3>In Word kommentieren <span class="label ok-l">Du</span></h3>
-    <p>Kommentare setzen — «zu selbstbewusst», «streichen», «war 2016 nicht 2017» — speichern, im Chat «Kommentare einarbeiten». Die alte Fassung wandert nach <code>verlauf/</code>. Mehr als drei bis vier Bewerbungen gleichzeitig liest man nicht mehr richtig, und das Lesen ist der Teil, der zählt.</p>
+    <div class="reihe">
+      <div class="k du"><b>Du prüfst ↺</b>im Chat oder mit Kommentaren in Word, bis du «passt» sagst</div>
+    </div>
   </li>
   <li>
-    <h3>Freigeben, versenden, nachführen <span class="label">Claude</span> <span class="label ok-l">Du</span></h3>
-    <p>Auf deine Freigabe baut Claude den Ordner in <code>3_Zum-Versenden</code>, kopiert deinen Lebenslauf unverändert dazu und trägt die Bewerbung in <code>arbeitsbemuehungen.md</code> ein. Du setzt die Platzhalter ein und schickst selbst ab.</p>
+    <p class="wer">Versandweg, aus dem Inserat</p>
+    <div class="reihe">
+      <div class="k"><b>E-Mail</b>ein PDF mit allem, dazu der Mailtext — mit Gmail-Verbindung als Entwurf</div>
+      <div class="k"><b>Firmenportal</b>getrennte PDF: Schreiben, Lebenslauf, Zeugnisse, Diplome</div>
+      <div class="k"><b>Unklar</b>Claude fragt dich</div>
+    </div>
+  </li>
+  <li>
+    <div class="reihe">
+      <div class="k"><b>Postausgang</b>das fertige Dossier in <code>3_Zum-Versenden</code></div>
+      <div class="k du"><b>Du sendest</b>selbst — Claude sendet nie</div>
+    </div>
+  </li>
+  <li>
+    <div class="reihe">
+      <div class="k du"><b>Du meldest zurück</b>«Muster AG gesendet, per Portal»<br><span class="st st2">2_Beworben</span></div>
+    </div>
+  </li>
+  <li>
+    <p class="wer">Die Antwort</p>
+    <div class="reihe">
+      <div class="k"><b>Einladung</b><span class="st st3">3_Im-Gespraech</span></div>
+      <div class="k"><b>Absage</b>auch «keine Antwort» nach 3 Wochen<br><span class="st st4">4_Absage</span></div>
+      <div class="k"><b>Zusage</b><span class="st st5">5_Zusage</span></div>
+    </div>
+  </li>
+  <li>
+    <div class="reihe">
+      <div class="k opt"><b>Monatsende</b>alle Bemühungen des Monats in den Nachweis fürs RAV</div>
+    </div>
   </li>
 </ol>
 
-<h2>Beim nächsten Mal</h2>
-<p>Ordner verbinden, «Was steht an?». Claude nennt die offenen Punkte aus <code>stand.md</code>: welche Bewerbung draussen ist, wo eine Frist in vier Tagen abläuft, welche Stelle noch im Entwurf liegt. Bekommst du eine Antwort — Absage, Einladung, Zusage — sagst du es ihm; er trägt sie in <code>arbeitsbemuehungen.md</code> nach.</p>
+<h2>Projekt einrichten</h2>
+<p>Ein Cowork-Projekt ist freiwillig. Claude empfiehlt es, wenn du beim RAV angemeldet bist oder die Suche länger dauert. Es bringt drei Dinge: alle Chats zur Stellensuche an einem Ort, eine <strong>geplante Suche</strong>, die deinen Ordner sieht, und ein eigenes Gedächtnis. Die Regeln für den Ordner braucht das Projekt nicht, die stehen schon in <code>CLAUDE.md</code>.</p>
+<p>Du musst nichts ausdenken. Sagst du ja, schreibt dir Claude alle Felder fertig ausgefüllt in den Chat — Name, Beschreibung, Anweisungen, Links, die geplante Aufgabe — und du kopierst sie in die Projektmaske. Was nur du weisst, etwa die mit dem RAV vereinbarte Anzahl Bewerbungen, fragt er vorher. Die Anweisungen sehen etwa so aus:</p>
+<div class="prompt">
+  <div class="ptitle">Projekt-Anweisungen (Beispiel) <button class="copy" type="button">Kopieren</button></div>
+  <pre>Zu Beginn jeder Session zuerst 9_Claude/stand.md lesen, egal was die erste
+Nachricht ist. Fälliges in einem Satz nennen, dann tun, worum ich bitte.
+E-Mails nur als Entwurf anlegen, nie senden — auch nicht auf Nachfrage.
+Geplante Läufe schreiben ihr Ergebnis nach 2_Arbeitsstand/stellen.md und
+9_Claude/stand.md und legen keine Bewerbung an.</pre>
+</div>
+<div class="warn">
+  <p><strong>Die geplante Suche läuft nur, wenn dein Computer wach und Claude Desktop offen ist.</strong> Sie braucht deinen Ordner, und der liegt auf deinem Computer. Ob ein verpasster Lauf nachgeholt wird, ist nicht dokumentiert. Darum ist sie ein Zusatz: Öffnest du eine Session, schaut Claude, wann zuletzt gesucht wurde, und sucht nach, wenn es zu lange her ist.</p>
+</div>
+
+<h2>Der Ordner</h2>
+<p>Den Stand einer Bewerbung siehst du im Explorer, ohne eine Datei zu öffnen. Claude legt die Ordner an, sobald er sie braucht, und verschiebt die Bewerbungen, wenn du ihm eine Antwort meldest.</p>
+<div class="tree">2_Arbeitsstand/
+  stellen.md                         <span class="c">jede gefundene Stelle und dein Entscheid</span>
+  bewerbungen/
+    <span class="st st1">1_in-Vorbereitung/</span>             <span class="c">Claude schreibt, du prüfst</span>
+      2026-11-03_Muster-AG_Projektleiter/
+        inserat.pdf  inserat.md  motivationsschreiben.docx
+    <span class="st st2">2_Beworben/</span>                    <span class="c">gesendet, noch keine Antwort</span>
+    <span class="st st3">3_Im-Gespraech/</span>                <span class="c">Einladung, Gespräch, Probetag</span>
+    <span class="st st4">4_Absage/</span>                      <span class="c">auch «keine Antwort»</span>
+    <span class="st st5">5_Zusage/</span>
+  rav/2026-11/                       <span class="c">nur wenn du beim RAV bist</span>
+3_Zum-Versenden/                     <span class="c">Postausgang: nur, was jetzt raus muss</span>
+9_Claude/
+  stand.md  suche-stellen.md         <span class="c">Claudes Notizen, du bearbeitest sie nicht</span></div>
+<ul>
+  <li><strong>Das Datum im Namen</strong> ist das Bewerbungsdatum. So stehen die Ordner in der Reihenfolge, die der RAV-Nachweis braucht.</li>
+  <li><strong>Vermittler</strong> haben keinen eigenen Ordner, sie stehen im Namen: <code>2026-11-05_Vermittler-XY_fuer-Muster-AG_Projektleiter</code>. Eine Bewerbung über einen Vermittler ist trotzdem offen, abgesagt oder zugesagt.</li>
+  <li><strong>Stellen, die du ablehnst,</strong> bekommen keinen Ordner. Sie stehen nur in <code>stellen.md</code>, mit Grund.</li>
+  <li><strong>Ist der Postausgang leer,</strong> gibt es nichts zu senden.</li>
+</ul>
+
+<h2>Suchen</h2>
+<p>Standardmässig sucht Claude auf <strong>jobs.ch, jobup.ch, jobscout24.ch, job-room.ch und jobwinner.ch</strong>. indeed.ch und LinkedIn sperren automatische Abrufe; für sie gibt er dir die fertige Suchadresse zum Selberöffnen. Portale nimmst du mit einem Satz dazu oder weg.</p>
+<ul>
+  <li><strong>Passung 1 bis 5</strong> aus dem Vergleich Inserat ↔ Lebenslauf, mit dem Hauptgrund dagegen. «Verlangt Führungserfahrung, im Lebenslauf keine» ist eine brauchbare Auskunft, «Passung 3» allein nicht.</li>
+  <li><strong>Nur Neues.</strong> Was in <code>stellen.md</code> steht, schlägt er nicht nochmals vor. Ausnahme: Findet er 7 Tage lang nichts, holt er abgelehnte Stellen hervor, die mindestens 14 Tage zurückliegen und noch online sind — höchstens drei, jede nur einmal.</li>
+  <li><strong>Die Zahlen sind deine.</strong> Wiedervorlage, Abstand, Anzahl und die 3 Wochen bis zum Nachfassen änderst du mit einem Satz.</li>
+</ul>
+
+<h2>Bewerben</h2>
+<ol class="steps">
+  <li>
+    <h3>Entwurf <span class="label">Claude</span></h3>
+    <p>Er sichert das Inserat als PDF, schreibt das Motivationsschreiben — höchstens eine Seite, nur mit Fakten aus deinem Lebenslauf — und zeigt dir den Text zuerst im Chat. Dazu sagt er, was das Inserat verlangt und im Lebenslauf fehlt, und welche Station du betonen solltest.</p>
+  </li>
+  <li>
+    <h3>Prüfen <span class="label ok-l">Du</span></h3>
+    <p>Im Chat oder mit Kommentaren direkt in Word. Die alte Fassung wandert nach <code>verlauf/</code>. Erst dein «passt» gibt den nächsten Schritt frei.</p>
+  </li>
+  <li>
+    <h3>Versandweg klären <span class="label">Claude</span></h3>
+    <p>Aus dem Inserat: per E-Mail ein PDF mit allem, über ein Firmenportal getrennte PDF je Dokument. Beim ersten Mal fragt er, wie du es willst, danach nur noch, wenn ein Inserat abweicht. Hinter das Login eines Portals schaut er nicht, und Konten legt er keine an.</p>
+  </li>
+  <li>
+    <h3>Postausgang <span class="label">Claude</span></h3>
+    <p>Das Dossier kommt nach <code>3_Zum-Versenden</code>. Vorher prüft er, ob das Inserat noch online ist und Ansprechperson und Frist stimmen. Ist Gmail verbunden, legt er einen Entwurf an. <strong>Senden tut er nie</strong>, auch nicht, wenn du ihn darum bittest.</p>
+  </li>
+  <li>
+    <h3>Senden und zurückmelden <span class="label ok-l">Du</span></h3>
+    <p>Du sendest und sagst ihm, wann und wie: E-Mail, Portal, Post oder persönlich. Er verschiebt den Ordner nach <span class="st st2">2_Beworben</span>. Solange etwas im Postausgang liegt, erinnert er dich bei jedem Start.</p>
+  </li>
+</ol>
+
+<h2>Der RAV-Monat</h2>
+<p>Nur wenn du beim RAV angemeldet bist. Alles, was Claude dafür braucht, steht schon in den Bewerbungsordnern.</p>
+<ol class="monat">
+  <li class="laufend"><b>1. bis Monatsende</b>bewerben und zurückmelden, Claude zählt mit</li>
+  <li class="avp"><b>ab dem 22.</b>AvP vorbereiten</li>
+  <li class="ende"><b>Monatsende</b>Abschluss</li>
+  <li class="frist"><b>1. bis 5. des Folgemonats</b>Nachweis einreichen</li>
+</ol>
+<div class="tablewrap">
+<table>
+  <tr><th>Was</th><th>Frist</th><th>Was Claude liefert</th></tr>
+  <tr><td>Nachweis der persönlichen Arbeitsbemühungen (Formular 716.007)</td><td>5. des Folgemonats, fällt er aufs Wochenende der nächste Werktag. Später zählt nicht.</td><td>Alle Bemühungen mit den Feldern des Formulars zum Erfassen in Job-Room; auf Wunsch das Formular als PDF, ohne AHV-Nummer und Unterschrift.</td></tr>
+  <tr><td>Angaben der versicherten Person (AvP)</td><td>für jeden Monat, in Job-Room ab dem 22.</td><td>Die Fragen mit den Antworten, soweit er sie kennt. Den Rest fragt er dich.</td></tr>
+  <tr><td>Dateien für Job-Room</td><td>mit dem Nachweis</td><td>Eine Liste, welche PDF aus welchem Ordner hochgeladen gehören.</td></tr>
+</table>
+</div>
+<ul>
+  <li><strong>Job-Room übermittelt den Nachweis</strong> in der Nacht vom 5. auf den 6. von selbst ans RAV. Das AvP nicht — das musst du abschicken.</li>
+  <li><strong>Wie viele Bemühungen?</strong> Eine feste Zahl im Gesetz gibt es nicht. Üblich sind 10 bis 12 pro Monat; massgebend ist, was du mit deiner Beratung vereinbarst. Claude sagt es laufend, wenn du im Rückstand bist, nicht erst am 5.</li>
+  <li><strong>Vermittler.</strong> «Alles über einen Vermittler zählt als eine Bewerbung» ist amtlich nicht belegt. Belegt ist: Die Anmeldung beim Vermittler zählt einmal; danach zählt jede Bewerbung auf eine konkret ausgeschriebene Stelle, am besten mit Referenznummer (<a href="https://sh.ch/CMS/get/file/ab0a3428-ba4d-4f79-b063-b81f9c2a707d">Merkblatt RAV Schaffhausen</a>). Nur über Vermittler zu suchen genügt nicht. Weil die Zählweise kantonal ist, bittet dich Claude, sie bei deiner Beratung zu bestätigen.</li>
+  <li><strong>Claude loggt sich nie in Job-Room ein.</strong> Erfassen, hochladen und abschicken tust du.</li>
+</ul>
+
+<h2>Per Satz ändern</h2>
+<p>Du bearbeitest keine von Claudes Dateien. Was sich ändern soll, sagst du:</p>
+<div class="tablewrap">
+<table>
+  <tr><th>Du sagst</th><th>Claude</th></tr>
+  <tr><td>«Nimm jobagent.ch dazu» · «Streich jobwinner»</td><td>ändert die Portalliste</td></tr>
+  <tr><td>«Such auch nach Bauleiter» · «Nicht mehr in Basel»</td><td>ändert das Suchprofil</td></tr>
+  <tr><td>«Nur noch wöchentlich suchen»</td><td>ändert den Rhythmus, auch der geplanten Suche</td></tr>
+  <tr><td>«Abgelehnte erst nach einem Monat wieder vorschlagen»</td><td>ändert die Schwelle</td></tr>
+  <tr><td>«Ich bin jetzt beim RAV angemeldet»</td><td>schaltet die Monatsaufgaben ein</td></tr>
+  <tr><td>«Muster AG hat abgesagt, zu wenig Erfahrung»</td><td>verschiebt nach <span class="st st4">4_Absage</span>, notiert den Grund</td></tr>
+  <tr><td>«Ich kann ab 1. März anfangen»</td><td>merkt es sich für alle weiteren Schreiben</td></tr>
+</table>
+</div>
+
+<h2>Was Claude nicht tut, und wo er widerspricht</h2>
+<ul>
+  <li><strong>Kein Senden, kein Login, kein Konto, keine Unterschrift.</strong> Auch nicht auf Bitte.</li>
+  <li><strong>Keinen Lebenslauf.</strong> Änderungsvorschläge kommen als Liste im Chat. Deine Datei bleibt deine.</li>
+  <li><strong>Nichts, was der Lebenslauf nicht deckt.</strong> Verlangt das Inserat etwas, das dort nicht steht, sagt er es, statt es im Schreiben zu behaupten.</li>
+  <li><strong>Zuweisungen des RAV</strong> lässt er nicht ablehnen, ohne die Folgen zu nennen.</li>
+  <li><strong>Zumutbarkeit.</strong> Lehnst du eine Stelle mit einem Grund ab, der vor dem RAV nicht hält — etwa einem Arbeitsweg unter zwei Stunden pro Weg —, sagt er es einmal. Du entscheidest.</li>
+  <li><strong>Ein zu enges Suchprofil</strong> spricht er an, wenn seit Wochen nichts Neues kommt.</li>
+</ul>
+
+<h2>Ein Monat im Durchlauf</h2>
+<ol class="steps">
+  <li>
+    <h3>Anfang Monat <span class="label ok-l">Du</span> <span class="label">Claude</span></h3>
+    <p>Du öffnest eine Session und schreibst «Muster AG hat abgesagt». Claude liest zuerst den Stand, verschiebt die Bewerbung nach <span class="st st4">4_Absage</span> und sagt dazu in einem Satz: «Der Nachweis für den Vormonat ist bis zum 5. fällig, er liegt bereit.»</p>
+  </li>
+  <li>
+    <h3>Nachweis einreichen <span class="label ok-l">Du</span></h3>
+    <p>Du erfasst die Bemühungen in Job-Room nach der Liste und lädst die genannten PDF hoch.</p>
+  </li>
+  <li>
+    <h3>Laufend <span class="label">Claude</span> <span class="label ok-l">Du</span></h3>
+    <p>Die geplante Suche meldet morgens neue Stellen, oder Claude sucht beim Öffnen nach. Du nennst Nummern, prüfst Entwürfe, sendest und meldest zurück. Zur Monatsmitte sagt er: «Sechs Bemühungen, vereinbart sind zwölf.»</p>
+  </li>
+  <li>
+    <h3>Ab dem 22. <span class="label">Claude</span></h3>
+    <p>Er bereitet das AvP vor und fragt, was er nicht weiss: Zwischenverdienst, Krankheit, Ferien.</p>
+  </li>
+  <li>
+    <h3>Monatsende <span class="label">Claude</span></h3>
+    <p>In <code>2_Arbeitsstand/rav/</code> liegt der neue Monat: die Bemühungen, die Liste für den Upload und das AvP. Du schickst das AvP ab — und der Kreis beginnt von vorn.</p>
+  </li>
+</ol>
+
+<h2>Wohnung in der Nähe</h2>
+<p>Die Stellensuche sucht keine Wohnungen. Das macht die Aufgabe <a href="wohnung.html">Wohnung suchen</a> — und die kann deinen Stellen-Ordner mitlesen. Sie sucht dann im Umkreis der Stellen, bei denen du im Gespräch bist oder eine Zusage hast, und rechnet für jede Wohnung die Pendelzeit zu jeder dieser Stellen aus.</p>
+<ol class="steps">
+  <li>
+    <h3>Zweiten Ordner holen <span class="label ok-l">Du</span></h3>
+    <p><code>wohnung.zip</code> von der <a href="https://stayingclean.github.io/ki-tasks/">Download-Seite</a> laden und entpacken, neben deinen Stellen-Ordner. Es bleiben zwei Ordner — jeder mit seinem eigenen Stand.</p>
+  </li>
+  <li>
+    <h3>Beide Ordner verbinden <span class="label ok-l">Du</span></h3>
+    <p>In Cowork eine neue Session für die Wohnungssuche öffnen und zuerst den Wohnungs-Ordner hinzufügen, danach zusätzlich den Stellen-Ordner. Mit Projekt: ein eigenes Projekt «Wohnungssuche» anlegen und beide Ordner eintragen, den Wohnungs-Ordner zuerst.</p>
+  </li>
+  <li>
+    <h3>Sagen, was du willst <span class="label ok-l">Du</span></h3>
+    <p>Zum Beispiel so:</p>
+    <div class="prompt">
+      <div class="ptitle">Erster Satz in der Wohnungs-Session <button class="copy" type="button">Kopieren</button></div>
+      <pre>Such Wohnungen in der Nähe meiner Stellen. Die Stellen findest du im
+Stellen-Ordner unter 2_Arbeitsstand/bewerbungen. Dort nur lesen, nichts ändern.</pre>
+    </div>
+  </li>
+  <li>
+    <h3>Stellen bestätigen, Suche läuft <span class="label">Claude</span></h3>
+    <p>Claude liest die Arbeitsorte aus den Bewerbungen in <span class="st st3">3_Im-Gespraech</span> und <span class="st st5">5_Zusage</span> und zeigt dir die Liste. Du kannst Stellen streichen oder solche aus <span class="st st2">2_Beworben</span> dazunehmen. Ab dann läuft alles wie bei der Wohnungssuche; die Funde landen im Wohnungs-Ordner, im Stellen-Ordner ändert sich nichts.</p>
+  </li>
+</ol>
+<div class="warn">
+  <p><strong>Nicht zu früh.</strong> Eine Wohnung zuzusagen, bevor die Stelle sicher ist, geht schief, wenn die Stelle platzt. Sinnvoll wird das mit einer mündlichen Zusage — oder wenn die Gegend ohnehin passt. Claude sagt dir das auch.</p>
+</div>
 
 <nav class="pager"></nav>
 

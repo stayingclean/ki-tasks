@@ -1,3 +1,3 @@
 titel: Stelle suchen
 gruppe: Arbeit
-kurz: Inserate finden und nach deinem Lebenslauf bewerten, Motivationsschreiben pro Stelle, Arbeitsbemühungen fürs RAV. Auf Wunsch gleich Wohnungen in der Nähe.
+kurz: Stellen laufend suchen und nach deinem Lebenslauf bewerten, Bewerbungen nach Stand geordnet, Motivationsschreiben pro Stelle. Wenn du beim RAV bist: der Monatsnachweis dazu.
