@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Platzhalter einsetzen · Mit Claude arbeiten</title>
-  <meta name="description" content="Adresse, Telefon und IBAN am Schluss lokal in die Word-Dateien einsetzen">
+  <meta name="description" content="Adresse, Telefon und IBAN am Schluss lokal in die Word-Dateien und PDF-Formulare einsetzen">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
 <header class="page">
   <p class="kicker">Arbeitsweise</p>
   <h1>Adresse und IBAN am Schluss einsetzen</h1>
-  <p class="lead">Ein kleines Windows-Programm für den letzten Schritt. Es setzt deine echten Angaben in die Word-Dateien ein — auf deinem Computer, ohne Internet.</p>
+  <p class="lead">Ein kleines Programm für Windows und Mac, für den letzten Schritt. Es setzt deine echten Angaben in die Word-Dateien und PDF-Formulare ein — auf deinem Computer, ohne Internet.</p>
 </header>
 
 <div class="summary">
@@ -45,7 +45,7 @@
   <ul>
     <li>Claude lässt jede Lücke als Platzhalter in eckigen Klammern stehen: <code>[ADRESSE]</code>, <code>[IBAN]</code>, <code>[Einzugsdatum]</code>.</li>
     <li>So kommen Adresse, Telefonnummer und IBAN gar nie in eine Datei, die Claude liest.</li>
-    <li>Am Schluss startest du <code>platzhalter.exe</code>, wählst <code>2_Arbeitsstand</code>, trägst die Werte ein und klickst «Ersetzen».</li>
+    <li>Am Schluss startest du das Programm, wählst <code>2_Arbeitsstand</code>, trägst die Werte ein und klickst «Ersetzen».</li>
     <li>Das Programm läuft lokal. Die Werte gehen nirgendwohin und werden nirgends gespeichert.</li>
   </ul>
 </div>
@@ -55,10 +55,21 @@
   <span aria-hidden="true">↓</span>
   <span>platzhalter.exe<small>Windows · eine einzelne Datei · keine Installation</small></span>
 </a>
-<p>Die Datei braucht keine Installation und keine Administratorrechte. Leg sie irgendwohin, wo du sie wiederfindest, zum Beispiel auf den Desktop. Du brauchst sie bei jeder Aufgabe wieder.</p>
+<a class="download" href="https://stayingclean.github.io/ki-tasks/platzhalter-mac.zip">
+  <span aria-hidden="true">↓</span>
+  <span>platzhalter-mac.zip<small>Mac mit Apple-Chip (ab 2020) · entpacken, fertig</small></span>
+</a>
+<p>Das Programm braucht keine Installation und keine Administratorrechte. Leg es irgendwohin, wo du es wiederfindest: unter Windows zum Beispiel auf den Desktop, auf dem Mac in den Ordner «Programme». Du brauchst es bei jeder Aufgabe wieder.</p>
 
 <div class="warn">
-  <p><strong>Windows warnt beim ersten Start.</strong> «Der Computer wurde durch Windows geschützt» — das erscheint bei jedem Programm, das nicht von einer bezahlten Signatur begleitet wird, und diese hier hat keine. Klick auf <strong>«Weitere Informationen»</strong> und dann auf <strong>«Trotzdem ausführen»</strong>. Beim zweiten Mal kommt die Meldung nicht mehr.</p>
+  <p><strong>Beim ersten Start kommt eine Warnung.</strong> Das Programm hat keine bezahlte Signatur, darum warnt das System — einmal, beim zweiten Mal nicht mehr.</p>
+  <p><strong>Windows:</strong> «Der Computer wurde durch Windows geschützt». Klick auf <strong>«Weitere Informationen»</strong> und dann auf <strong>«Trotzdem ausführen»</strong>.</p>
+  <p><strong>Mac:</strong> Die Zip-Datei öffnen, es entsteht <code>Platzhalter</code>. Beim ersten Doppelklick meldet der Mac, er könne nicht prüfen, ob das Programm frei von Schadsoftware ist. Klick auf <strong>«Fertig»</strong>, öffne <strong>Systemeinstellungen → Datenschutz &amp; Sicherheit</strong>, scroll nach unten und klick bei «Platzhalter» auf <strong>«Dennoch öffnen»</strong>. Auf älteren Macs genügt ein Rechtsklick auf das Programm und «Öffnen».</p>
+</div>
+
+<div class="note">
+  <p><strong>Linux:</strong> Ein fertiges Programm gibt es nicht. Wer <a href="https://docs.astral.sh/uv/">uv</a> installiert hat, startet es mit einem Befehl im Terminal; beim ersten Mal lädt uv, was es braucht:</p>
+  <pre>uvx --from "git+https://github.com/stayingclean/ki-tasks#subdirectory=platzhalter" --with "pywebview[qt]" platzhalter</pre>
 </div>
 
 <h2>Wozu das gut ist</h2>
@@ -80,8 +91,8 @@ Einziehen könnte ich per [Einzugsdatum].
 <h2>So benutzt du es</h2>
 <ol class="steps">
   <li>
-    <h3><code>platzhalter.exe</code> starten</h3>
-    <p>Doppelklick. Es öffnet sich ein kleines Fenster, sonst passiert nichts.</p>
+    <h3>Das Programm starten</h3>
+    <p>Doppelklick auf <code>platzhalter.exe</code> oder auf dem Mac auf <code>Platzhalter</code>. Es öffnet sich ein kleines Fenster, sonst passiert nichts.</p>
   </li>
   <li>
     <h3>Den Ordner <code>2_Arbeitsstand</code> wählen</h3>
@@ -101,10 +112,15 @@ Einziehen könnte ich per [Einzugsdatum].
   <p><strong>Von jeder geänderten Datei bleibt eine Sicherung liegen</strong>, unter demselben Namen mit <code>.bak</code> hinten dran: <code>gesuch.docx.bak</code>. Hast du dich vertippt, benennst du die Sicherung zurück und machst es nochmals. Die eingegebenen Werte selbst werden nirgends gespeichert; beim nächsten Start sind die Felder wieder leer.</p>
 </div>
 
+<h2>Auch in PDF-Formularen</h2>
+<p>Manche Ämter wollen ihr eigenes Formular. Ist es ein ausfüllbares PDF, trägt Claude die Platzhalter direkt in die Formularfelder ein, und das Programm findet sie dort wie in einem Word-Entwurf. Die Werte übernehmen die Schrift und die Grösse des Felds, genau als hättest du selbst getippt.</p>
+<p>Das geht nur in den Feldern. Text, der fest auf der Seite gedruckt ist, lässt das Programm in Ruhe: Dort steht jedes Zeichen an einer festen Stelle, und eine lange IBAN würde über den Rand hinauslaufen. Ob ein PDF Felder hat, siehst du beim Öffnen — die Felder sind meist blau hinterlegt, und du kannst hineinklicken.</p>
+
 <h2>Was das Programm auslässt</h2>
 <ul>
   <li><strong>Den Unterordner <code>verlauf</code>.</strong> Dort liegen frühere Fassungen, und die sollen bleiben, was du damals verschickt hast. Deine echten Angaben landen so nur im aktuellen Entwurf und nicht nachträglich in zehn alten Fassungen daneben. Wählst du versehentlich einen <code>verlauf</code> direkt aus, sagt dir das Programm das und ersetzt gar nichts.</li>
-  <li><strong>Dateien, die gerade in Word offen sind.</strong> Word hält sie fest. Sie erscheinen im Ergebnis mit einem Fehler. Schliess Word und lass es nochmals laufen.</li>
+  <li><strong>Dateien, die gerade offen sind.</strong> Word und manche PDF-Programme halten sie fest. Sie erscheinen im Ergebnis mit einem Fehler. Schliess das Programm und lass es nochmals laufen.</li>
+  <li><strong>PDF ohne Formularfelder.</strong> Ein Inserat, ein Scan oder ein Formular zum Ausdrucken hat keine Felder. Das Programm übergeht es stillschweigend; es taucht in der Liste gar nicht auf. Ebenso ein PDF, das ein Passwort zum Öffnen verlangt.</li>
   <li><strong>Das alte Word-Format.</strong> Bearbeitet wird nur <code>.docx</code>, nicht das ältere <code>.doc</code>. Claude schreibt ohnehin nur <code>.docx</code>.</li>
   <li><strong>Quellenverweise.</strong> Etwas wie <code>[1]</code> oder <code>[S. 12]</code> gilt nicht als Platzhalter und bleibt stehen. Als Platzhalter zählt nur, was ein Wort enthält.</li>
 </ul>

@@ -3,7 +3,9 @@ from pathlib import Path
 from docx import Document
 
 from platzhalter.dokument import MUSTER, absatz_text, alle_absaetze
-from platzhalter.suche import durchsuche, finde_docx
+from platzhalter.suche import durchsuche, finde_dateien
+
+from formular import formular, ohne_formular
 
 
 def speichere(pfad: Path, *absaetze: str) -> Path:
@@ -42,14 +44,19 @@ def test_muster_begrenzt_laenge():
     assert MUSTER.findall("[" + "x" * 81 + "]") == []
 
 
-def test_finde_docx_rekursiv_und_ueberspringt_sperr_und_sicherungsdateien(tmp_path):
+def test_finde_dateien_rekursiv_und_ueberspringt_sperr_und_sicherungsdateien(tmp_path):
     speichere(tmp_path / "a.docx", "x")
     speichere(tmp_path / "unter" / "tief" / "b.docx", "x")
     speichere(tmp_path / "~$a.docx", "x")
+    ohne_formular(tmp_path / "c.pdf")
+    ohne_formular(tmp_path / "e.PDF")
     (tmp_path / "a.docx.bak").write_bytes(b"egal")
+    (tmp_path / "c.pdf.bak").write_bytes(b"egal")
     (tmp_path / "notiz.txt").write_text("egal")
-    gefunden = finde_docx(tmp_path)
-    assert [p.relative_to(tmp_path).as_posix() for p in gefunden] == ["a.docx", "unter/tief/b.docx"]
+    gefunden = finde_dateien(tmp_path)
+    assert [p.relative_to(tmp_path).as_posix() for p in gefunden] == [
+        "a.docx", "c.pdf", "e.PDF", "unter/tief/b.docx",
+    ]
 
 
 def test_alle_absaetze_umfasst_tabelle_und_kopfzeile(tmp_path):
@@ -88,12 +95,12 @@ def test_durchsuche_meldet_kaputte_datei(tmp_path):
     assert [f.name for f in e.platzhalter] == ["XX"]
 
 
-def test_finde_docx_ueberspringt_verlauf(tmp_path):
+def test_finde_dateien_ueberspringt_verlauf(tmp_path):
     speichere(tmp_path / "motivationsschreiben.docx", "x")
     speichere(tmp_path / "verlauf" / "2026-09-18_motivationsschreiben.docx", "x")
     speichere(tmp_path / "Verlauf" / "2026-09-17_lebenslauf.docx", "x")
     speichere(tmp_path / "unter" / "tief" / "verlauf" / "alt.docx", "x")
-    gefunden = finde_docx(tmp_path)
+    gefunden = finde_dateien(tmp_path)
     assert [p.relative_to(tmp_path).as_posix() for p in gefunden] == ["motivationsschreiben.docx"]
 
 
@@ -126,3 +133,29 @@ def test_durchsuche_warnt_nicht_bei_normalem_ordner(tmp_path):
     e = durchsuche(tmp_path)
     assert e.warnung is None
     assert e.dateien == ["aktuell.docx"]
+
+
+def test_durchsuche_nimmt_pdf_formulare_mit(tmp_path):
+    speichere(tmp_path / "brief.docx", "[ADRESSE]")
+    formular(tmp_path / "antrag.pdf", {"Adresse": "[ADRESSE]", "Name": "[VORNAME NAME]", "Ort": "Bern"})
+    e = durchsuche(tmp_path)
+    assert e.dateien == ["antrag.pdf", "brief.docx"]
+    assert [(f.name, f.anzahl, f.dateien) for f in e.platzhalter] == [
+        ("ADRESSE", 2, ["antrag.pdf", "brief.docx"]),
+        ("VORNAME NAME", 1, ["antrag.pdf"]),
+    ]
+
+
+def test_durchsuche_uebergeht_pdf_ohne_formular_und_mit_passwort(tmp_path):
+    ohne_formular(tmp_path / "inserat.pdf")
+    formular(tmp_path / "geschuetzt.pdf", {"A": "[AA]"}, passwort="geheim")
+    e = durchsuche(tmp_path)
+    assert e.dateien == []
+    assert e.fehler == []
+
+
+def test_durchsuche_meldet_kaputtes_pdf(tmp_path):
+    (tmp_path / "kaputt.pdf").write_bytes(b"kein pdf")
+    e = durchsuche(tmp_path)
+    assert e.dateien == []
+    assert len(e.fehler) == 1 and e.fehler[0].startswith("kaputt.pdf: ")

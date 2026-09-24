@@ -41,7 +41,7 @@ aufgaben/
   stelle/
   gesuch-krankheitskosten/
 build.py                      Grundgerüst + Aufgabe → dist/<aufgabe>.zip, dazu index.html
-platzhalter/                  Windows-Programm: [Platzhalter] in Word-Dateien einsetzen (uv, EXE)
+platzhalter/                  Programm für Windows und Mac: [Platzhalter] in Word-Dateien einsetzen (uv)
 anleitung/                    Ordner, Platzhalter, je Aufgabe eine Seite (holt der Toolbox-Deploy)
 ```
 
@@ -72,17 +72,20 @@ dazu `index.html` und `aufgaben.json`.
 
 ## Platzhalter-Tool
 
-`platzhalter/` enthält ein kleines Windows-Programm für den letzten Schritt: Es
+`platzhalter/` enthält ein kleines Programm für Windows und Mac für den letzten Schritt: Es
 sucht in einem Ordner rekursiv alle Word-Dateien nach Platzhaltern in eckigen
 Klammern, zeigt sie zum Ausfüllen an und setzt die Werte in allen Dateien ein.
-Download: https://stayingclean.github.io/ki-tasks/platzhalter.exe
+Download: https://stayingclean.github.io/ki-tasks/platzhalter.exe (Windows),
+https://stayingclean.github.io/ki-tasks/platzhalter-mac.zip (Mac mit Apple-Chip).
 
 Claude lässt darum jede Lücke als benannten Platzhalter stehen — `[ADRESSE]`,
 `[IBAN]`, aber auch `[Einzugsdatum]` oder `[Monatsmiete]`. Adresse,
 Telefonnummer und IBAN kommen so nie in eine Datei, die Claude liest.
 
 Eigenes uv-Projekt, unabhängig von `build.py`. Details in `platzhalter/README.md`.
-Die EXE baut der Workflow auf einem Windows-Runner und legt sie neben die Zips.
+Die EXE baut der Workflow auf einem Windows-Runner, die Mac-App auf einem
+macOS-Runner; beide legt er neben die Zips. Bei einem Pull Request laufen nur Tests
+und Builds, veröffentlicht wird erst nach dem Merge.
 
 ## Anleitung
 

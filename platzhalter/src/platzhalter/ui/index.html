@@ -53,12 +53,12 @@ tr:last-child td{border-bottom:0}.fehler{color:var(--rot)}.ok{color:var(--accent
 <main>
   <section id="view-start" class="view">
     <div class="zentriert">
-      <p>Wähle den Ordner mit den Word-Dateien. Alle Unterordner werden mitdurchsucht.</p>
+      <p>Wähle den Ordner mit den Entwürfen (Word-Dateien und PDF-Formulare). Alle Unterordner werden mitdurchsucht.</p>
       <button class="primaer" id="ordner-waehlen" type="button">Ordner wählen</button>
     </div>
   </section>
   <section id="view-laden" class="view">
-    <div class="zentriert"><div class="spinner"></div><p id="laden-text">Durchsuche Word-Dateien</p></div>
+    <div class="zentriert"><div class="spinner"></div><p id="laden-text">Durchsuche Dateien</p></div>
   </section>
   <section id="view-liste" class="view">
     <div id="hinweise"></div>
@@ -126,7 +126,7 @@ function zeigeListe() {
   if (ergebnis.fehler.length) hinweise.push('<div class="box rot">Nicht lesbar: ' + ergebnis.fehler.map(escapeHtml).join('<br>') + '</div>');
   // Die Warnung sagt schon alles; ein «keine Dateien gefunden» daneben würde nur verwirren.
   if (ergebnis.warnung) hinweise.push('<div class="box rot">' + escapeHtml(ergebnis.warnung) + '</div>');
-  else if (!ergebnis.dateien.length) hinweise.push('<div class="box">Keine Word-Dateien (.docx) in diesem Ordner gefunden.</div>');
+  else if (!ergebnis.dateien.length) hinweise.push('<div class="box">Keine Word-Dateien (.docx) und keine ausfüllbaren PDF-Formulare in diesem Ordner gefunden.</div>');
   else if (!ergebnis.platzhalter.length) hinweise.push('<div class="box">' + plural(ergebnis.dateien.length, 'Datei', 'Dateien') + ' durchsucht, keine Platzhalter in eckigen Klammern gefunden. Es gibt hier nichts zu ersetzen.</div>');
   else hinweise.push('<div class="box">' + plural(ergebnis.platzhalter.length, 'Platzhalter', 'Platzhalter') + ' in ' + plural(ergebnis.dateien.length, 'Datei', 'Dateien') + '. Fülle aus, was du ersetzen willst.</div>');
   $('hinweise').innerHTML = hinweise.join('');
@@ -183,7 +183,7 @@ async function ersetzen() {
   $('ergebnis-kopf').textContent = plural(gesamt, 'Ersetzung', 'Ersetzungen') + ' in ' + plural(resultate.filter(r => r.ersetzt).length, 'Datei', 'Dateien') + (fehler ? ', ' + plural(fehler, 'Datei', 'Dateien') + ' mit Fehler' : '') + '.';
   $('ergebnis-zeilen').innerHTML = resultate.map(r => '<tr><td>' + escapeHtml(r.datei) + '</td><td>' +
     (r.fehler ? '<span class="fehler">Fehler: ' + escapeHtml(r.fehler) + '</span>' : r.ersetzt ? '<span class="ok">' + plural(r.ersetzt, 'Ersetzung', 'Ersetzungen') + '</span>' : '<span class="meta">nichts zu ersetzen</span>') + '</td></tr>').join('');
-  $('laden-text').textContent = 'Durchsuche Word-Dateien';
+  $('laden-text').textContent = 'Durchsuche Dateien';
   zeige('ergebnis');
 }
 
