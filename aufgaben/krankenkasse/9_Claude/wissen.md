@@ -182,7 +182,8 @@ Mindestens zwei Szenarien, besser drei:
 - **Schlechtes Jahr** — Franchise und Selbstbehalt voll ausgeschöpft. Zeigt,
   was die Person im Ernstfall aufbringen muss.
 
-Dazu je Franchise: tatsächlicher Rabatt gegenüber Franchise 300 in Franken pro
+Dazu je Franchise: tatsächlicher Rabatt gegenüber der tiefsten Franchise (300,
+bei Kindern 0) in Franken pro
 Jahr, der gesetzliche Höchstrabatt daneben, und die **Kostenschwelle**, ab der
 die tiefere Franchise günstiger ist. Bei regelmässigen Kosten über rund 2000
 Franken im Jahr ist Franchise 300 fast immer die günstigste — rechne es trotzdem
@@ -193,25 +194,48 @@ im Kopf, und prüf eine Zeile von Hand nach.
 
 ## Ablage
 
-`2_Arbeitsstand/vergleich.md`:
+`2_Arbeitsstand/vergleich.md` mit einem Kopf und zwei Übersichten. Kopf:
+Prämienregion, Altersklasse, Unfalldeckung, erwartete Kosten mit Herleitung,
+Datum der Prämienabfrage, Quelle.
 
-- Kopf: Prämienregion, Altersklasse, Unfalldeckung, erwartete Kosten mit
-  Herleitung, Datum der Prämienabfrage, Quelle.
-- Tabelle: Kasse | Modell | Franchise | Prämie/Monat | Rabatt vs. 300 (tatsächlich
-  / höchstens) | Jahreskosten kaum Kosten | erwartet | schlechtes Jahr | Praxis
-  anerkannt | Bemerkung.
-- Sortiert nach Jahreskosten im Szenario «erwartet».
-- Darunter die Empfehlung in drei bis fünf Sätzen: welche Kombination, warum,
-  was die Person dafür in Kauf nimmt (Modellregeln, Risiko im schlechten Jahr),
-  und die zweitbeste Variante mit dem Unterschied in Franken.
+**Übersicht 1 — Jahreskosten pro Franchise.** Eine Zeile je Franchisestufe,
+alle Stufen, die es für die Altersklasse gibt:
 
-Die heutige Lösung steht immer in der Tabelle, auch wenn sie teuer ist — sie ist
-der Vergleichspunkt. Im Fall mit Ausständen enthält die Tabelle nur die eigene
-Kasse; die anderen Kassen höchstens als Hinweis, was nach der Tilgung möglich
-wäre.
+Franchise | Prämie/Monat | Rabatt vs. tiefste Franchise (tatsächlich /
+höchstens) | Jahreskosten kaum Kosten | erwartet | schlechtes Jahr | ab welchen
+Kosten die nächsttiefere Franchise günstiger ist.
 
-Dann **fragst du im Chat**, wofür sich die Person entscheidet. Sie entscheidet;
-du zeigst, was es kostet.
+Diese Übersicht gibt es für die heutige Kasse im heutigen Modell und für die
+günstigste Kasse im gewünschten Modell. So sieht die Person, welche Franchise zu
+ihren Kosten passt, unabhängig von der Kasse. Die günstigste Zeile im Szenario
+«erwartet» ist hervorgehoben.
+
+**Übersicht 2 — Kassen im Vergleich.** Die fünf bis sechs Kassen der engeren
+Wahl und die heutige Kasse, je bei der Franchise, die nach Übersicht 1 passt:
+
+Kasse | Modell | Franchise | Prämie/Monat | Jahreskosten kaum Kosten | erwartet |
+schlechtes Jahr | Unterschied zu heute pro Jahr | Praxis anerkannt | Bemerkung.
+
+Sortiert nach Jahreskosten im Szenario «erwartet». Die heutige Kasse steht immer
+drin, auch wenn sie teuer ist; sie ist der Vergleichspunkt.
+
+Darunter die Empfehlung in drei bis fünf Sätzen: welche Kasse, welches Modell,
+welche Franchise, warum, was die Person dafür in Kauf nimmt (Modellregeln,
+Risiko im schlechten Jahr), und die zweitbeste Variante mit dem Unterschied in
+Franken.
+
+**Die Wahl trifft die Person, im Chat, in zwei Schritten:** erst die Franchise
+anhand von Übersicht 1, dann Kasse und Modell anhand von Übersicht 2. Sie kann
+jede Kasse aus dem Prämienrechner wählen, nicht nur die der engeren Wahl; nennt
+sie eine andere, rechnest du sie nach und nimmst sie in die Tabelle auf. Bleiben
+bei der heutigen Kasse ist auch eine Wahl. Ihren Entscheid hältst du in
+`stand.md` fest: Kasse, Modell, Franchise, Unfalldeckung, Jahreskosten
+«erwartet».
+
+**Im Fall mit Ausständen** entfällt Übersicht 2 und damit die Wahl der Kasse.
+Übersicht 1 gibt es für die eigene Kasse, je Modell, das sie anbietet. Die
+günstigste andere Kasse nennst du höchstens in einem Satz — als Hinweis, was
+sich nach der Tilgung sparen liesse.
 
 ## Zusatzversicherung
 
