@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krankenkasse wählen · Mit Claude arbeiten</title>
+  <meta name="description" content="Franchise, Modell und Kasse der Grundversicherung durchrechnen, bei einem Wechsel das Kündigungsschreiben mit Fristen">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Gehört eigentlich nach stil.css: main ist ein Grid-Element und schrumpft
+       ohne min-width:0 nicht unter sein breitestes Kind. Ein .tree-Block würde
+       sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
+       breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
+    main { min-width: 0; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="title">Mit Claude arbeiten</span>
+      <span class="back">Anleitung · Toolbox</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Inhalt <span aria-hidden="true">☰</span></button>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main>
+<header class="page">
+  <p class="kicker">Aufgaben</p>
+  <h1>Krankenkasse wählen</h1>
+  <p class="lead">Franchise, Modell und allenfalls die Kasse der Grundversicherung fürs nächste Jahr. Claude rechnet die Varianten durch, zeigt, was sie im guten und im schlechten Jahr kosten, und bereitet bei einem Wechsel die Kündigung samt Fristen vor. Auch wenn du bei der Kasse im Rückstand bist.</p>
+</header>
+
+<div class="summary">
+  <h2>Kurzfassung</h2>
+  <ul>
+    <li><strong>Zip:</strong> <code>krankenkasse.zip</code> von <a href="https://stayingclean.github.io/ki-tasks/">stayingclean.github.io/ki-tasks</a>. Entpacken, Ordner in Cowork verbinden, «Was steht an?» schreiben.</li>
+    <li><strong>Die erste Frage:</strong> Gibt es offene Prämien oder Kostenbeteiligungen? Dann ist ein Kassenwechsel gesperrt, Franchise und Modell lassen sich aber trotzdem ändern.</li>
+    <li><strong>Du legst hin:</strong> die Police dieses Jahres, die Leistungsabrechnungen, den Brief mit der neuen Prämie, allfällige Mahnungen.</li>
+    <li><strong>Es entsteht:</strong> eine Vergleichstabelle mit Empfehlung. Bei einem Wechsel das Kündigungsschreiben und eine Fristenliste, sonst ein Brief an die eigene Kasse.</li>
+    <li><strong>Die wichtigste Frist:</strong> Die Kündigung muss am 30. November bei der alten Kasse sein. Abschicken bis 15. November, eingeschrieben oder mit A-Post Plus.</li>
+  </ul>
+</div>
+
+<h2>Zuerst: Bist du im Rückstand?</h2>
+<p>Das fragt Claude vor allem anderen, denn davon hängt ab, was überhaupt geht. Für viele ist das der Normalfall.</p>
+<div class="grid">
+  <div class="card">
+    <h3>Keine offenen Beträge</h3>
+    <p>Alles ist offen: andere Kasse, anderes Modell, andere Franchise. Claude vergleicht die günstigen Angebote in deiner Region mit deiner heutigen Lösung.</p>
+  </div>
+  <div class="card">
+    <h3>Offene Prämien oder Kostenbeteiligungen</h3>
+    <p>Die Kasse wechseln geht nicht, solange nicht alles bezahlt ist. Franchise und Modell kannst du bei der eigenen Kasse trotzdem auf 1. Januar ändern, und das spart oft schon einiges. Claude bereitet dann keine Kündigung vor, sondern einen Brief an deine Kasse.</p>
+  </div>
+</div>
+<div class="warn">
+  <p><strong>Die Sperre beginnt früher, als viele denken.</strong> Du giltst schon ab der ersten Mahnung als säumig, nicht erst ab der Betreibung (Art. 64a Abs. 6 KVG, Art. 105l KVV). Für einen Wechsel auf 1. Januar muss alles, was bis 30. November gemahnt ist, bis 31. Dezember <em>vollständig</em> bezahlt sein, mit Zinsen und Betreibungskosten. Eine laufende Ratenzahlung reicht nicht. Kommt das Geld zu spät, bleibst du bei der alten Kasse.</p>
+</div>
+<p>Ein paar Ausnahmen gibt es, und Claude prüft sie anhand deiner Belege: Wer nur für die Kinder im Rückstand ist, darf selbst wechseln. Wer volljährig geworden ist, darf trotz Schulden aus der Kinderzeit wechseln. Und hat der Kanton eine Forderung übernommen und dir das schriftlich mitgeteilt, zählt sie nicht mehr.</p>
+<p>Ob und wie viel offen ist, liest Claude aus Mahnungen, Betreibungsurkunden und Kontoauszügen der Kasse, nicht aus der Erinnerung. Ist es unklar, brauchst du eine schriftliche Saldoauskunft deiner Kasse.</p>
+<div class="note">
+  <p><strong>Keine neuen Schulden.</strong> Wer schon im Rückstand ist, sollte keine hohe Franchise wählen, nur weil die Prämie tiefer ist. Kannst du eine Arztrechnung dann nicht bezahlen, ist das ein neuer Rückstand, und die Sperre verlängert sich. Claude sagt das, wenn es dich betrifft.</p>
+</div>
+
+<h2>Was Claude am Anfang fragt</h2>
+<p>Nur, was nicht schon in deinen Unterlagen steht. Die Police gilt mehr als die Erinnerung.</p>
+<ul>
+  <li>Wohnort mit Postleitzahl, denn die Prämie hängt von der Region ab</li>
+  <li>Jahrgang: Kinder, junge Erwachsene (19–25) und Erwachsene zahlen verschiedene Prämien</li>
+  <li>Heutige Kasse, Modell, Franchise, mit oder ohne Unfall</li>
+  <li>Dein Hausarzt oder deine HMO-Praxis</li>
+  <li>Was du im nächsten Jahr an Kosten erwartest: Medikamente, Therapie, geplante Behandlungen. Die Leistungsabrechnungen dieses Jahres sind der beste Anhaltspunkt.</li>
+  <li>Ob du Zusatzversicherungen hast und behalten willst</li>
+  <li>Ob du mindestens 8 Stunden pro Woche beim selben Arbeitgeber arbeitest. Dann bist du dort gegen Unfall versichert und brauchst die Unfalldeckung bei der Krankenkasse nicht.</li>
+  <li>Ob du Sozialhilfe oder Ergänzungsleistungen beziehst. Diese Stellen haben eigene Vorgaben zur Prämie, je nach Kanton und Gemeinde verschieden, und die gehen vor.</li>
+</ul>
+<p>Die Aufgabe gilt für alle Kantone. Was kantonal verschieden ist, schlägt Claude für deinen Wohnkanton nach und schreibt die Quelle mit Datum dazu.</p>
+
+<h2>Womit gerechnet wird</h2>
+<div class="tablewrap">
+<table>
+  <tr><th></th><th>Erwachsene und junge Erwachsene</th><th>Kinder bis 18</th></tr>
+  <tr><td>Franchisen</td><td>300, 500, 1000, 1500, 2000, 2500</td><td>0, 100, 200, 300, 400, 500, 600</td></tr>
+  <tr><td>Selbstbehalt</td><td>10 %, höchstens CHF 700 im Jahr</td><td>10 %, höchstens CHF 350 im Jahr</td></tr>
+  <tr><td>Spital</td><td colspan="2">CHF 15 pro Tag, bei allen Varianten gleich</td></tr>
+</table>
+</div>
+<p>Die Jahreskosten sind: Prämie mal zwölf, plus die Franchise, soweit Kosten anfallen, plus 10 Prozent der Kosten darüber, höchstens 700 Franken. Claude rechnet das für jede Kombination in drei Fällen: <strong>kaum Kosten</strong>, <strong>erwartete Kosten</strong> und ein <strong>schlechtes Jahr</strong>, in dem Franchise und Selbstbehalt ganz anfallen. Der dritte Fall zeigt, was du im Ernstfall aufbringen musst.</p>
+<p>Die Prämien kommen aus dem Prämienrechner des Bundes, <a href="https://www.priminfo.admin.ch/de/praemien">priminfo.admin.ch</a>, nicht aus Vergleichsportalen allein. Dort stehen alle Kassen, und niemand verdient an der Vermittlung.</p>
+<div class="note">
+  <p><strong>Der Rabatt einer hohen Franchise ist nicht überall gleich.</strong> Das Gesetz legt nur eine Obergrenze fest; viele Kassen geben weniger. Claude weist darum den tatsächlichen Rabatt aus und rechnet, ab welchen Kosten die tiefere Franchise günstiger ist. Bei regelmässigen Kosten über rund 2000 Franken im Jahr ist das meist die Franchise 300.</p>
+</div>
+<p>Die Bundesbehörden wollen die tiefste Franchise auf 400 Franken erhöhen. Für 2027 gilt nach heutigem Stand noch 300. Claude prüft das vor dem Versand nach.</p>
+
+<h2>Hausarzt und HMO</h2>
+<p>Die günstigeren Modelle binden dich an eine Praxis oder an einen Anruf vor dem Arztbesuch. Nicht jede Kasse anerkennt jede Praxis. Claude schaut in der Ärzteliste der Kasse nach, ob deine Praxis dabei ist. Ist sie es nicht, steht das als Befund in der Tabelle, nicht als Empfehlung. Dann entscheidest du: Praxis wechseln oder ein anderes Modell.</p>
+<p>Wer die Regeln des Modells bricht, etwa ohne Überweisung zum Spezialisten geht, riskiert, dass die Kasse nicht zahlt. Wer viele verschiedene Fachpersonen braucht, fährt mit einem Modell oft schlechter, als die Prämie vermuten lässt.</p>
+
+<h2>Zusatzversicherung</h2>
+<ul>
+  <li><strong>Nicht kündigen, bevor die neue Kasse schriftlich zugesagt hat.</strong> Bei der Zusatzversicherung darf eine Kasse ablehnen, sie stellt Gesundheitsfragen. Ab einem gewissen Alter oder mit Vorerkrankungen bekommst du sie vielleicht nirgends mehr.</li>
+  <li>Die Kündigungsfristen stehen in den Versicherungsbedingungen und sind oft früher im Jahr als bei der Grundversicherung.</li>
+  <li>Du darfst die Grundversicherung wechseln und die Zusatzversicherung bei der alten Kasse behalten; kündigen darf sie sie deswegen nicht.</li>
+  <li>Zwei Kassen heisst aber zwei Rechnungen und zwei Abrechnungen. Ist die Ersparnis klein, sagt Claude das.</li>
+</ul>
+
+<h2>Was entsteht</h2>
+<div class="tree">2_Arbeitsstand/
+  vergleich.md                        <span class="c">Tabelle je Kasse, Modell und Franchise, mit Empfehlung</span>
+  fristen.md                          <span class="c">jeder Schritt mit Datum und Quelle</span>
+  kuendigung_grundversicherung.docx   <span class="c">nur bei einem Kassenwechsel</span>
+  aenderung_franchise_modell.docx     <span class="c">wenn du bei deiner Kasse bleibst</span>
+3_Zum-Versenden/
+  2026-11-05_kuendigung_kasse.pdf
+  versand.md                          <span class="c">Adresse und «eingeschrieben oder A-Post Plus»</span></div>
+<p>In der Tabelle steht deine heutige Lösung immer mit drin, auch wenn sie teuer ist: Sie ist der Vergleichspunkt. Darunter die Empfehlung in wenigen Sätzen, was du dafür in Kauf nimmst, und die zweitbeste Variante mit dem Unterschied in Franken. Entscheiden tust du, im Chat.</p>
+<p>Die Briefe folgen den <a href="https://www.priminfo.admin.ch/de/downloads/musterbriefe">Musterbriefen des Bundes</a>. Offen bleiben <code>[NAME]</code>, <code>[ADRESSE]</code>, <code>[GEBURTSDATUM]</code> und <code>[VERSICHERTENNUMMER]</code>. Die setzt du am Schluss auf deinem Computer ein, siehe <a href="platzhalter.html">Platzhalter einsetzen</a>. Keine AHV-Nummer, keine IBAN: Eine Kündigung braucht beides nicht.</p>
+<p>Die Anmeldung bei der neuen Kasse machst du selbst, meist online. Claude schreibt dir auf, was du dafür brauchst: Kasse, Modell, Franchise, Unfall ja oder nein, deine Praxis und die Police der alten Kasse.</p>
+
+<h2>Die Fristen</h2>
+<div class="tablewrap">
+<table>
+  <tr><th>Was</th><th>Bis</th></tr>
+  <tr><td>Deine Kasse teilt die neue Prämie mit</td><td>31. Oktober</td></tr>
+  <tr><td>Kündigung abschicken, eingeschrieben oder A-Post Plus</td><td>15. November (Empfehlung des Bundes)</td></tr>
+  <tr><td>Kündigung ist bei der alten Kasse angekommen</td><td>30. November</td></tr>
+  <tr><td>Franchise oder Modell bei der eigenen Kasse ändern</td><td>15. November</td></tr>
+  <tr><td>Anmeldung bei der neuen Kasse</td><td>gleich mit der Kündigung, spätestens 15. Dezember</td></tr>
+  <tr><td>Alle gemahnten Rückstände bezahlt, falls es welche gibt</td><td>31. Dezember</td></tr>
+</table>
+</div>
+<div class="warn">
+  <p><strong>Gewechselt ist erst, wenn die neue Kasse es der alten gemeldet hat.</strong> Bis dahin bleibst du bei der alten versichert, ohne Lücke und ohne doppelte Prämie. Die Bestätigung der Kündigung und die neue Police gehören in deinen Ordner; fehlt eine davon im Januar, meldet Claude das. Die alte Police bewahrst du auf, sie ist der Nachweis, wo du wann versichert warst.</p>
+</div>
+
+<h2>Wo Claude widerspricht</h2>
+<ul>
+  <li><strong>Wenn ein Wechsel geplant ist, obwohl etwas offen ist.</strong> Er zeigt, was bezahlt sein müsste und bis wann, und rechnet den Weg ohne Wechsel daneben.</li>
+  <li><strong>Bei einer Franchise, die du im Ernstfall nicht zahlen kannst.</strong> Die tiefere Prämie hilft nichts, wenn daraus eine offene Rechnung wird.</li>
+  <li><strong>Wenn deine Praxis im gewünschten Modell nicht anerkannt ist.</strong> Das steht als Befund da, nicht versteckt in einer Fussnote.</li>
+  <li><strong>Bei der Zusatzversicherung.</strong> Gekündigt wird erst mit der schriftlichen Zusage der neuen Kasse.</li>
+  <li><strong>Bei geschätzten Zahlen.</strong> Deine Kosten nimmt er aus den Leistungsabrechnungen, die Prämien aus dem Rechner des Bundes, jeweils mit Datum.</li>
+</ul>
+
+<h2>Ein Durchlauf</h2>
+<ol class="steps">
+  <li>
+    <h3>Unterlagen hinlegen, ein Satz <span class="label ok-l">Du</span></h3>
+    <p>Police, Leistungsabrechnungen, allfällige Mahnungen und, sobald er da ist, den Brief mit der neuen Prämie in <code>1_Meine-Unterlagen</code>. Ordner verbinden, «Was steht an?».</p>
+  </li>
+  <li>
+    <h3>Die Weiche klären <span class="label">Claude</span></h3>
+    <p>Er fragt nach offenen Beträgen und liest die Belege. Danach ist klar, ob ein Kassenwechsel in Frage kommt oder nur Franchise und Modell.</p>
+  </li>
+  <li>
+    <h3>Prämien holen und rechnen <span class="label">Claude</span></h3>
+    <p>Aus dem Prämienrechner des Bundes, für deine Region und deinen Jahrgang. Dann die drei Szenarien, der tatsächliche Rabatt und die Prüfung deiner Praxis. Das Ergebnis steht in <code>vergleich.md</code>.</p>
+  </li>
+  <li>
+    <h3>Entscheiden <span class="label ok-l">Du</span></h3>
+    <p>Du liest die Tabelle und die Empfehlung und sagst im Chat, was du willst. Auch wenn es nicht die günstigste Zeile ist: Claude hält sich an deinen Entscheid.</p>
+  </li>
+  <li>
+    <h3>Brief und Fristen <span class="label">Claude</span></h3>
+    <p>Die Kündigung oder der Brief an deine Kasse als <code>.docx</code>, dazu die Fristenliste. Du kommentierst in Word, bis es stimmt.</p>
+  </li>
+  <li>
+    <h3>Versenden und anmelden <span class="label ok-l">Du</span></h3>
+    <p>Auf deine Freigabe legt Claude das PDF nach <code>3_Zum-Versenden</code>. Du setzt die Platzhalter ein, schickst bis 15. November eingeschrieben ab und meldest dich bei der neuen Kasse an.</p>
+  </li>
+</ol>
+
+<h2>Beim nächsten Mal</h2>
+<p>Ordner verbinden, «Was steht an?». Claude nennt, was offen ist: ob die Bestätigung der Kündigung da ist, ob die neue Police stimmt, ob die Prämienverbilligung bei der neuen Kasse angekommen ist. Im Herbst darauf beginnt die Rechnung mit den neuen Prämien von vorne, aber mit den Zahlen dieses Jahres als Grundlage.</p>
+<div class="note">
+  <p><strong>Grenzen.</strong> Claude rechnet und zeigt Varianten, entscheidet aber nichts für dich und reicht nichts ein. Das ist keine Finanz- oder Rechtsberatung. Bei Betreibungen hilft eine Schuldenberatung, und was Sozialhilfe oder Ergänzungsleistungen übernehmen, sagt nur die zuständige Stelle.</p>
+</div>
+
+<nav class="pager"></nav>
+
+    <footer>
+      <div>Teil der Toolbox · <a href="../index.html">Zur Übersicht</a> · gehostet via GitHub Pages unter <code>stayingclean.github.io/toolbox/</code></div>
+      <div>Stand: September 2026. Preise, Funktionen und Einstellungen der Anbieter ändern sich laufend – im Zweifel die offiziellen Seiten prüfen.</div>
+      <div class="footer-links">
+        <a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener">
+          <img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28">
+          <span>Erstellt von stayingclean</span>
+        </a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a class="footer-coffee" href="https://buymeacoffee.com/stayingclean" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span><span>Kaffee spendieren</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+<script src="anleitung.js"></script>
+</body>
+</html>
