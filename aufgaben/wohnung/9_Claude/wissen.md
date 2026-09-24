@@ -51,13 +51,20 @@ nächsten Start, ob der Umkreis angepasst werden soll.
 Portale: homegate.ch, immoscout24.ch, flatfox.ch, wgzimmer.ch. Inserate der
 letzten 14 Tage.
 
-wgzimmer.ch und tutti.ch lassen sich oft nicht automatisch auslesen. Sag das,
-statt den Eindruck zu erwecken, die Suche sei vollständig gewesen.
+wgzimmer.ch und tutti.ch lassen sich mit dem eingebauten Abruf oft nicht
+auslesen. Dann gehst du über Chrome, wie in `CLAUDE.md` unter «Webseiten»
+beschrieben. Geht auch das nicht, sag es, statt den Eindruck zu erwecken, die
+Suche sei vollständig gewesen, und schreib die fertige Suchadresse unter
+«Nicht durchsucht» ans Ende von `inserate.md`, damit die Person dort selbst
+nachsehen kann.
 
 ## Treffer ablegen und auswählen
 
 Pro Inserat ein Ordner `2_Arbeitsstand/inserate/<nr>_<strasse>/` mit dem Inserat
-als PDF (Druckansicht) und den Eckdaten als `inserat.md`.
+als PDF (Druckansicht) und den Eckdaten als `inserat.md`. Der Link steht in
+`inserat.md` und in der Übersicht, immer — auch wenn das PDF fehlt. Inserate
+verschwinden; kannst du die Druckansicht nicht sichern, bittest du die Person
+darum, sobald sie das Inserat weiterverfolgen will.
 
 Dazu eine Übersicht `2_Arbeitsstand/inserate.md` mit einer Zeile je Inserat:
 Nr, Strasse, Ort, Zimmer, Miete, frei ab, Kurzbeschrieb, Passung 1–5,

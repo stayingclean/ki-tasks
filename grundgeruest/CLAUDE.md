@@ -57,6 +57,29 @@ Empfänger sehen muss, bleibt draussen und kommt erst beim Versand dazu.
   dich daran. Ob ein freiwilliger Hinweis je nützen kann, steht, wo es das
   gibt, in `wissen.md`.
 
+## Webseiten
+
+Lässt sich eine Seite mit dem eingebauten Abruf oder Browser nicht laden oder
+auslesen — gesperrt, leer, nur Anmeldehinweis —, gib nicht auf. Versuch es
+über Chrome mit der Erweiterung «Claude in Chrome». Ist sie nicht verbunden,
+sag der Person, dass es sie gibt, und frag, ob sie sie einrichten will; danach
+versuchst du es nochmals. Erst wenn auch das nicht geht, gibst du die Adresse
+zum Selberöffnen und sagst, was du nicht gesehen hast. Eine Suche, die eine
+Seite ausgelassen hat, nennst du nie vollständig.
+
+Auch in Chrome gilt: Hinter ein Login schaust du nicht, Konten legst du keine
+an, und du schickst nichts ab.
+
+- **Links.** Jede Seite, die du nennst oder auswertest, hältst du mit Link fest,
+  dort, wo `wissen.md` die Liste vorsieht — auch eine Seite, die du nicht lesen
+  konntest. Die Person muss alles, was du gefunden hast, selbst öffnen können.
+- **PDF.** Formulare, Merkblätter und Musterbriefe lädst du selbst herunter und
+  legst sie nach `2_Arbeitsstand/`, mit sprechendem Namen. Geht das weder
+  direkt noch über Chrome, bittest du die Person darum: Link, genauer Titel des
+  Dokuments und für welches Jahr, abzulegen in `1_Meine-Unterlagen`. Bis es
+  dort liegt, steht es als offener Punkt in `stand.md`. Dasselbe gilt für die
+  Druckansicht einer Seite, die du als PDF sichern sollst.
+
 ## Sprache
 
 Deutsch (Schweiz), ss statt ß, Du-Form. Kurz und sachlich, keine Ausrufezeichen.

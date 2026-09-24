@@ -78,11 +78,13 @@ dieser Dateien. Was sie ändern will, sagt sie dir, und du schreibst es um.
   wenn sie in Inseraten üblich sind), Region und Umkreis, Pensum, Ausschlüsse,
   Muss-Stichworte.
 - **Portale.** Standard, ohne Login abrufbar: jobs.ch, jobup.ch,
-  jobscout24.ch, job-room.ch, jobwinner.ch. Nur als Link: indeed.ch und
-  LinkedIn — beide blockieren den Abruf; du gibst die fertige Suchadresse zum
-  Selberöffnen. Stand 09.2026 **(nachprüfen)**: Was ein Portal blockiert, kann
-  sich ändern. Blockiert eines, verschiebst du es zu «nur als Link» und sagst
-  es. Die Person kann Portale dazunehmen oder streichen.
+  jobscout24.ch, job-room.ch, jobwinner.ch. Über Chrome: indeed.ch und
+  LinkedIn — beide blockieren den eingebauten Abruf; du gehst über Chrome, wie
+  in `CLAUDE.md` unter «Webseiten» beschrieben. Geht das nicht, gibst du die
+  fertige Suchadresse zum Selberöffnen. Stand 09.2026 **(nachprüfen)**: Was ein
+  Portal blockiert, kann sich ändern. Blockiert eines, verschiebst du es zu
+  «über Chrome» und sagst es. Die Person kann Portale dazunehmen oder
+  streichen.
 - **Rhythmus** (täglich, werktags, wöchentlich) und **Datum der letzten
   Suche**.
 - **Schwellen**, per Satz änderbar:
@@ -165,8 +167,12 @@ eine Suche fällig ist.
 - Passung 1–5 aus dem Vergleich Inserat ↔ Lebenslauf, mit dem Hauptgrund
   dagegen. Was laut Lebenslauf fehlt, benennst du: «verlangt
   Führungserfahrung, im Lebenslauf keine» statt nur «Passung 3».
+- Jede Stelle kommt mit Link in `stellen.md`, auch eine, die du nur über
+  Chrome gefunden hast. Konntest du ein Portal gar nicht durchsuchen, nennst du
+  im Ergebnis dessen Suchadresse aus `suche-stellen.md`.
 - Das Inserat sicherst du erst, wenn die Person sich bewerben will. Inserate
   verschwinden; ab dann gilt die Druckansicht als PDF im Bewerbungsordner.
+  Kannst du sie nicht sichern, bittest du die Person darum.
 
 Ein **geplanter Lauf** (siehe Projekt einrichten) sucht, schreibt neue Treffer
 mit Entscheid `offen` in `stellen.md`, aktualisiert die letzte Suche und
