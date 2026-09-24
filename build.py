@@ -47,7 +47,10 @@ def lese_info(task: Path) -> dict[str, str]:
 
 
 def alle_aufgaben() -> list[Path]:
-    return sorted(p for p in TASKS.iterdir() if p.is_dir() and (p / "INFO.md").exists())
+    """Nach `reihenfolge:` aus INFO.md, dann nach Name. Dieselbe Folge gilt in der
+    Navigation der Anleitung; der Toolbox-Deploy liest das Feld ebenfalls."""
+    tasks = [p for p in TASKS.iterdir() if p.is_dir() and (p / "INFO.md").exists()]
+    return sorted(tasks, key=lambda p: (int(lese_info(p).get("reihenfolge", 1000)), p.name))
 
 
 def kopiere_baum(quelle: Path, ziel: Path) -> None:

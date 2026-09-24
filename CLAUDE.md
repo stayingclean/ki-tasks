@@ -28,10 +28,9 @@ Beim Arbeiten an diesem Repo:
 - Nach jeder Änderung `python build.py` laufen lassen; `dist/` ist gitignored.
 - Inhalte: Deutsch (Schweiz), Du-Form, keine echten Personendaten, keine
   Beispiele mit Klarnamen.
-- `anleitung/` enthält sechs Seiten: `der-ordner.html` und `platzhalter.html`
-  beschreiben den Ordner, `aufgaben.html` plus eine Seite je Aufgabe
-  (`wohnung.html`, `stelle.html`, `gesuch-krankheitskosten.html`) beschreiben die
-  Aufgaben. Der Deploy von `stayingclean/toolbox` holt den Ordner beim Bauen und
+- `anleitung/` enthält `der-ordner.html` und `platzhalter.html` (beschreiben den
+  Ordner), `aufgaben.html` und eine Seite je Aufgabe, benannt wie der
+  Aufgabenordner: `aufgaben/<name>/` ↔ `anleitung/<name>.html`. Der Deploy von `stayingclean/toolbox` holt den Ordner beim Bauen und
   kopiert ihn nach `docs/claude-anleitung/`; die Seiten erscheinen darum unter
   der Toolbox-URL und nicht auf der Seite dieses Repos. Sie liegen hier, weil sie
   sich mit dem Ordner zusammen ändern müssen: Wer `grundgeruest/` umbaut, am
@@ -40,9 +39,11 @@ Beim Arbeiten an diesem Repo:
   Sache für einen Menschen; neue Regeln gehören trotzdem ins `wissen.md`, nicht
   auf die Seite. Aussehen und Navigation (`stil.css`, `anleitung.js`) kommen von
   drüben — hier kein eigener CSS-Block ausser für wirklich Seitenspezifisches,
-  Links relativ. Eine neue Seite muss drüben in `anleitung.js` in die Liste
-  `SEITEN`, sonst taucht sie in keiner Navigation auf (der nötige Block steht in
-  der README). `build.py` schaut in `anleitung/` nur nach, ob `<name>.html` existiert, und
+  Links relativ. Navigation und Karten auf `aufgaben.html` setzt der Deploy drüben
+  aus der Namenskonvention ein (`<h1>`, `<p class="lead">`, `reihenfolge:` in
+  `INFO.md`; Details in der README) — die Karten zwischen den Markern nicht von
+  Hand pflegen. Nur eine Seite, die keine Aufgabe ist, muss drüben von Hand in
+  `SEITEN`. Nach jedem Deploy hier stösst der Job `toolbox` den Deploy drüben an. `build.py` schaut in `anleitung/` nur nach, ob `<name>.html` existiert, und
   verlinkt die Karte der Download-Seite dann dorthin (Toolbox-URL); die Seiten gehören in
   keinen Zip.
 - Die übrige Anleitung (Einstieg, Abos, Datenschutz, Prompts) bleibt im Repo

@@ -42,7 +42,7 @@ aufgaben/
   gesuch-krankheitskosten/
 build.py                      Grundgerüst + Aufgabe → dist/<aufgabe>.zip, dazu index.html
 platzhalter/                  Windows-Programm: [Platzhalter] in Word-Dateien einsetzen (uv, EXE)
-anleitung/                    sechs Seiten: Ordner, Platzhalter, Aufgaben (holt der Toolbox-Deploy)
+anleitung/                    Ordner, Platzhalter, je Aufgabe eine Seite (holt der Toolbox-Deploy)
 ```
 
 `build.py` legt das Grundgerüst hin und die Aufgaben-Schicht darüber — eine reine
@@ -86,16 +86,15 @@ Die EXE baut der Workflow auf einem Windows-Runner und legt sie neben die Zips.
 
 ## Anleitung
 
-`anleitung/` enthält sechs Seiten, zwei zur Arbeitsweise und vier zu den
-Aufgaben:
+`anleitung/` enthält zwei Seiten zur Arbeitsweise, eine Übersicht und eine
+Seite je Aufgabe:
 
 ```
-der-ordner.html               was drinliegt und was Claude darin tut
-platzhalter.html              Adresse und IBAN am Schluss einsetzen
-aufgaben.html                 welches Zip wofür, was allen gemeinsam ist
-wohnung.html                  je Aufgabe: was Claude fragt, wo er sucht,
-stelle.html                   was du besorgen musst, was entsteht,
-gesuch-krankheitskosten.html  wo er widerspricht, ein Durchlauf
+der-ordner.html      was drinliegt und was Claude darin tut
+platzhalter.html     Adresse und IBAN am Schluss einsetzen
+aufgaben.html        welches Zip wofür, was allen gemeinsam ist
+<name>.html          je Aufgabe: Ablauf, was Claude fragt, wo er sucht, was du
+                     besorgen musst, was entsteht, wo er widerspricht, Download
 ```
 
 Der Deploy des Repos
@@ -110,7 +109,7 @@ Platzhalter-Tool etwas dreht oder ein `wissen.md` anpasst, zieht diese Seiten
 mit nach. Genau dieser Gleichschritt war gebrochen, solange die Anleitung
 vollständig im anderen Repo lag.
 
-Die drei Aufgabenseiten sind die Leseform von `aufgaben/<name>/9_Claude/wissen.md`
+Die Aufgabenseiten sind die Leseform von `aufgaben/<name>/9_Claude/wissen.md`
 — dieselbe Sache, einmal für Claude und einmal für einen Menschen. Ändert sich
 das `wissen.md`, ändert sich die Seite mit. Neue Regeln gehören aber weiterhin
 ins `wissen.md`, nicht hierher.
@@ -118,37 +117,63 @@ ins `wissen.md`, nicht hierher.
 Aussehen und Navigation kommen von drüben (`stil.css`, `anleitung.js`): kein
 eigener CSS-Block ausser für wirklich Seitenspezifisches, Links relativ.
 Einzeln im Browser geöffnet sehen die Seiten darum unfertig aus; zum Prüfen
-neben eine Kopie von `stil.css` und `anleitung.js` legen. Eine neue Seite muss
-drüben in `anleitung.js` in die Liste `SEITEN` eingetragen werden, sonst
-erscheint sie in keiner Navigation. `build.py` kopiert den Ordner nicht, schaut
+neben eine Kopie von `stil.css` und `anleitung.js` legen. `build.py` kopiert den Ordner nicht, schaut
 aber nach, ob `anleitung/<name>.html` existiert: Dann führt die Karte auf der
 Download-Seite zu dieser Beschreibung unter der Toolbox-URL, der Zip-Link steht
 darunter. Fehlt die Seite, zeigt die Karte direkt aufs Zip.
 
-Der Block, der drüben in `SEITEN` stehen muss, damit die Aufgabenseiten
-erscheinen — zwischen den Gruppen «Arbeitsweise» und «Weiterführend»:
+### Namenskonvention: Aufgabe und Seite
 
-```js
-{ gruppe: 'Aufgaben', seiten: [
-  { href: 'aufgaben.html',                 titel: 'Übersicht' },
-  { href: 'wohnung.html',                  titel: 'Wohnung suchen' },
-  { href: 'stelle.html',                   titel: 'Stelle suchen' },
-  { href: 'gesuch-krankheitskosten.html',  titel: 'Gesuche für Krankheitskosten' }
-]},
+Eine Aufgabenseite erscheint von selbst in der Navigation und auf der
+Übersicht, wenn sie gleich heisst wie der Aufgabenordner:
+
 ```
+aufgaben/<name>/INFO.md     reihenfolge: 30      → Platz in Navigation und Karten
+anleitung/<name>.html       <h1>…</h1>           → Titel in Navigation und Karte
+                            <p class="lead">…</p> → Text der Karte auf aufgaben.html
+```
+
+Beim Toolbox-Deploy setzt `tools/anleitung_aufgaben.py` drüben daraus den Block
+«Aufgaben» in `SEITEN` und die Karten zwischen `<!-- AUFGABEN-KARTEN -->` auf
+`aufgaben.html` ein. Die Karten, die hier im Repo stehen, sind nur für die
+lokale Ansicht. Eine Seite in `anleitung/` ohne passende Aufgabe (und nicht von
+Hand in `SEITEN`) lässt den Deploy abbrechen, weil sie sonst unerreichbar wäre.
+Eine Aufgabe ohne Seite wird nur gemeldet; ihre Karte auf der Download-Seite
+zeigt dann direkt aufs Zip.
+
+Nur Seiten, die keine Aufgabe beschreiben (wie `der-ordner.html`), müssen
+drüben noch von Hand in `SEITEN` eingetragen werden.
+
+### Deploy der Toolbox anstossen
+
+Nach jedem Deploy hier stösst der Job `toolbox` in
+`.github/workflows/pages.yml` den Deploy drüben an (`repository_dispatch`).
+Das Token stellt eine GitHub App aus. Einmalig einrichten:
+
+1. GitHub → Settings → Developer settings → GitHub Apps → New GitHub App.
+   Webhook ausschalten, Repository permissions → Contents: Read and write.
+2. Die App **nur** auf `stayingclean/toolbox` installieren.
+3. Einen Private Key erzeugen (.pem).
+4. Hier in ki-tasks → Settings → Secrets and variables → Actions:
+   Variable `TOOLBOX_APP_ID` (App-ID), Secret `TOOLBOX_APP_KEY` (ganzer Inhalt der .pem).
+
+Ohne die Variable wird der Job übersprungen; drüben zieht dann der tägliche
+Cron nach.
 
 ## Neue Aufgabe anlegen
 
 1. Ordner `aufgaben/<name>/` (kleingeschrieben, ohne Umlaute; der Name wird
    Dateiname des Zips).
-2. `INFO.md` mit drei Zeilen: `titel:`, `gruppe:`, `kurz:`.
+2. `INFO.md` mit `titel:`, `gruppe:`, `kurz:` und `reihenfolge:` (Zahl; bestimmt
+   die Folge auf der Download-Seite und in der Navigation der Anleitung).
 3. `9_Claude/wissen.md` nach dem Aufbau von `aufgaben/wohnung/9_Claude/wissen.md`:
    was Claude am Anfang fragt · wo gesucht wird · wie Treffer abgelegt und im Chat
    ausgewählt werden · welche Unterlagen nötig sind · welche Dokumente entstehen ·
    was nach `3_Zum-Versenden/` geht.
 4. `python build.py` ausführen und das Zip einmal selbst entpacken und anschauen.
-5. `anleitung/<name>.html` nach dem Vorbild von `anleitung/wohnung.html`, dazu
-   eine Karte auf `anleitung/aufgaben.html` und ein Eintrag in `SEITEN` drüben.
+5. `anleitung/<name>.html` nach dem Vorbild von `anleitung/wohnung.html`, mit
+   `<h1>` und `<p class="lead">`. Navigation und Karte entstehen beim Deploy
+   drüben von selbst (siehe «Namenskonvention»).
 
 Was NICHT in eine Aufgabe gehört: Regeln zum Verhalten (die stehen in
 `grundgeruest/CLAUDE.md`), Formulare zum Ausfüllen, Beispieldaten echter Personen.
