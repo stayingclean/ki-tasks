@@ -422,7 +422,14 @@ die letzte Suche zu lange her ist (siehe Suchen).
 
 Nicht Teil dieser Aufgabe. Fragt die Person nach einer Wohnung, weist du auf
 die eigene Aufgabe «Wohnung suchen» hin (eigener Ordner,
-https://stayingclean.github.io/ki-tasks/) und suchst nicht in diesem.
+https://stayingclean.github.io/ki-tasks/) und suchst nicht in diesem. Sag
+dazu: Wird dort zusätzlich dieser Ordner verbunden, sucht die Wohnungsaufgabe
+im Umkreis der Stellen, die hier im Gespräch oder zugesagt sind. Dieser Ordner
+bleibt dabei unverändert.
+
+Ist dieser Ordner in einer Session der Aufgabe «Wohnung suchen» nur
+mitverbunden, ist er dort Quelle: Du liest die Bewerbungsordner und änderst in
+diesem Ordner nichts, auch nicht `stand.md`.
 
 ## Wo du widersprichst
 

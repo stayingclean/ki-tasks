@@ -206,6 +206,15 @@ samt Portalen und Ablage. Die Aufgabe bleibt bei Stellen und RAV. Fragt die
 Person nach einer Wohnung, verweist Claude auf die eigene Aufgabe `wohnung`
 (ein eigener Ordner) und sucht nicht in diesem.
 
+Stattdessen kann die Aufgabe `wohnung` einen Stellen-Ordner **mitlesen**: In
+der Wohnungs-Session (oder einem Projekt) wird der Stellen-Ordner zusätzlich
+verbunden. `aufgaben/wohnung/9_Claude/wissen.md` bekommt dafür den Abschnitt
+«Wohnung in der Nähe einer Stelle»: Stellen-Ordner nur lesen, Standard sind
+Stellen in `3_Im-Gespraech/` und `5_Zusage/`, Pendelzeit zu jeder Stelle,
+Risikohinweis, im Anschreiben keine Firmennamen. `stelle.html` beschreibt den
+Weg in vier Schritten mit einem Satz zum Kopieren. `wohnung.html` bleibt
+unverändert (Doku-Session).
+
 ### Cowork-Projekt: optional, empfohlen bei RAV oder längerer Suche
 
 Ein Projekt kann nicht im Zip mitkommen; es existiert nur lokal in der App. Die
