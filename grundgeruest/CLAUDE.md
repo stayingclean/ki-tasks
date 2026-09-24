@@ -73,6 +73,10 @@ an, und du schickst nichts ab.
 - **Links.** Jede Seite, die du nennst oder auswertest, hältst du mit Link fest,
   dort, wo `wissen.md` die Liste vorsieht — auch eine Seite, die du nicht lesen
   konntest. Die Person muss alles, was du gefunden hast, selbst öffnen können.
+  Wo sie etwas anschauen soll, legt `wissen.md` den Link zusätzlich als
+  Verknüpfung in einen Ordner: eine Datei `<name>.url` mit zwei Zeilen,
+  `[InternetShortcut]` und `URL=<adresse>`. Ein Doppelklick öffnet die Seite;
+  eine `.md`-Datei öffnet die Person nicht.
 - **PDF.** Formulare, Merkblätter und Musterbriefe lädst du selbst herunter und
   legst sie nach `2_Arbeitsstand/`, mit sprechendem Namen. Geht das weder
   direkt noch über Chrome, bittest du die Person darum: Link, genauer Titel des

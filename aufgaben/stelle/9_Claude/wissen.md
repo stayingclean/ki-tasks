@@ -58,6 +58,7 @@ ein Inserat oder ein Schreiben es nötig macht.
 2_Arbeitsstand/
   stellen.md            jede gefundene Stelle mit Entscheid
   bewerbungen/
+    0_Vorschlaege/      Links zu den offenen Stellen, zum Anschauen
     1_in-Vorbereitung/
     2_Beworben/
     3_Im-Gespraech/
@@ -129,6 +130,7 @@ sieht im Explorer, was läuft, ohne eine Datei zu öffnen.
 
 | Ordner | Bedeutung |
 |---|---|
+| `0_Vorschlaege/` | gefunden, Entscheid offen — nur Verknüpfungen, keine Ordner |
 | `1_in-Vorbereitung/` | du schreibst, die Person prüft |
 | `2_Beworben/` | gesendet, keine Antwort |
 | `3_Im-Gespraech/` | Einladung, Gespräch, Probetag |
@@ -145,6 +147,13 @@ sortiert der Explorer in der Reihenfolge des RAV-Formulars.
   Ordner für Vermittler — ein Vermittler ist eine Art der Bewerbung, kein
   Stand.
 - **Spontanbewerbung:** `JJJJ-MM-TT_<Firma>_Spontanbewerbung`.
+- **Vorschläge:** Jede Stelle mit Entscheid `offen` oder `wieder
+  vorgeschlagen` liegt als `0_Vorschlaege/<Nr>_<Firma>_<Stelle>.url`; ein
+  Doppelklick öffnet das Inserat. Portale, die du nicht durchsuchen konntest,
+  liegen dort als `Selber-nachsehen_<Portal>.url` mit der Suchadresse; die
+  ersetzt du bei jeder Suche. Will die Person sich bewerben, wandert die
+  Verknüpfung als `Inserat.url` in den neuen Bewerbungsordner. Lehnt sie ab
+  oder ist die Stelle abgelaufen, löschst du die Verknüpfung.
 - **Abgelehnte Stellen** bekommen keinen Ordner, nur ihre Zeile in
   `stellen.md`.
 - **Keine Antwort:** Nach der Nachfass-Schwelle fragst du «Nachfassen oder als
@@ -167,15 +176,17 @@ eine Suche fällig ist.
 - Passung 1–5 aus dem Vergleich Inserat ↔ Lebenslauf, mit dem Hauptgrund
   dagegen. Was laut Lebenslauf fehlt, benennst du: «verlangt
   Führungserfahrung, im Lebenslauf keine» statt nur «Passung 3».
-- Jede Stelle kommt mit Link in `stellen.md`, auch eine, die du nur über
-  Chrome gefunden hast. Konntest du ein Portal gar nicht durchsuchen, nennst du
-  im Ergebnis dessen Suchadresse aus `suche-stellen.md`.
+- Jede Stelle kommt mit Link in `stellen.md` und als Verknüpfung nach
+  `0_Vorschlaege/`, auch eine, die du nur über Chrome gefunden hast.
+  Konntest du ein Portal gar nicht durchsuchen, nennst du im Ergebnis dessen
+  Suchadresse aus `suche-stellen.md` und legst sie ebenfalls dort ab.
 - Das Inserat sicherst du erst, wenn die Person sich bewerben will. Inserate
   verschwinden; ab dann gilt die Druckansicht als PDF im Bewerbungsordner.
   Kannst du sie nicht sichern, bittest du die Person darum.
 
 Ein **geplanter Lauf** (siehe Projekt einrichten) sucht, schreibt neue Treffer
-mit Entscheid `offen` in `stellen.md`, aktualisiert die letzte Suche und
+mit Entscheid `offen` in `stellen.md` und als Verknüpfung nach
+`0_Vorschlaege/`, aktualisiert die letzte Suche und
 schreibt eine Zeile in `stand.md` («3 neue Stellen, warten auf Entscheid» oder
 «keine neuen Stellen»). Er legt keine Bewerbungsordner an, schreibt keine
 Schreiben und legt keine E-Mail-Entwürfe an.
@@ -219,6 +230,7 @@ Ordner, und bei zehn und mehr Bewerbungen im Monat wäre jedes Mal
 
 1. **Entwurf** in `1_in-Vorbereitung/<Ordner>/`:
    - `inserat.pdf` — Druckansicht des Inserats
+   - `Inserat.url` — die Verknüpfung aus `0_Vorschlaege/`
    - `inserat.md` — Firma, Stelle, Ort, Pensum, Anforderungen, Frist,
      Kontaktperson mit Telefon, Bewerbungsweg, Referenznummer, Link
    - `motivationsschreiben.docx` — höchstens eine Seite, Ich-Form, sachlich,
@@ -399,8 +411,9 @@ steht. Was dir fehlt, fragst du vorher einzeln. Es bleibt keine Lücke.
   Zu Beginn jeder Session zuerst 9_Claude/stand.md lesen, egal was die erste
   Nachricht ist. Fälliges in einem Satz nennen, dann tun, worum ich bitte.
   E-Mails nur als Entwurf anlegen, nie senden — auch nicht auf Nachfrage.
-  Geplante Läufe schreiben ihr Ergebnis nach 2_Arbeitsstand/stellen.md und
-  9_Claude/stand.md und legen keine Bewerbung an.
+  Geplante Läufe schreiben ihr Ergebnis nach 2_Arbeitsstand/stellen.md,
+  2_Arbeitsstand/bewerbungen/0_Vorschlaege und 9_Claude/stand.md und legen
+  keine Bewerbung an.
   ```
 
 - **Links:** www.job-room.ch, die Suchadressen der Portale aus
@@ -410,7 +423,8 @@ steht. Was dir fehlt, fragst du vorher einzeln. Es bleibt keine Lücke.
 
   ```
   Suche nach neuen Stellen gemäss 9_Claude/suche-stellen.md. Trag neue Treffer
-  mit Entscheid «offen» in 2_Arbeitsstand/stellen.md ein, aktualisiere die
+  mit Entscheid «offen» in 2_Arbeitsstand/stellen.md ein, leg für jeden eine
+  Verknüpfung nach 2_Arbeitsstand/bewerbungen/0_Vorschlaege, aktualisiere die
   letzte Suche und schreib eine Zeile nach 9_Claude/stand.md. Keine
   Bewerbungen, keine Schreiben, keine E-Mails.
   ```
