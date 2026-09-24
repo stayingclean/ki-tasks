@@ -131,10 +131,13 @@ Versand.
 kantonal/schweizweit/kommunal | übernimmt Kostenbeteiligung | Prämien ja/nein |
 Voraussetzungen | Einreichweg (Post, E-Mail, Formular, nur über Fachstelle) |
 Formular vorhanden oder nur auf Anfrage | verlangte Beilagen | Rhythmus |
-Adresse geprüft am | Passung 1–5 | Ausschlussgrund.
+Adresse geprüft am | Passung 1–5 | Ausschlussgrund | Link.
 
-Formulare und Merkblätter als PDF daneben. Getrennt festhalten, welche Formulare
-nur auf Anfrage kommen — die müssen sofort bestellt werden, die Zustellung dauert.
+Formulare und Merkblätter als PDF in `2_Arbeitsstand/formulare/`,
+`<stelle>_formular.pdf` und `<stelle>_merkblatt.pdf`. Getrennt festhalten,
+welche Formulare nur auf Anfrage kommen — die müssen sofort bestellt werden, die
+Zustellung dauert. Ein Formular, das online steht, aber sich nicht laden lässt,
+ist kein «nur auf Anfrage»: Das holt die Person über den Link.
 
 Am Schluss eine Empfehlung der Reihenfolge: vorrangige Stellen, dann die drei bis
 vier stärksten Stiftungen, dann der Rest gestaffelt.

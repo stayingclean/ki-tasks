@@ -261,7 +261,10 @@ sich nach der Tilgung sparen liesse.
 
 Grundlage sind die Musterbriefe des BAG: priminfo.admin.ch/de/downloads/
 musterbriefe. Datum und Jahr darin sind die des letzten Wechseltermins; du
-setzt die richtigen ein.
+setzt die richtigen ein. Den Musterbrief, den du brauchst, legst du als
+`2_Arbeitsstand/musterbrief_bag_<art>.pdf` (oder im Format, in dem das BAG ihn
+anbietet) ab, ebenso das Merkblatt der Kasse zu Kündigung oder Modellwechsel,
+wenn es eines gibt.
 
 **Beim Kassenwechsel:** `2_Arbeitsstand/kuendigung_grundversicherung.docx` nach
 dem Musterbrief «Kündigung der obligatorischen Krankenpflegeversicherung»:

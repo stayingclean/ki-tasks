@@ -3,7 +3,7 @@
 Eine Stellensuche dauert Wochen bis Monate. Du suchst laufend, merkst dir, was
 die Person schon gesehen und entschieden hat, schreibst pro Stelle ein
 Motivationsschreiben und führst den Stand jeder Bewerbung so, dass er im
-Explorer sichtbar ist. Ist die Person beim RAV angemeldet, machst du aus
+Explorer bzw. Finder sichtbar ist. Ist die Person beim RAV angemeldet, machst du aus
 denselben Daten den Monatsnachweis.
 
 Das Wissen hier gilt in allen Kantonen. Was kantonal verschieden ist — die
@@ -58,6 +58,7 @@ ein Inserat oder ein Schreiben es nötig macht.
 2_Arbeitsstand/
   stellen.md            jede gefundene Stelle mit Entscheid
   bewerbungen/
+    0_Vorschlaege/      Links zu den offenen Stellen, zum Anschauen
     1_in-Vorbereitung/
     2_Beworben/
     3_Im-Gespraech/
@@ -78,11 +79,13 @@ dieser Dateien. Was sie ändern will, sagt sie dir, und du schreibst es um.
   wenn sie in Inseraten üblich sind), Region und Umkreis, Pensum, Ausschlüsse,
   Muss-Stichworte.
 - **Portale.** Standard, ohne Login abrufbar: jobs.ch, jobup.ch,
-  jobscout24.ch, job-room.ch, jobwinner.ch. Nur als Link: indeed.ch und
-  LinkedIn — beide blockieren den Abruf; du gibst die fertige Suchadresse zum
-  Selberöffnen. Stand 09.2026 **(nachprüfen)**: Was ein Portal blockiert, kann
-  sich ändern. Blockiert eines, verschiebst du es zu «nur als Link» und sagst
-  es. Die Person kann Portale dazunehmen oder streichen.
+  jobscout24.ch, job-room.ch, jobwinner.ch. Über Chrome: indeed.ch und
+  LinkedIn — beide blockieren den eingebauten Abruf; du gehst über Chrome, wie
+  in `CLAUDE.md` unter «Webseiten» beschrieben. Geht das nicht, gibst du die
+  fertige Suchadresse zum Selberöffnen. Stand 09.2026 **(nachprüfen)**: Was ein
+  Portal blockiert, kann sich ändern. Blockiert eines, verschiebst du es zu
+  «über Chrome» und sagst es. Die Person kann Portale dazunehmen oder
+  streichen.
 - **Rhythmus** (täglich, werktags, wöchentlich) und **Datum der letzten
   Suche**.
 - **Schwellen**, per Satz änderbar:
@@ -123,10 +126,11 @@ Neben dem, was das Grundgerüst verlangt:
 ## Bewerbungsordner und Stand
 
 Jede Bewerbung ist **ein Ordner, der mit ihrem Stand wandert**. Die Person
-sieht im Explorer, was läuft, ohne eine Datei zu öffnen.
+sieht im Explorer (Mac: Finder), was läuft, ohne eine Datei zu öffnen.
 
 | Ordner | Bedeutung |
 |---|---|
+| `0_Vorschlaege/` | gefunden, Entscheid offen — nur Verknüpfungen, keine Ordner |
 | `1_in-Vorbereitung/` | du schreibst, die Person prüft |
 | `2_Beworben/` | gesendet, keine Antwort |
 | `3_Im-Gespraech/` | Einladung, Gespräch, Probetag |
@@ -136,13 +140,20 @@ sieht im Explorer, was läuft, ohne eine Datei zu öffnen.
 Name: `JJJJ-MM-TT_<Firma>_<Stelle>`, kurz, ohne Leer- und Sonderzeichen
 (`Muster-AG_Projektleiter-Bau`). Das Datum ist das Bewerbungsdatum; bis zum
 Versand steht dort das Datum des Entwurfs, beim Versand benennst du um. So
-sortiert der Explorer in der Reihenfolge des RAV-Formulars.
+sortieren Explorer und Finder in der Reihenfolge des RAV-Formulars.
 
 - **Über einen Vermittler:** `JJJJ-MM-TT_<Vermittler>_fuer-<Firma>_<Stelle>`;
   ist die Firma unbekannt, `JJJJ-MM-TT_<Vermittler>_<Stelle>`. Kein eigener
   Ordner für Vermittler — ein Vermittler ist eine Art der Bewerbung, kein
   Stand.
 - **Spontanbewerbung:** `JJJJ-MM-TT_<Firma>_Spontanbewerbung`.
+- **Vorschläge:** Jede Stelle mit Entscheid `offen` oder `wieder
+  vorgeschlagen` liegt als `0_Vorschlaege/<Nr>_<Firma>_<Stelle>.html`; ein
+  Doppelklick öffnet das Inserat. Portale, die du nicht durchsuchen konntest,
+  liegen dort als `Selber-nachsehen_<Portal>.html` mit der Suchadresse; die
+  ersetzt du bei jeder Suche. Will die Person sich bewerben, wandert die
+  Verknüpfung als `Inserat.html` in den neuen Bewerbungsordner. Lehnt sie ab
+  oder ist die Stelle abgelaufen, löschst du die Verknüpfung.
 - **Abgelehnte Stellen** bekommen keinen Ordner, nur ihre Zeile in
   `stellen.md`.
 - **Keine Antwort:** Nach der Nachfass-Schwelle fragst du «Nachfassen oder als
@@ -165,11 +176,17 @@ eine Suche fällig ist.
 - Passung 1–5 aus dem Vergleich Inserat ↔ Lebenslauf, mit dem Hauptgrund
   dagegen. Was laut Lebenslauf fehlt, benennst du: «verlangt
   Führungserfahrung, im Lebenslauf keine» statt nur «Passung 3».
+- Jede Stelle kommt mit Link in `stellen.md` und als Verknüpfung nach
+  `0_Vorschlaege/`, auch eine, die du nur über Chrome gefunden hast.
+  Konntest du ein Portal gar nicht durchsuchen, nennst du im Ergebnis dessen
+  Suchadresse aus `suche-stellen.md` und legst sie ebenfalls dort ab.
 - Das Inserat sicherst du erst, wenn die Person sich bewerben will. Inserate
   verschwinden; ab dann gilt die Druckansicht als PDF im Bewerbungsordner.
+  Kannst du sie nicht sichern, bittest du die Person darum.
 
 Ein **geplanter Lauf** (siehe Projekt einrichten) sucht, schreibt neue Treffer
-mit Entscheid `offen` in `stellen.md`, aktualisiert die letzte Suche und
+mit Entscheid `offen` in `stellen.md` und als Verknüpfung nach
+`0_Vorschlaege/`, aktualisiert die letzte Suche und
 schreibt eine Zeile in `stand.md` («3 neue Stellen, warten auf Entscheid» oder
 «keine neuen Stellen»). Er legt keine Bewerbungsordner an, schreibt keine
 Schreiben und legt keine E-Mail-Entwürfe an.
@@ -200,8 +217,8 @@ vollständige Antwort. Aussortierte nennst du kurz mit Grund.
 
 Die Regel im Grundgerüst, jede Lücke mit einem Platzhalter zu füllen, gilt
 hier nicht. Der Lebenslauf mit Adresse, Telefon und E-Mail liegt ohnehin im
-Ordner, und bei zehn und mehr Bewerbungen im Monat wäre jedes Mal
-`platzhalter.exe` ein Umweg ohne Schutzwirkung.
+Ordner, und bei zehn und mehr Bewerbungen im Monat wäre jedes Mal das
+Programm Platzhalter ein Umweg ohne Schutzwirkung.
 
 - Absenderangaben nimmst du aus der Vorlage oder dem Lebenslauf.
 - Fehlt eine Angabe — Eintrittsdatum, Pensum, Lohnvorstellung —, suchst du in
@@ -213,6 +230,7 @@ Ordner, und bei zehn und mehr Bewerbungen im Monat wäre jedes Mal
 
 1. **Entwurf** in `1_in-Vorbereitung/<Ordner>/`:
    - `inserat.pdf` — Druckansicht des Inserats
+   - `Inserat.html` — die Verknüpfung aus `0_Vorschlaege/`
    - `inserat.md` — Firma, Stelle, Ort, Pensum, Anforderungen, Frist,
      Kontaktperson mit Telefon, Bewerbungsweg, Referenznummer, Link
    - `motivationsschreiben.docx` — höchstens eine Seite, Ich-Form, sachlich,
@@ -393,8 +411,9 @@ steht. Was dir fehlt, fragst du vorher einzeln. Es bleibt keine Lücke.
   Zu Beginn jeder Session zuerst 9_Claude/stand.md lesen, egal was die erste
   Nachricht ist. Fälliges in einem Satz nennen, dann tun, worum ich bitte.
   E-Mails nur als Entwurf anlegen, nie senden — auch nicht auf Nachfrage.
-  Geplante Läufe schreiben ihr Ergebnis nach 2_Arbeitsstand/stellen.md und
-  9_Claude/stand.md und legen keine Bewerbung an.
+  Geplante Läufe schreiben ihr Ergebnis nach 2_Arbeitsstand/stellen.md,
+  2_Arbeitsstand/bewerbungen/0_Vorschlaege und 9_Claude/stand.md und legen
+  keine Bewerbung an.
   ```
 
 - **Links:** www.job-room.ch, die Suchadressen der Portale aus
@@ -404,7 +423,8 @@ steht. Was dir fehlt, fragst du vorher einzeln. Es bleibt keine Lücke.
 
   ```
   Suche nach neuen Stellen gemäss 9_Claude/suche-stellen.md. Trag neue Treffer
-  mit Entscheid «offen» in 2_Arbeitsstand/stellen.md ein, aktualisiere die
+  mit Entscheid «offen» in 2_Arbeitsstand/stellen.md ein, leg für jeden eine
+  Verknüpfung nach 2_Arbeitsstand/bewerbungen/0_Vorschlaege, aktualisiere die
   letzte Suche und schreib eine Zeile nach 9_Claude/stand.md. Keine
   Bewerbungen, keine Schreiben, keine E-Mails.
   ```

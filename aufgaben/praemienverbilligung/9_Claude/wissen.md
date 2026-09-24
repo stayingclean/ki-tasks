@@ -37,7 +37,9 @@ https://www.ahv-iv.ch/de/Kontakte/Kantonale-Stellen-zur-Prämienverbilligung.
 Die Liste hinkt gelegentlich nach; die Seite des Kantons hat das letzte Wort.
 Dort das Merkblatt oder Informationsblatt **für das Anspruchsjahr** suchen, nicht
 das vom Vorjahr. Ist es noch nicht publiziert, gilt das vom Vorjahr nur als
-Anhaltspunkt, und das steht dann auch so da.
+Anhaltspunkt, und das steht dann auch so da. Das Merkblatt legst du als
+`2_Arbeitsstand/merkblatt_<kanton>_<jahr>.pdf` ab; die Wegleitung, wenn es eine
+gibt, daneben.
 
 Festhalten in `2_Arbeitsstand/kanton.md`, jede Angabe mit Link und Datum des
 Abrufs:
