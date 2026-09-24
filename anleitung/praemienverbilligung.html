@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prämienverbilligung beantragen · Mit Claude arbeiten</title>
+  <meta name="description" content="Prämienverbilligung im Wohnkanton beantragen: Frist und Anmeldeweg klären, Anspruch schätzen, Formular vorbereiten">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Gehört eigentlich nach stil.css: main ist ein Grid-Element und schrumpft
+       ohne min-width:0 nicht unter sein breitestes Kind. Ein .tree-Block würde
+       sonst auf dem Handy nicht in sich scrollen, sondern die ganze Seite
+       breiter schieben. Doppelt schadet nicht, falls es drüben dazukommt. */
+    main { min-width: 0; }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <span class="title">Mit Claude arbeiten</span>
+      <span class="back">Anleitung · Toolbox</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Inhalt <span aria-hidden="true">☰</span></button>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main>
+<header class="page">
+  <p class="kicker">Aufgaben</p>
+  <h1>Prämienverbilligung beantragen</h1>
+  <p class="lead">Die individuelle Prämienverbilligung (IPV) im Wohnkanton beantragen: Frist und Anmeldeweg klären, den Anspruch grob schätzen, Belege zusammenstellen, das Formular vorbereiten. Jeder Kanton macht es anders — und eine verpasste Frist heisst oft, dass es für dieses Jahr kein Geld gibt.</p>
+</header>
+
+<div class="summary">
+  <h2>Kurzfassung</h2>
+  <ul>
+    <li><strong>Zip:</strong> <code>praemienverbilligung.zip</code> von <a href="https://stayingclean.github.io/ki-tasks/">stayingclean.github.io/ki-tasks</a>. Entpacken, Ordner in Cowork verbinden, «Was steht an?» schreiben.</li>
+    <li><strong>Du legst hinein:</strong> die letzte Steuerveranlagung und die Krankenkassenpolicen. Dazu, je nach Kanton, Lohnabrechnungen, Aufenthaltsbewilligung oder Ausbildungsbestätigung.</li>
+    <li><strong>Es entsteht:</strong> eine Übersicht der Regeln deines Kantons mit Quelle, eine grobe Schätzung, eine Belegliste, eine Ausfüllhilfe Feld für Feld und die Frist fürs nächste Jahr.</li>
+    <li><strong>Claude reicht nichts ein.</strong> Er bestellt keinen Code, loggt sich nirgends ein und tippt keine Zugangsdaten. Das Absenden machst du.</li>
+  </ul>
+</div>
+
+<h2>Die erste Frage</h2>
+<p>Beziehst du Sozialhilfe oder Ergänzungsleistungen? In vielen Kantonen bist du dann ohne Antrag erfasst — aber nicht in allen. Manchmal stellt der Sozialdienst den Antrag, manchmal muss er ihn bestätigen. Claude nimmt es darum nicht einfach an: Er sieht auf der Seite deines Kantons nach und rät dir, es beim Sozialdienst oder bei der EL-Stelle bestätigen zu lassen, statt dich doppelt anzumelden.</p>
+
+<h2>Was Claude am Anfang fragt</h2>
+<p>Nur, was nicht schon in deinen Unterlagen steht:</p>
+<ul>
+  <li>In welchem Kanton du wohnst, und seit wann</li>
+  <li>Für welches Jahr: das laufende, das nächste oder beide</li>
+  <li>Wer zum Haushalt gehört — Partnerin oder Partner, Kinder, junge Erwachsene in Ausbildung</li>
+  <li>Ob du ordentlich oder an der Quelle besteuert wirst</li>
+  <li>Ob der Kanton dir schon etwas geschickt hat: ein Formular, einen Code, eine Verfügung</li>
+</ul>
+<p>Antworten kannst du in halben Sätzen; das Aufschreiben übernimmt Claude.</p>
+
+<h2>Jeder Kanton anders</h2>
+<p>Claude sucht die zuständige Stelle über die <a href="https://www.ahv-iv.ch/de/Kontakte/Kantonale-Stellen-zur-Pr%C3%A4mienverbilligung">Liste auf ahv-iv.ch</a> und liest dann das Merkblatt deines Kantons für das richtige Jahr. Dabei achtet er auf acht Punkte:</p>
+<div class="tablewrap">
+<table>
+  <tr><th>Punkt</th><th>Worum es geht</th></tr>
+  <tr><td>System</td><td>Rechnet der Kanton von sich aus, schickt er dir ein Formular oder einen Code, oder musst du dich selbst melden? Oft gemischt. Wer keinen Brief bekommt, hat nicht automatisch keinen Anspruch.</td></tr>
+  <tr><td>Frist</td><td>Im Vorjahr, im Anspruchsjahr, erst im Folgejahr oder ab Zustellung des Formulars. In einzelnen Kantonen gibt es gar keine.</td></tr>
+  <tr><td>Nach der Frist</td><td>Der Anspruch verfällt fürs ganze Jahr, oder er gilt erst ab dem Folgemonat</td></tr>
+  <tr><td>Weg</td><td>Online, Papier oder Schalter der Gemeinde; braucht es vorher einen Code, und wie lange gilt er</td></tr>
+  <tr><td>Steuerjahr</td><td>Welche Veranlagung zählt, und was zum Einkommen wieder dazugezählt wird</td></tr>
+  <tr><td>Neuberechnung</td><td>Ob und ab wann sich eine veränderte Lage berücksichtigen lässt</td></tr>
+  <tr><td>Belege</td><td>Was der Kanton sehen will</td></tr>
+  <tr><td>Sprache</td><td>In der Westschweiz und im Tessin gibt es die Formulare oft nur auf Französisch oder Italienisch</td></tr>
+</table>
+</div>
+
+<div class="warn">
+  <p><strong>Die Frist kommt zuerst.</strong> Claude rechnet sie sofort gegen das heutige Datum. Wird es knapp, sagt er es vor allem anderen und stellt die Schätzung zurück. Braucht dein Kanton zuerst einen Code per Post, zählt die Zustellung mit. Ist die Frist verpasst, sagt er dir, was noch geht — statt eine Anmeldung vorzubereiten, die ins Leere läuft.</p>
+</div>
+
+<p>Wie weit die Regeln auseinandergehen, zeigen drei Beispiele für das Jahr 2027 (Stand 24.09.2026, vor dem Versand nachprüfen):</p>
+<ul>
+  <li><strong>Luzern:</strong> anmelden bis 31. Oktober des Vorjahres. Wer später kommt, erhält die Verbilligung nur für die Monate danach. <a href="https://www.was-luzern.ch/praemienverbilligung">was-luzern.ch</a></li>
+  <li><strong>Aargau:</strong> nur online und nur mit Anmeldecode, der sechs Wochen gilt. Anmelden bis 31. Dezember des Vorjahres, danach nicht mehr. <a href="https://www.sva-aargau.ch/informationsblattpv">sva-aargau.ch</a></li>
+  <li><strong>Zürich:</strong> Antrag bis 31. März des Jahres <em>nach</em> dem Anspruchsjahr. <a href="https://svazurich.ch/ihr-anliegen/privatpersonen/praemienverbilligung.html">svazurich.ch</a></li>
+</ul>
+<p>Wer die Regel des einen Kantons auf einen anderen überträgt, verpasst leicht die Frist.</p>
+
+<h2>Eine Schätzung, keine Zusage</h2>
+<p>Der Kanton rechnet mit deiner rechtskräftigen Steuerveranlagung, nicht mit der Steuererklärung. Claude liest die Zahlen darum aus dem Beleg in <code>1_Meine-Unterlagen</code>, nicht aus dem Gedächtnis.</p>
+<p>Das massgebende Einkommen ist aber nicht das steuerbare. Kantone zählen Abzüge wieder dazu — im Aargau etwa Einzahlungen in die Säule 3a, Einkäufe in die Pensionskasse und 20 Prozent des steuerbaren Vermögens. Claude schreibt jede Zeile mit Beleg auf, damit du siehst, woher die Zahl kommt.</p>
+<div class="note">
+  <p><strong>Entscheiden tut der Kanton.</strong> Liegt die Schätzung knapp über der Grenze, spricht das nicht gegen eine Anmeldung — sie kostet nichts, und der Kanton rechnet genauer.</p>
+</div>
+
+<h2>Wenn sich viel verändert hat</h2>
+<p>Die Veranlagung zeigt deine Lage von vor zwei, drei Jahren. Hast du seither die Stelle verloren, dich getrennt oder warst länger in einer Klinik ohne Lohn, sieht Claude nach, ob dein Kanton eine Neuberechnung kennt und unter welchen Bedingungen. Das geht weit auseinander, und manche Kantone kennen gar keine.</p>
+<p>Umgekehrt gilt es auch: Steigt dein Einkommen deutlich, musst du es meist melden, sonst wird zurückgefordert.</p>
+
+<h2>Was du besorgen musst</h2>
+<div class="tablewrap">
+<table>
+  <tr><th>Unterlage</th><th>Woher</th><th>Wann nötig</th></tr>
+  <tr><td>Steuerveranlagung</td><td>Steueramt, falls nicht mehr vorhanden</td><td>Immer; welches Jahr, sagt das Merkblatt</td></tr>
+  <tr><td>Krankenkassenpolicen</td><td>Deine Krankenkasse</td><td>Für alle Personen im Haushalt, fürs Anspruchsjahr</td></tr>
+  <tr><td>Lohnabrechnungen, Lohnausweis</td><td>Arbeitgeber</td><td>Bei Quellensteuer oder Neuberechnung</td></tr>
+  <tr><td>Aufenthaltsbewilligung</td><td>Migrationsamt</td><td>Bei Zuzug aus dem Ausland</td></tr>
+  <tr><td>Ausbildungsbestätigung</td><td>Schule, Lehrbetrieb</td><td>Für junge Erwachsene in Ausbildung</td></tr>
+</table>
+</div>
+<p>Alles davon legst du in <code>1_Meine-Unterlagen</code>. Claude gleicht ab, was dein Kanton verlangt und was im Ordner liegt, und sagt, was fehlt.</p>
+<div class="note">
+  <p><strong>Der Brief mit dem Anmeldecode gehört nicht in den Ordner.</strong> Den Code brauchst nur du, beim Absenden. Claude muss bloss wissen, dass er da ist und bis wann er gilt.</p>
+</div>
+
+<h2>Was entsteht</h2>
+<div class="tree">2_Arbeitsstand/
+  kanton.md                <span class="c">Regeln deines Kantons, jede mit Quelle und Datum</span>
+  schaetzung.md            <span class="c">Zeile für Zeile aus der Veranlagung</span>
+  belegliste.md            <span class="c">verlangt, vorhanden, fehlt</span>
+  ausfuellhilfe.docx       <span class="c">Feld für Feld, in der Reihenfolge des Formulars</span>
+  begleitschreiben.docx    <span class="c">nur bei Papierformular</span>
+3_Zum-Versenden/
+  2026-10-05_praemienverbilligung_2027.pdf   <span class="c">nur bei Papier, nur auf Freigabe</span></div>
+<p>In der Ausfüllhilfe steht zu jedem Feld, was hinein gehört und aus welchem Beleg es kommt. Persönliches bleibt als Platzhalter offen: <code>[ADRESSE]</code>, <code>[AHV]</code>, <code>[IBAN]</code>, <code>[Versichertennummer]</code>. Eingesetzt wird am Schluss auf deinem Computer, siehe <a href="platzhalter.html">Platzhalter einsetzen</a>.</p>
+<p>Liegt ein Portal hinter einem Code, kennt Claude dessen Felder nicht. Dann sagt er das, statt Feldnamen zu erfinden, und hält sich ans Merkblatt. Ein Bildschirmfoto hilft ihm weiter.</p>
+
+<h2>Wo Claude widerspricht</h2>
+<ul>
+  <li><strong>Knappe Frist.</strong> Bevor irgendetwas anderes passiert.</li>
+  <li><strong>Falsche Annahme.</strong> «Ich bin beim Sozialdienst, das läuft automatisch» — stimmt nicht überall.</li>
+  <li><strong>Übertragene Regeln.</strong> Was in einem Kanton gilt, gilt im nächsten nicht.</li>
+  <li><strong>Zu sichere Zahlen.</strong> Jede Schätzung kommt mit dem Hinweis, dass der Kanton entscheidet.</li>
+</ul>
+
+<h2>Ein Durchlauf</h2>
+<ol class="steps">
+  <li>
+    <h3>Ordner verbinden, ein Satz <span class="label ok-l">Du</span></h3>
+    <p>Zip entpacken, Steuerveranlagung und Policen in <code>1_Meine-Unterlagen</code> legen, den Ordner in Cowork verbinden, «Was steht an?» schreiben.</p>
+  </li>
+  <li>
+    <h3>Regeln und Frist klären <span class="label">Claude</span></h3>
+    <p>Er fragt nach Sozialhilfe und EL, nach Kanton und Jahr, liest das Merkblatt und nennt dir die Frist samt dem, was danach gilt.</p>
+  </li>
+  <li>
+    <h3>Schätzen und Belege abgleichen <span class="label">Claude</span></h3>
+    <p>Eine grobe Rechnung aus der Veranlagung, dazu die Liste, was noch fehlt.</p>
+  </li>
+  <li>
+    <h3>Fehlendes besorgen <span class="label ok-l">Du</span></h3>
+    <p>Fehlende Belege legst du in den Ordner. Braucht dein Kanton einen Code und ist keiner gekommen, bestellst du ihn selbst.</p>
+  </li>
+  <li>
+    <h3>Ausfüllhilfe <span class="label">Claude</span></h3>
+    <p>Feld für Feld, bei Papier dazu das Begleitschreiben. Du kommentierst in Word, Claude arbeitet es ein.</p>
+  </li>
+  <li>
+    <h3>Absenden <span class="label ok-l">Du</span></h3>
+    <p>Online füllst du das Portal mit der Ausfüllhilfe daneben aus und schickst selbst ab. Bei Papier baut Claude auf deine Freigabe das PDF, du setzt die Platzhalter ein, unterschreibst und schickst es ab — bei knapper Frist eingeschrieben.</p>
+  </li>
+</ol>
+
+<h2>Nächstes Jahr wieder</h2>
+<p>In den meisten Kantonen musst du dich jedes Jahr neu anmelden. Claude hält die Frist fürs nächste Jahr in <code>stand.md</code> fest und prüft sie beim nächsten «Was steht an?» zuerst. Solange der Kanton die neue Runde noch nicht publiziert hat, ist das Datum als vorläufig markiert.</p>
+<div class="note">
+  <p><strong>Gesuche an Stiftungen.</strong> Wer bei Krankheitskosten Stiftungen um Hilfe bittet, muss die Prämienverbilligung beantragt haben — Prämienausstände gelten dort als ihre Sache. Die Verfügung aufbewahren; sie ist ein Beleg für die Aufgabe <a href="gesuch-krankheitskosten.html">Gesuche für Krankheitskosten</a>.</p>
+</div>
+
+<nav class="pager"></nav>
+
+    <footer>
+      <div>Teil der Toolbox · <a href="../index.html">Zur Übersicht</a> · gehostet via GitHub Pages unter <code>stayingclean.github.io/toolbox/</code></div>
+      <div>Stand: September 2026. Preise, Funktionen und Einstellungen der Anbieter ändern sich laufend – im Zweifel die offiziellen Seiten prüfen.</div>
+      <div class="footer-links">
+        <a class="footer-credit" href="https://github.com/stayingclean" target="_blank" rel="noopener">
+          <img class="footer-avatar" src="https://github.com/stayingclean.png?size=80" alt="stayingclean" loading="lazy" width="28" height="28">
+          <span>Erstellt von stayingclean</span>
+        </a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a class="footer-coffee" href="https://buymeacoffee.com/stayingclean" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span><span>Kaffee spendieren</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+<script src="anleitung.js"></script>
+</body>
+</html>
