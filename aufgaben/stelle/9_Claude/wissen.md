@@ -3,7 +3,7 @@
 Eine Stellensuche dauert Wochen bis Monate. Du suchst laufend, merkst dir, was
 die Person schon gesehen und entschieden hat, schreibst pro Stelle ein
 Motivationsschreiben und führst den Stand jeder Bewerbung so, dass er im
-Explorer sichtbar ist. Ist die Person beim RAV angemeldet, machst du aus
+Explorer bzw. Finder sichtbar ist. Ist die Person beim RAV angemeldet, machst du aus
 denselben Daten den Monatsnachweis.
 
 Das Wissen hier gilt in allen Kantonen. Was kantonal verschieden ist — die
@@ -126,7 +126,7 @@ Neben dem, was das Grundgerüst verlangt:
 ## Bewerbungsordner und Stand
 
 Jede Bewerbung ist **ein Ordner, der mit ihrem Stand wandert**. Die Person
-sieht im Explorer, was läuft, ohne eine Datei zu öffnen.
+sieht im Explorer (Mac: Finder), was läuft, ohne eine Datei zu öffnen.
 
 | Ordner | Bedeutung |
 |---|---|
@@ -140,7 +140,7 @@ sieht im Explorer, was läuft, ohne eine Datei zu öffnen.
 Name: `JJJJ-MM-TT_<Firma>_<Stelle>`, kurz, ohne Leer- und Sonderzeichen
 (`Muster-AG_Projektleiter-Bau`). Das Datum ist das Bewerbungsdatum; bis zum
 Versand steht dort das Datum des Entwurfs, beim Versand benennst du um. So
-sortiert der Explorer in der Reihenfolge des RAV-Formulars.
+sortieren Explorer und Finder in der Reihenfolge des RAV-Formulars.
 
 - **Über einen Vermittler:** `JJJJ-MM-TT_<Vermittler>_fuer-<Firma>_<Stelle>`;
   ist die Firma unbekannt, `JJJJ-MM-TT_<Vermittler>_<Stelle>`. Kein eigener
@@ -148,11 +148,11 @@ sortiert der Explorer in der Reihenfolge des RAV-Formulars.
   Stand.
 - **Spontanbewerbung:** `JJJJ-MM-TT_<Firma>_Spontanbewerbung`.
 - **Vorschläge:** Jede Stelle mit Entscheid `offen` oder `wieder
-  vorgeschlagen` liegt als `0_Vorschlaege/<Nr>_<Firma>_<Stelle>.url`; ein
+  vorgeschlagen` liegt als `0_Vorschlaege/<Nr>_<Firma>_<Stelle>.html`; ein
   Doppelklick öffnet das Inserat. Portale, die du nicht durchsuchen konntest,
-  liegen dort als `Selber-nachsehen_<Portal>.url` mit der Suchadresse; die
+  liegen dort als `Selber-nachsehen_<Portal>.html` mit der Suchadresse; die
   ersetzt du bei jeder Suche. Will die Person sich bewerben, wandert die
-  Verknüpfung als `Inserat.url` in den neuen Bewerbungsordner. Lehnt sie ab
+  Verknüpfung als `Inserat.html` in den neuen Bewerbungsordner. Lehnt sie ab
   oder ist die Stelle abgelaufen, löschst du die Verknüpfung.
 - **Abgelehnte Stellen** bekommen keinen Ordner, nur ihre Zeile in
   `stellen.md`.
@@ -217,8 +217,8 @@ vollständige Antwort. Aussortierte nennst du kurz mit Grund.
 
 Die Regel im Grundgerüst, jede Lücke mit einem Platzhalter zu füllen, gilt
 hier nicht. Der Lebenslauf mit Adresse, Telefon und E-Mail liegt ohnehin im
-Ordner, und bei zehn und mehr Bewerbungen im Monat wäre jedes Mal
-`platzhalter.exe` ein Umweg ohne Schutzwirkung.
+Ordner, und bei zehn und mehr Bewerbungen im Monat wäre jedes Mal das
+Programm Platzhalter ein Umweg ohne Schutzwirkung.
 
 - Absenderangaben nimmst du aus der Vorlage oder dem Lebenslauf.
 - Fehlt eine Angabe — Eintrittsdatum, Pensum, Lohnvorstellung —, suchst du in
@@ -230,7 +230,7 @@ Ordner, und bei zehn und mehr Bewerbungen im Monat wäre jedes Mal
 
 1. **Entwurf** in `1_in-Vorbereitung/<Ordner>/`:
    - `inserat.pdf` — Druckansicht des Inserats
-   - `Inserat.url` — die Verknüpfung aus `0_Vorschlaege/`
+   - `Inserat.html` — die Verknüpfung aus `0_Vorschlaege/`
    - `inserat.md` — Firma, Stelle, Ort, Pensum, Anforderungen, Frist,
      Kontaktperson mit Telefon, Bewerbungsweg, Referenznummer, Link
    - `motivationsschreiben.docx` — höchstens eine Seite, Ich-Form, sachlich,

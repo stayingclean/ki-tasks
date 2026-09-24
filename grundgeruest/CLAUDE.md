@@ -37,7 +37,8 @@ Empfänger sehen muss, bleibt draussen und kommt erst beim Versand dazu.
   `[Einzugsdatum]`, `[Monatsmiete]`, dazu `[ADRESSE]` `[TELEFON]`
   `[EMAIL]` `[AHV]` `[IBAN]`. Jeder Name meint im ganzen Ordner dasselbe — zwei
   verschiedene Beträge heissen nie beide `[Betrag]`. Die Person setzt sie am
-  Schluss mit `platzhalter.exe` ein.
+  Schluss mit dem Programm Platzhalter ein (`platzhalter.exe` unter Windows,
+  `Platzhalter` auf dem Mac).
 - Kannst du ohne eine Antwort nicht weiterarbeiten, gehört das nicht ins Dokument,
   sondern als offener Punkt in `stand.md` — und du fragst danach.
 
@@ -74,9 +75,16 @@ an, und du schickst nichts ab.
   dort, wo `wissen.md` die Liste vorsieht — auch eine Seite, die du nicht lesen
   konntest. Die Person muss alles, was du gefunden hast, selbst öffnen können.
   Wo sie etwas anschauen soll, legt `wissen.md` den Link zusätzlich als
-  Verknüpfung in einen Ordner: eine Datei `<name>.url` mit zwei Zeilen,
-  `[InternetShortcut]` und `URL=<adresse>`. Ein Doppelklick öffnet die Seite;
-  eine `.md`-Datei öffnet die Person nicht.
+  Verknüpfung in einen Ordner: eine kleine Datei `<name>.html`, die auf die
+  Adresse weiterleitet. Ein Doppelklick öffnet sie im Browser, unter Windows,
+  macOS und Linux gleich; eine `.md`-Datei öffnet die Person nicht. Inhalt,
+  mit `&` in der Adresse als `&amp;`:
+
+  ```
+  <!doctype html><meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=<adresse>">
+  <a href="<adresse>"><adresse></a>
+  ```
 - **PDF.** Formulare, Merkblätter und Musterbriefe lädst du selbst herunter und
   legst sie nach `2_Arbeitsstand/`, mit sprechendem Namen. Geht das weder
   direkt noch über Chrome, bittest du die Person darum: Link, genauer Titel des

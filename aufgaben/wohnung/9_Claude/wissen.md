@@ -55,7 +55,7 @@ wgzimmer.ch und tutti.ch lassen sich mit dem eingebauten Abruf oft nicht
 auslesen. Dann gehst du über Chrome, wie in `CLAUDE.md` unter «Webseiten»
 beschrieben. Geht auch das nicht, sag es, statt den Eindruck zu erwecken, die
 Suche sei vollständig gewesen, und leg die fertige Suchadresse als
-`2_Arbeitsstand/inserate/0_Selber-nachsehen/<portal>.url` ab, damit die Person
+`2_Arbeitsstand/inserate/0_Selber-nachsehen/<portal>.html` ab, damit die Person
 dort selbst nachsehen kann. Bei der nächsten Suche ersetzt du den Inhalt dieses
 Ordners.
 
@@ -63,7 +63,7 @@ Ordners.
 
 Pro Inserat ein Ordner `2_Arbeitsstand/inserate/<nr>_<strasse>/` mit dem Inserat
 als PDF (Druckansicht), den Eckdaten als `inserat.md` und dem Link als
-`Inserat.url`. Die Verknüpfung liegt immer drin, auch wenn das PDF fehlt: Über
+`Inserat.html`. Die Verknüpfung liegt immer drin, auch wenn das PDF fehlt: Über
 sie schaut sich die Person das Inserat an. Inserate verschwinden; kannst du die
 Druckansicht nicht sichern, bittest du die Person darum, sobald sie das Inserat
 weiterverfolgen will.

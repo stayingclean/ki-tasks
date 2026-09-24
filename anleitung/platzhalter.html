@@ -37,7 +37,7 @@
 <header class="page">
   <p class="kicker">Arbeitsweise</p>
   <h1>Adresse und IBAN am Schluss einsetzen</h1>
-  <p class="lead">Ein kleines Windows-Programm für den letzten Schritt. Es setzt deine echten Angaben in die Word-Dateien ein — auf deinem Computer, ohne Internet.</p>
+  <p class="lead">Ein kleines Programm für Windows und Mac, für den letzten Schritt. Es setzt deine echten Angaben in die Word-Dateien ein — auf deinem Computer, ohne Internet.</p>
 </header>
 
 <div class="summary">
@@ -45,7 +45,7 @@
   <ul>
     <li>Claude lässt jede Lücke als Platzhalter in eckigen Klammern stehen: <code>[ADRESSE]</code>, <code>[IBAN]</code>, <code>[Einzugsdatum]</code>.</li>
     <li>So kommen Adresse, Telefonnummer und IBAN gar nie in eine Datei, die Claude liest.</li>
-    <li>Am Schluss startest du <code>platzhalter.exe</code>, wählst <code>2_Arbeitsstand</code>, trägst die Werte ein und klickst «Ersetzen».</li>
+    <li>Am Schluss startest du das Programm, wählst <code>2_Arbeitsstand</code>, trägst die Werte ein und klickst «Ersetzen».</li>
     <li>Das Programm läuft lokal. Die Werte gehen nirgendwohin und werden nirgends gespeichert.</li>
   </ul>
 </div>
@@ -55,10 +55,21 @@
   <span aria-hidden="true">↓</span>
   <span>platzhalter.exe<small>Windows · eine einzelne Datei · keine Installation</small></span>
 </a>
-<p>Die Datei braucht keine Installation und keine Administratorrechte. Leg sie irgendwohin, wo du sie wiederfindest, zum Beispiel auf den Desktop. Du brauchst sie bei jeder Aufgabe wieder.</p>
+<a class="download" href="https://stayingclean.github.io/ki-tasks/platzhalter-mac.zip">
+  <span aria-hidden="true">↓</span>
+  <span>platzhalter-mac.zip<small>Mac mit Apple-Chip (ab 2020) · entpacken, fertig</small></span>
+</a>
+<p>Das Programm braucht keine Installation und keine Administratorrechte. Leg es irgendwohin, wo du es wiederfindest: unter Windows zum Beispiel auf den Desktop, auf dem Mac in den Ordner «Programme». Du brauchst es bei jeder Aufgabe wieder.</p>
 
 <div class="warn">
-  <p><strong>Windows warnt beim ersten Start.</strong> «Der Computer wurde durch Windows geschützt» — das erscheint bei jedem Programm, das nicht von einer bezahlten Signatur begleitet wird, und diese hier hat keine. Klick auf <strong>«Weitere Informationen»</strong> und dann auf <strong>«Trotzdem ausführen»</strong>. Beim zweiten Mal kommt die Meldung nicht mehr.</p>
+  <p><strong>Beim ersten Start kommt eine Warnung.</strong> Das Programm hat keine bezahlte Signatur, darum warnt das System — einmal, beim zweiten Mal nicht mehr.</p>
+  <p><strong>Windows:</strong> «Der Computer wurde durch Windows geschützt». Klick auf <strong>«Weitere Informationen»</strong> und dann auf <strong>«Trotzdem ausführen»</strong>.</p>
+  <p><strong>Mac:</strong> Die Zip-Datei öffnen, es entsteht <code>Platzhalter</code>. Beim ersten Doppelklick meldet der Mac, er könne nicht prüfen, ob das Programm frei von Schadsoftware ist. Klick auf <strong>«Fertig»</strong>, öffne <strong>Systemeinstellungen → Datenschutz &amp; Sicherheit</strong>, scroll nach unten und klick bei «Platzhalter» auf <strong>«Dennoch öffnen»</strong>. Auf älteren Macs genügt ein Rechtsklick auf das Programm und «Öffnen».</p>
+</div>
+
+<div class="note">
+  <p><strong>Linux:</strong> Ein fertiges Programm gibt es nicht. Wer <a href="https://docs.astral.sh/uv/">uv</a> installiert hat, startet es mit einem Befehl im Terminal; beim ersten Mal lädt uv, was es braucht:</p>
+  <pre>uvx --from "git+https://github.com/stayingclean/ki-tasks#subdirectory=platzhalter" --with "pywebview[qt]" platzhalter</pre>
 </div>
 
 <h2>Wozu das gut ist</h2>
@@ -80,8 +91,8 @@ Einziehen könnte ich per [Einzugsdatum].
 <h2>So benutzt du es</h2>
 <ol class="steps">
   <li>
-    <h3><code>platzhalter.exe</code> starten</h3>
-    <p>Doppelklick. Es öffnet sich ein kleines Fenster, sonst passiert nichts.</p>
+    <h3>Das Programm starten</h3>
+    <p>Doppelklick auf <code>platzhalter.exe</code> oder auf dem Mac auf <code>Platzhalter</code>. Es öffnet sich ein kleines Fenster, sonst passiert nichts.</p>
   </li>
   <li>
     <h3>Den Ordner <code>2_Arbeitsstand</code> wählen</h3>

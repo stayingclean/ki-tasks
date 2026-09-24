@@ -23,7 +23,7 @@
     .download small { display: block; font-weight: 400; font-size: .78rem; opacity: .85; }
 
     /* Nur hier: die Farben der fünf Status-Ordner. Dieselben im Baum,
-       im Ablauf und in der Tabelle, damit man sie im Explorer wiedererkennt. */
+       im Ablauf und in der Tabelle, damit man sie im Explorer oder Finder wiedererkennt. */
     .st { display: inline-block; font-family: var(--font-mono); font-size: .82rem; padding: 1px 8px;
       border-radius: 6px; border-left: 4px solid var(--muted); background: var(--card); white-space: nowrap; }
     .st1 { border-color: var(--muted); }
@@ -114,7 +114,7 @@
 </ul>
 <p>Nicht in den Ordner gehören AHV-Ausweis, RAV-Verfügungen, Taggeldabrechnungen und Kontoauszüge. Für diese Aufgabe braucht sie niemand.</p>
 <div class="note">
-  <p><strong>Keine Platzhalter in dieser Aufgabe.</strong> Anders als bei den anderen Aufgaben setzt Claude deine Adresse, Telefonnummer und E-Mail direkt ein — sie stehen ohnehin in deinem Lebenslauf. Fehlt eine Angabe wie das Eintrittsdatum, fragt er einmal und merkt sie sich. <code>platzhalter.exe</code> brauchst du hier nicht.</p>
+  <p><strong>Keine Platzhalter in dieser Aufgabe.</strong> Anders als bei den anderen Aufgaben setzt Claude deine Adresse, Telefonnummer und E-Mail direkt ein — sie stehen ohnehin in deinem Lebenslauf. Fehlt eine Angabe wie das Eintrittsdatum, fragt er einmal und merkt sie sich. Das Programm <a href="platzhalter.html">Platzhalter</a> brauchst du hier nicht.</p>
 </div>
 
 <h2>Der Start</h2>
@@ -206,15 +206,15 @@ Geplante Läufe schreiben ihr Ergebnis nach 2_Arbeitsstand/stellen.md und
 </div>
 
 <h2>Der Ordner</h2>
-<p>Den Stand einer Bewerbung siehst du im Explorer, ohne eine Datei zu öffnen. Claude legt die Ordner an, sobald er sie braucht, und verschiebt die Bewerbungen, wenn du ihm eine Antwort meldest.</p>
+<p>Den Stand einer Bewerbung siehst du im Explorer oder im Finder, ohne eine Datei zu öffnen. Claude legt die Ordner an, sobald er sie braucht, und verschiebt die Bewerbungen, wenn du ihm eine Antwort meldest.</p>
 <div class="tree">2_Arbeitsstand/
   stellen.md                         <span class="c">jede gefundene Stelle und dein Entscheid</span>
   bewerbungen/
     0_Vorschlaege/                   <span class="c">neue Stellen zum Anschauen, Doppelklick öffnet das Inserat</span>
-      07_Beispiel-AG_Sachbearbeiter.url
+      07_Beispiel-AG_Sachbearbeiter.html
     <span class="st st1">1_in-Vorbereitung/</span>             <span class="c">Claude schreibt, du prüfst</span>
       2026-11-03_Muster-AG_Projektleiter/
-        Inserat.url  inserat.pdf  inserat.md  motivationsschreiben.docx
+        Inserat.html  inserat.pdf  inserat.md  motivationsschreiben.docx
     <span class="st st2">2_Beworben/</span>                    <span class="c">gesendet, noch keine Antwort</span>
     <span class="st st3">3_Im-Gespraech/</span>                <span class="c">Einladung, Gespräch, Probetag</span>
     <span class="st st4">4_Absage/</span>                      <span class="c">auch «keine Antwort»</span>

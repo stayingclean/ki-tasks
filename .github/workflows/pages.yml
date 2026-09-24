@@ -3,6 +3,9 @@ name: Zips bauen und auf GitHub Pages veröffentlichen
 on:
   push:
     branches: [main]
+  # Bei einem PR laufen nur die Tests und die beiden Programm-Builds; veröffentlicht
+  # wird erst nach dem Merge.
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -11,7 +14,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -34,8 +37,34 @@ jobs:
           name: platzhalter-exe
           path: platzhalter/dist/platzhalter.exe
           if-no-files-found: error
+  # Apple-Silicon-Runner, also ein Programm für Macs mit Apple-Chip (ab 2020).
+  # Nicht signiert: Beim ersten Öffnen muss man es in den Systemeinstellungen
+  # freigeben, siehe anleitung/platzhalter.html.
+  app:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: platzhalter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Abhängigkeiten
+        run: uv sync --locked
+      - name: Tests
+        run: uv run pytest
+      - name: App bauen
+        run: uv run pyinstaller platzhalter.spec --noconfirm
+      # ditto statt zip: behält Symlinks und Rechte im .app, sonst startet es nicht.
+      - name: Zippen
+        run: ditto -c -k --keepParent dist/Platzhalter.app dist/platzhalter-mac.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: platzhalter-mac
+          path: platzhalter/dist/platzhalter-mac.zip
+          if-no-files-found: error
   build:
-    needs: exe
+    needs: [exe, app]
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,6 +76,10 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: platzhalter-exe
+          path: dist
+      - uses: actions/download-artifact@v4
+        with:
+          name: platzhalter-mac
           path: dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
