@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Platzhalter einsetzen · Mit Claude arbeiten</title>
-  <meta name="description" content="Adresse, Telefon und IBAN am Schluss lokal in die Word-Dateien einsetzen">
+  <meta name="description" content="Adresse, Telefon und IBAN am Schluss lokal in die Word-Dateien und PDF-Formulare einsetzen">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
 <header class="page">
   <p class="kicker">Arbeitsweise</p>
   <h1>Adresse und IBAN am Schluss einsetzen</h1>
-  <p class="lead">Ein kleines Windows-Programm für den letzten Schritt. Es setzt deine echten Angaben in die Word-Dateien ein — auf deinem Computer, ohne Internet.</p>
+  <p class="lead">Ein kleines Windows-Programm für den letzten Schritt. Es setzt deine echten Angaben in die Word-Dateien und PDF-Formulare ein — auf deinem Computer, ohne Internet.</p>
 </header>
 
 <div class="summary">
@@ -101,10 +101,15 @@ Einziehen könnte ich per [Einzugsdatum].
   <p><strong>Von jeder geänderten Datei bleibt eine Sicherung liegen</strong>, unter demselben Namen mit <code>.bak</code> hinten dran: <code>gesuch.docx.bak</code>. Hast du dich vertippt, benennst du die Sicherung zurück und machst es nochmals. Die eingegebenen Werte selbst werden nirgends gespeichert; beim nächsten Start sind die Felder wieder leer.</p>
 </div>
 
+<h2>Auch in PDF-Formularen</h2>
+<p>Manche Ämter wollen ihr eigenes Formular. Ist es ein ausfüllbares PDF, trägt Claude die Platzhalter direkt in die Formularfelder ein, und das Programm findet sie dort wie in einem Word-Entwurf. Die Werte übernehmen die Schrift und die Grösse des Felds, genau als hättest du selbst getippt.</p>
+<p>Das geht nur in den Feldern. Text, der fest auf der Seite gedruckt ist, lässt das Programm in Ruhe: Dort steht jedes Zeichen an einer festen Stelle, und eine lange IBAN würde über den Rand hinauslaufen. Ob ein PDF Felder hat, siehst du beim Öffnen — die Felder sind meist blau hinterlegt, und du kannst hineinklicken.</p>
+
 <h2>Was das Programm auslässt</h2>
 <ul>
   <li><strong>Den Unterordner <code>verlauf</code>.</strong> Dort liegen frühere Fassungen, und die sollen bleiben, was du damals verschickt hast. Deine echten Angaben landen so nur im aktuellen Entwurf und nicht nachträglich in zehn alten Fassungen daneben. Wählst du versehentlich einen <code>verlauf</code> direkt aus, sagt dir das Programm das und ersetzt gar nichts.</li>
-  <li><strong>Dateien, die gerade in Word offen sind.</strong> Word hält sie fest. Sie erscheinen im Ergebnis mit einem Fehler. Schliess Word und lass es nochmals laufen.</li>
+  <li><strong>Dateien, die gerade offen sind.</strong> Word und manche PDF-Programme halten sie fest. Sie erscheinen im Ergebnis mit einem Fehler. Schliess das Programm und lass es nochmals laufen.</li>
+  <li><strong>PDF ohne Formularfelder.</strong> Ein Inserat, ein Scan oder ein Formular zum Ausdrucken hat keine Felder. Das Programm übergeht es stillschweigend; es taucht in der Liste gar nicht auf. Ebenso ein PDF, das ein Passwort zum Öffnen verlangt.</li>
   <li><strong>Das alte Word-Format.</strong> Bearbeitet wird nur <code>.docx</code>, nicht das ältere <code>.doc</code>. Claude schreibt ohnehin nur <code>.docx</code>.</li>
   <li><strong>Quellenverweise.</strong> Etwas wie <code>[1]</code> oder <code>[S. 12]</code> gilt nicht als Platzhalter und bleibt stehen. Als Platzhalter zählt nur, was ein Wort enthält.</li>
 </ul>

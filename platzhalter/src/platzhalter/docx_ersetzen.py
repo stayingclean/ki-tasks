@@ -1,12 +1,11 @@
 """Platzhalter in einer .docx ersetzen, auch wenn Word sie auf mehrere Runs verteilt hat."""
 from __future__ import annotations
 
-import os
-import shutil
 from pathlib import Path
 
 from docx import Document
 
+from platzhalter.datei import schreibe_mit_sicherung
 from platzhalter.dokument import MUSTER, alle_absaetze, runs
 
 
@@ -60,8 +59,7 @@ def ersetze_im_absatz(p, werte: dict[str, str]) -> int:
 def ersetze_in_datei(pfad: Path, werte: dict[str, str]) -> int:
     """Ersetzt in einer Datei und gibt die Anzahl Ersetzungen zurück.
 
-    Ohne Treffer bleibt die Datei unangetastet. Sonst: .bak anlegen, in .tmp schreiben,
-    dann das Original ersetzen. Ein Fehler beim Schreiben lässt das Original unverändert.
+    Ohne Treffer bleibt die Datei unangetastet, sonst siehe schreibe_mit_sicherung().
     """
     werte = {k: v for k, v in werte.items() if v}
     if not werte:
@@ -70,12 +68,5 @@ def ersetze_in_datei(pfad: Path, werte: dict[str, str]) -> int:
     anzahl = sum(ersetze_im_absatz(p, werte) for p in alle_absaetze(doc))
     if anzahl == 0:
         return 0
-    shutil.copy2(pfad, pfad.with_name(pfad.name + ".bak"))
-    tmp = pfad.with_name(pfad.name + ".tmp")
-    try:
-        doc.save(str(tmp))
-        os.replace(tmp, pfad)
-    finally:
-        if tmp.exists():
-            tmp.unlink()
+    schreibe_mit_sicherung(pfad, lambda tmp: doc.save(str(tmp)))
     return anzahl

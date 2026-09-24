@@ -37,7 +37,9 @@ Empfänger sehen muss, bleibt draussen und kommt erst beim Versand dazu.
   `[Einzugsdatum]`, `[Monatsmiete]`, dazu `[ADRESSE]` `[TELEFON]`
   `[EMAIL]` `[AHV]` `[IBAN]`. Jeder Name meint im ganzen Ordner dasselbe — zwei
   verschiedene Beträge heissen nie beide `[Betrag]`. Die Person setzt sie am
-  Schluss mit `platzhalter.exe` ein.
+  Schluss mit `platzhalter.exe` ein. Füllst du ein PDF-Formular aus, gehören
+  sie in dessen Formularfelder, nie in den Text der Seite — nur dort findet
+  das Programm sie.
 - Kannst du ohne eine Antwort nicht weiterarbeiten, gehört das nicht ins Dokument,
   sondern als offener Punkt in `stand.md` — und du fragst danach.
 

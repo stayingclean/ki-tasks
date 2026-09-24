@@ -1,7 +1,7 @@
 # Platzhalter einsetzen
 
 Kleines Windows-Programm für den letzten Schritt des Ablaufs: Es durchsucht einen Ordner
-(mit Unterordnern) nach Word-Dateien, zeigt alle Platzhalter in eckigen Klammern wie
+(mit Unterordnern) nach Word-Dateien und ausfüllbaren PDF-Formularen, zeigt alle Platzhalter in eckigen Klammern wie
 `[ADRESSE]` oder `[IBAN]` an und setzt die von dir eingegebenen Werte in allen Dateien ein.
 
 Download: https://stayingclean.github.io/ki-tasks/platzhalter.exe
@@ -11,7 +11,7 @@ Download: https://stayingclean.github.io/ki-tasks/platzhalter.exe
 1. `platzhalter.exe` starten und den Ordner wählen, zum Beispiel `2_Arbeitsstand`.
 2. Für jeden Platzhalter den Wert eintragen. Was du leer lässt, bleibt stehen.
 3. «Ersetzen» und bestätigen. Von jeder geänderten Datei liegt danach eine Sicherung
-   `<name>.docx.bak` daneben. Die eingegebenen Werte werden nirgends gespeichert.
+   `<name>.docx.bak` oder `<name>.pdf.bak` daneben. Die eingegebenen Werte werden nirgends gespeichert.
 
 Ordner namens `verlauf` lässt das Programm bewusst aus, auf jeder Ebene: dort liegen frühere
 Fassungen, und die sollen bleiben, was du damals verschickt hast. So landen deine echten
@@ -32,6 +32,15 @@ Ersetzt wird in Textkörper, Tabellen, Textfeldern sowie Kopf- und Fusszeilen, a
 einen Platzhalter intern auf mehrere Textstücke verteilt hat. Nicht unterstützt: Platzhalter
 in Kommentaren, Fussnoten oder über Absatzgrenzen hinweg. Nur `.docx`, kein altes `.doc`.
 
+In PDF gilt nur, was in einem Textfeld eines Formulars (AcroForm) steht. Der gedruckte Text
+der Seite bleibt, wie er ist: Dort stehen die Zeichen an festen Stellen, ein längerer Wert
+würde überlaufen, und der eingebetteten Schrift fehlen oft die nötigen Buchstaben. Ein PDF
+ohne Formularfelder oder mit Passwort zum Öffnen erscheint gar nicht erst in der Liste.
+Formulare, die nur gegen Bearbeiten geschützt sind, gehen; gespeichert werden sie danach
+ohne diesen Schutz. Hat ein Formular zusätzlich einen XFA-Teil, fällt der beim Speichern
+weg, sonst zeigte Acrobat die alten Werte an. Reine XFA-Formulare ohne AcroForm-Felder
+werden nicht unterstützt.
+
 ## Entwickeln
 
 Voraussetzung: [uv](https://docs.astral.sh/uv/). Alle Befehle in diesem Ordner.
@@ -44,9 +53,11 @@ uv run pyinstaller platzhalter.spec       # dist/platzhalter.exe bauen
 ```
 
 Aufbau: `dokument.py` (Absätze, Runs und das Muster), `suche.py` (Dateien finden, Platzhalter
-zählen), `docx_ersetzen.py` (Ersetzen über Run-Grenzen, Sicherung, atomares Schreiben),
-`app.py` und `ui/index.html` (Oberfläche mit pywebview). Die drei erstgenannten Module
-kennen keine Oberfläche und sind einzeln getestet.
+zählen), `docx_ersetzen.py` (Ersetzen über Run-Grenzen), `pdf_formular.py` (Textfelder
+eines PDF-Formulars lesen und ersetzen, mit pypdf), `datei.py` (Sicherung und atomares
+Schreiben), `app.py` und `ui/index.html` (Oberfläche mit pywebview). Alle Module ausser
+`app.py` kennen keine Oberfläche und sind einzeln getestet. Die Test-Formulare baut
+`tests/formular.py` selbst.
 
 Das Logo liegt als `logo.png` bei. Daraus erzeugt
 `uv run --with pillow python werkzeuge/logo_aufbereiten.py` zwei Fassungen, die beide

@@ -6,6 +6,7 @@ from importlib.resources import files
 from pathlib import Path
 
 from platzhalter.docx_ersetzen import ersetze_in_datei
+from platzhalter.pdf_formular import ersetze_in_pdf
 from platzhalter.suche import durchsuche
 
 TITEL = "Platzhalter einsetzen"
@@ -44,8 +45,9 @@ class Api:
     def ersetze(self, werte: dict[str, str]) -> list[dict]:
         resultate = []
         for rel in self._dateien:
+            ersetze = ersetze_in_pdf if rel.lower().endswith(".pdf") else ersetze_in_datei
             try:
-                n = ersetze_in_datei(self._ordner / rel, werte)
+                n = ersetze(self._ordner / rel, werte)
                 resultate.append({"datei": rel, "ersetzt": n, "fehler": None})
             except Exception as e:  # gesperrt, beschädigt, kein Schreibrecht
                 resultate.append({"datei": rel, "ersetzt": 0, "fehler": str(e)})

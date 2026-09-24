@@ -1,11 +1,12 @@
 [project]
 name = "platzhalter"
 version = "0.1.0"
-description = "Platzhalter in Word-Dateien finden und ersetzen"
+description = "Platzhalter in Word-Dateien und PDF-Formularen finden und ersetzen"
 requires-python = ">=3.12"
 dependencies = [
     "pywebview>=5.0",
     "python-docx>=1.1",
+    "pypdf[crypto]>=5",
 ]
 
 [dependency-groups]

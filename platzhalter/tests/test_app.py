@@ -4,6 +4,8 @@ from docx import Document
 
 from platzhalter.app import Api, lade_html
 
+from formular import formular
+
 
 def speichere(pfad: Path, text: str) -> None:
     doc = Document()
@@ -58,3 +60,15 @@ def test_api_ersetze_meldet_fehler_pro_datei(tmp_path: Path):
     assert resultate[0]["datei"] == "a.docx"
     assert resultate[0]["ersetzt"] == 0
     assert resultate[0]["fehler"]
+
+
+def test_api_ersetzt_auch_in_pdf_formularen(tmp_path: Path):
+    speichere(tmp_path / "a.docx", "[AA]")
+    formular(tmp_path / "b.pdf", {"Feld": "[AA]"})
+    api = Api(tmp_path)
+    api.suche()
+    assert api.ersetze({"AA": "eins"}) == [
+        {"datei": "a.docx", "ersetzt": 1, "fehler": None},
+        {"datei": "b.pdf", "ersetzt": 1, "fehler": None},
+    ]
+    assert api.suche()["platzhalter"] == []
