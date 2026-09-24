@@ -129,9 +129,16 @@ Eine Aufgabenseite erscheint von selbst in der Navigation und auf der
 
 ```
 aufgaben/<name>/INFO.md     reihenfolge: 30      → Platz in Navigation und Karten
+                            navtitel: Wohnung    → Titel in der Seitenleiste (freiwillig)
 anleitung/<name>.html       <h1>…</h1>           → Titel in Navigation und Karte
                             <p class="lead">…</p> → Text der Karte auf aufgaben.html
 ```
+
+`navtitel:` ist die Kurzform für die schmale Seitenleiste der Anleitung. Die
+Gruppe heisst dort schon «Aufgaben», das Verb darf darum weg («Wohnung» statt
+«Wohnung suchen»). Ohne `navtitel:` steht der `<h1>` in der Leiste und bricht
+bei langen Titeln auf zwei Zeilen um. Karte und Zurück/Weiter behalten den
+`<h1>`.
 
 Der Lead wird wörtlich zum Kartentext. Er muss darum ohne die Seite verständlich
 sein: die Aufgabe beschreiben, nicht die Seite («Was Claude dabei fragt …» taugt
@@ -169,7 +176,8 @@ Cron nach.
 1. Ordner `aufgaben/<name>/` (kleingeschrieben, ohne Umlaute; der Name wird
    Dateiname des Zips).
 2. `INFO.md` mit `titel:`, `gruppe:`, `kurz:` und `reihenfolge:` (Zahl; bestimmt
-   die Folge auf der Download-Seite und in der Navigation der Anleitung).
+   die Folge auf der Download-Seite und in der Navigation der Anleitung), dazu
+   `navtitel:` (kurz, ohne Verb) für die Seitenleiste der Anleitung.
 3. `9_Claude/wissen.md` nach dem Aufbau von `aufgaben/wohnung/9_Claude/wissen.md`:
    was Claude am Anfang fragt · wo gesucht wird · wie Treffer abgelegt und im Chat
    ausgewählt werden · welche Unterlagen nötig sind · welche Dokumente entstehen ·

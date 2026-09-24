@@ -40,8 +40,9 @@ Beim Arbeiten an diesem Repo:
   auf die Seite. Aussehen und Navigation (`stil.css`, `anleitung.js`) kommen von
   drüben — hier kein eigener CSS-Block ausser für wirklich Seitenspezifisches,
   Links relativ. Navigation und Karten auf `aufgaben.html` setzt der Deploy drüben
-  aus der Namenskonvention ein (`<h1>`, `<p class="lead">`, `reihenfolge:` in
-  `INFO.md`; Details in der README). Der Lead wird wörtlich zum Kartentext und
+  aus der Namenskonvention ein (`<h1>`, `<p class="lead">`, `reihenfolge:` und
+  `navtitel:` in `INFO.md`; Details in der README). `navtitel:` ist die Kurzform
+  für die Seitenleiste, ohne Verb, damit sie auf eine Zeile passt. Der Lead wird wörtlich zum Kartentext und
   beschreibt darum die Aufgabe, nicht die Seite. Die Karten zwischen den Markern nicht von
   Hand pflegen. Nur eine Seite, die keine Aufgabe ist, muss drüben von Hand in
   `SEITEN`. Nach jedem Deploy hier stösst der Job `toolbox` den Deploy drüben an. `build.py` schaut in `anleitung/` nur nach, ob `<name>.html` existiert, und
