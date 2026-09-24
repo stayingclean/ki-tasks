@@ -22,19 +22,15 @@ würden auseinanderlaufen. Das RAV ist darum ein Schalter innerhalb von `stelle`
 
 ## Entscheide
 
-### Zwei Schalter in `stand.md`, beide per Satz umschaltbar
+### Ein Schalter in `stand.md`, per Satz umschaltbar
 
 - **`RAV: ja | nein`** — Claude fragt beim ersten Gespräch mit Beruf und Ort:
   «Bist du beim RAV angemeldet oder meldest du dich bald an?» Bei `ja` dazu
   Kanton und Anmeldedatum. Bei `nein` keine Monatsaufgaben; die Bewerbungen
   werden trotzdem so geführt, dass ein Nachweis jederzeit erstellt werden kann.
-- **`Wohnung: nein | ja | später fragen`** — Standard `später fragen`. Claude
-  fragt, wenn eine Bewerbung nach `3_Im-Gespraech/` wandert, nicht schon bei
-  der Auswahl. Sagt die Person von sich aus, dass sie ohnehin umzieht, gilt `ja`
-  sofort.
 
-Die Person füllt keine Datei aus. «Ich bin jetzt beim RAV angemeldet» oder
-«Keine Wohnungen mehr» genügt; Claude schreibt es um.
+Die Person füllt keine Datei aus. «Ich bin jetzt beim RAV angemeldet» genügt;
+Claude schreibt es um.
 
 ### Dateien, die Claude führt
 
@@ -43,7 +39,6 @@ Die Person füllt keine Datei aus. «Ich bin jetzt beim RAV angemeldet» oder
   wissen.md             mitgeliefert, Fachwissen (diese Aufgabe)
   stand.md              Auftrag, Schalter, gespeicherte Angaben, offene Punkte
   suche-stellen.md      Suchprofil, Portale, Rhythmus, Schwellen, letzte Suche
-  suche-wohnung.md      nur bei Wohnung: ja — Umkreis, Zimmer, Miete, Portale
 2_Arbeitsstand/
   stellen.md            jede gefundene Stelle mit Entscheid (Gedächtnis)
   bewerbungen/
@@ -53,7 +48,6 @@ Die Person füllt keine Datei aus. «Ich bin jetzt beim RAV angemeldet» oder
     4_Absage/
     5_Zusage/
   rav/JJJJ-MM/          nur bei RAV: ja
-  wohnungen/            nur bei Wohnung: ja
   verlauf/
 3_Zum-Versenden/        Postausgang: nur, was jetzt raus muss
 ```
@@ -205,14 +199,12 @@ Nachweises, ab dem 3. mit Nachdruck. Liegt die Zahl der Bemühungen unter der
 vereinbarten, sagt Claude es laufend, nicht erst am Monatsende. Claude loggt
 sich nie in Job-Room ein.
 
-### Wohnung (nur bei Wohnung: ja)
+### Keine Wohnungssuche mehr in dieser Aufgabe
 
-Die bestehenden zehn Zeilen aus `wissen.md` bleiben inhaltlich, mit neuem
-Auslöser (siehe Schalter) und den Einstellungen in `suche-wohnung.md`: Arbeitsort
-je massgebender Stelle, Umkreis, Zimmer, Mietobergrenze, Portale (homegate.ch,
-immoscout24.ch, flatfox.ch, wgzimmer.ch), Rhythmus. Funde in
-`2_Arbeitsstand/wohnungen/`. Die geplante Suche nimmt Wohnungen nur mit, wenn
-der Schalter auf `ja` steht.
+Die Nachfrage «Wohnungen in der Nähe?» am Ende der Stellensuche fällt weg,
+samt Portalen und Ablage. Die Aufgabe bleibt bei Stellen und RAV. Fragt die
+Person nach einer Wohnung, verweist Claude auf die eigene Aufgabe `wohnung`
+(ein eigener Ordner) und sucht nicht in diesem.
 
 ### Cowork-Projekt: optional, empfohlen bei RAV oder längerer Suche
 
@@ -274,8 +266,7 @@ Aufgabenseiten aus jener Session wird beim Zusammenführen nachgezogen.
   `https://stayingclean.github.io/ki-tasks/stelle.zip`.
 - Abschnitte: Kurzfassung · Was du brauchst · Der Start · Projekt einrichten ·
   Der Ordner · Suchen · Bewerben · Der RAV-Monat · Per Satz ändern · Was Claude
-  nicht tut und wo er widerspricht · Ein Monat im Durchlauf · Wohnung in der
-  Nähe.
+  nicht tut und wo er widerspricht · Ein Monat im Durchlauf.
 - **Diagramm 1, Ablauf pro Stelle**, als HTML/CSS (kein SVG-Bild, damit die
   Schrift auf dem Handy lesbar bleibt): Suche (geplant / auf Bitte) →
   Vorschläge → Entscheid (nein → `stellen.md` → Wiedervorlage) → Entwurf →
@@ -318,3 +309,6 @@ genügt, nicht als Pflicht. Sie bleiben unverändert.
 - Die Zählweise für Vermittler in anderen Kantonen als SH.
 - Die Job-Room-Such-API ist nicht dokumentiert; fällt sie weg, bleibt
   job-room.ch als Link.
+- `anleitung/aufgaben.html` beschreibt die Karte «Stelle» noch mit «Auf Wunsch
+  gleich Wohnungen in der Nähe». Wird in der Doku-Session nachgezogen, nicht
+  hier.
