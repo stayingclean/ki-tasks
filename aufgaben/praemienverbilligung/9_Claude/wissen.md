@@ -125,8 +125,8 @@ trotzdem angemeldet wird, entscheidet die Person.
 ## Wenn sich die Lage verändert hat
 
 Die Veranlagung zeigt eine Lage von vor zwei, drei Jahren. Hat sich seither viel
-verändert — Stellenverlust, Trennung, ein längerer Klinikaufenthalt mit
-Einkommensausfall, eine Geburt —, sieh nach, ob der Kanton eine Neuberechnung
+verändert — Stellenverlust, Trennung, ein längerer Einkommensausfall, eine
+Geburt —, sieh nach, ob der Kanton eine Neuberechnung
 kennt, und erwähne sie. Die Bedingungen gehen auseinander: Im Aargau muss das
 Einkommen um mindestens 20 % sinken, und zwar für mindestens sechs Monate; in
 Luzern um mehr als 25 %, Gesuch bis 31.12. des Anspruchsjahres (Stand

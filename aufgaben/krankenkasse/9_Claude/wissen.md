@@ -83,9 +83,10 @@ der Erinnerung.
   Erwachsene ab 26 (Art. 61 Abs. 3 KVG)
 - Heutige Kasse, Modell, Franchise, Unfalldeckung ja/nein (aus der Police)
 - Hausarzt oder HMO-Praxis, bei der die Person ist oder bleiben will
-- Erwartete Kosten im nächsten Jahr: regelmässige Medikamente, Therapien,
-  geplante Behandlungen oder Eingriffe, Spitalaufenthalte. Anhaltspunkt sind
-  die Leistungsabrechnungen des laufenden Jahres, hochgerechnet aufs Jahr.
+- Erwartete Kosten im nächsten Jahr, als Betrag in Franken. Anhaltspunkt sind
+  die Leistungsabrechnungen des laufenden Jahres, hochgerechnet aufs Jahr. Wofür
+  die Kosten anfallen, muss die Person nicht sagen; frag nicht nach Diagnosen
+  oder Behandlungen. Der Betrag reicht für die Rechnung.
 - Zusatzversicherungen, und ob sie bleiben sollen
 - Arbeitet die Person mindestens 8 Stunden pro Woche beim selben Arbeitgeber?
   Dann ist sie dort gegen Unfall versichert und die Unfalldeckung bei der
@@ -243,7 +244,9 @@ sich nach der Tilgung sparen liesse.
   hat. Zusatzversicherungen unterstehen dem Privatrecht (VVG); die Kasse darf
   ablehnen oder Vorbehalte machen, und sie stellt Gesundheitsfragen. Ab etwa 55
   bis 65 Jahren oder mit Vorerkrankungen ist ein Neuabschluss oft nicht mehr
-  möglich (priminfo.admin.ch/de/versicherungen/zusatzversicherungen).
+  möglich (priminfo.admin.ch/de/versicherungen/zusatzversicherungen). Die
+  Gesundheitsfragen beantwortet die Person selbst gegenüber der Kasse; du
+  fragst sie nicht ab und füllst sie nicht aus.
 - Fristen und Kündigungstermine stehen in den Versicherungsbedingungen und sind
   anders als bei der Grundversicherung — oft früher im Jahr. Aus der Police und
   den Bedingungen lesen, nicht annehmen.
