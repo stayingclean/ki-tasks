@@ -92,27 +92,28 @@ später.
 
 ## Suchen
 
-### Nur Stiftungen, die an Privatpersonen vergeben
+### Nur Stellen, die an Privatpersonen vergeben
 
-Gesucht werden ausschliesslich Stiftungen und Fonds, die Beiträge an
+Gesucht werden ausschliesslich Stiftungen, Fonds und Hilfswerke, die Beiträge an
 Privatpersonen ausrichten — Einzelfallhilfe, ausbezahlt an die Person oder an
-ihren Rechnungssteller. Die meisten gemeinnützigen Stiftungen tun das nicht:
-Sie fördern Organisationen, Institutionen, Projekte oder Forschung, oder sie
-betreiben selbst ein Heim. Solche Stiftungen gehören nicht in die Auswahl, auch
-wenn ihr Zweck Gesundheit, Krankheit oder Armut nennt.
+ihren Rechnungssteller. Viele gemeinnützige Stiftungen tun das nicht: Sie fördern
+Organisationen, Institutionen, Projekte oder Forschung, oder sie betreiben selbst
+ein Heim. Solche Stellen gehören nicht in die Auswahl, auch wenn ihr Zweck
+Gesundheit, Krankheit oder Armut nennt.
 
 Diese Prüfung kommt vor allen anderen. Als Beleg zählt nur, was die Vergabe an
 Privatpersonen ausdrücklich zeigt:
 
 - die Website oder das Merkblatt nennt Gesuche von Einzelpersonen
+  oder Individualhilfe
 - es gibt ein Gesuchsformular für Einzelpersonen
-- das kantonale Verzeichnis führt die Stiftung mit «Einzelpersonen» oder
+- das kantonale Verzeichnis führt die Stelle mit «Einzelpersonen» oder
   «Direktgesuche zulässig», oder mit «nur über Fachstelle» (auch das ist Hilfe
   an Privatpersonen, nur der Weg ist ein anderer)
 
-Fehlt ein solcher Beleg, ist die Stiftung kein Treffer, sondern höchstens eine
+Fehlt ein solcher Beleg, ist die Stelle kein Treffer, sondern höchstens eine
 offene Frage: Sie kommt nur in die Auswahl, wenn ein Anruf oder eine Anfrage die
-Vergabe an Privatpersonen bestätigt. Nenn der Person keine Stiftung als
+Vergabe an Privatpersonen bestätigt. Nenn der Person keine Stelle als
 Anlaufstelle, bevor das geklärt ist.
 
 ### Wo suchen
@@ -122,16 +123,17 @@ und Unterstützungsfonds» des Kantons, meist beim Amt für Soziales oder bei de
 Stipendienstelle. Dort steht pro Stiftung auch, ob Direktgesuche zulässig sind.
 Viele dieser Verzeichnisse mischen Stiftungen für Einzelpersonen mit solchen für
 Institutionen; nur die ersten übernehmen.
+Ergänzend, in jedem Kanton vorhanden: Winterhilfe des Wohnkantons,
+SRK-Kantonalverband (Individualhilfe, Formular oft nur auf Anfrage), Gemeinnützige
+Gesellschaft des Kantons, Hilfsfonds der Kirchgemeinde, Frauenzentrale der Region.
+Auch bei diesen gilt die Prüfung oben: Nicht jede Gemeinnützige Gesellschaft oder
+Frauenzentrale hat einen Fonds für Einzelpersonen.
 
 **Schweizweit:** Stiftungen, deren Website Einzelfallhilfe für Privatpersonen
 bei Gesundheitskosten ausdrücklich nennt. Quellen: Verzeichnis der Eidg.
 Stiftungsaufsicht, stiftungschweiz.ch, Übersichten kantonaler Sozialämter. In
 Stiftungsverzeichnissen nach dem Kriterium «Einzelpersonen» oder
 «Individualhilfe» filtern, wo es den Filter gibt.
-
-Hilfswerke ohne Stiftungsform — Winterhilfe, SRK-Kantonalverband, Hilfsfonds der
-Kirchgemeinde, Frauenzentrale — sind keine Treffer dieser Suche. Die Winterhilfe
-steht bei den vorrangigen Stellen; die übrigen sind Sache der Sozialberatung.
 
 **Zefix nur zum Verifizieren** — exakter Name, Sitz, c/o-Adresse, aktuelle Organe.
 Zefix hat keine Zwecksuche, blockt automatisierte Zugriffe und listet pro Kanton
@@ -148,12 +150,12 @@ sich aus und will diesen Weg, nimm solche Fonds dazu.
 **Ausschlusskriterien, jede geprüfte Stelle mit Grund festhalten:**
 vergibt nicht an Privatpersonen (fördert nur Organisationen, Institutionen,
 Projekte oder Forschung) · Betriebsstiftung (betreibt Heime, vergibt kein Geld) ·
-keine Stiftung · nur Familien mit Kindern ·
+nur Familien mit Kindern ·
 nur bei IV-Bezug · erst ab AHV-Alter · Wohnsitz in einer bestimmten Gemeinde ·
 Bürgerrecht verlangt · schliesst Prämien aus · Annahmestopp.
 
 **Registerzweck ist nicht Vergabepraxis.** Ein Zweckartikel, der Einzelpersonen
-nennt, heisst nicht, dass die Stiftung an Einzelpersonen vergibt — er ersetzt den
+nennt, heisst nicht, dass die Stelle an Einzelpersonen vergibt — er ersetzt den
 Beleg von oben nicht. Im Zweifel anrufen, bevor ein Dossier verschickt wird — ein
 Telefonat spart einen wertlosen Versand.
 
@@ -166,7 +168,7 @@ Voraussetzungen | Einreichweg (Post, E-Mail, Formular, nur über Fachstelle) |
 Formular vorhanden oder nur auf Anfrage | verlangte Beilagen | Rhythmus |
 Adresse geprüft am | Passung 1–5 | Ausschlussgrund | Link.
 
-Stiftungen, die nicht an Privatpersonen vergeben, bekommen nur eine kurze Zeile
+Stellen, die nicht an Privatpersonen vergeben, bekommen nur eine kurze Zeile
 mit Name und diesem Ausschlussgrund — damit sie nicht nochmals geprüft werden —
 und tauchen weder in der Empfehlung noch in der Übersicht auf.
 
