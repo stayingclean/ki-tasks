@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gesuche für Krankheitskosten · Mit Claude arbeiten</title>
-  <meta name="description" content="Stiftungen finden, die Kostenbeteiligung übernehmen, und pro Stelle ein versandfertiges Gesuch">
+  <meta name="description" content="Stiftungen finden, die Privatpersonen bei der Kostenbeteiligung unterstützen, und pro Stelle ein versandfertiges Gesuch">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 <header class="page">
   <p class="kicker">Aufgaben</p>
   <h1>Gesuche für Krankheitskosten</h1>
-  <p class="lead">Stiftungen finden, die Franchise, Selbstbehalt oder Spitalkostenbeitrag übernehmen — und pro Stelle ein versandfertiges Gesuch. Die Arbeit liegt hier weniger im Formulieren als im Nachrechnen.</p>
+  <p class="lead">Stiftungen finden, die Privatpersonen bei Franchise, Selbstbehalt oder Spitalkostenbeitrag unterstützen — und pro Stelle ein versandfertiges Gesuch. Die Arbeit liegt hier weniger im Formulieren als im Nachrechnen.</p>
 </header>
 
 <div class="summary">
@@ -39,6 +39,7 @@
   <ul>
     <li><strong>Zip:</strong> <a href="https://stayingclean.github.io/ki-tasks/gesuch-krankheitskosten.zip">gesuch-krankheitskosten.zip herunterladen</a>.</li>
     <li><strong>Worum es geht:</strong> Behandlungskosten und Kostenbeteiligung. Offene Prämien sind etwas anderes — die meisten Fonds schliessen sie aus.</li>
+    <li><strong>Gesucht wird nur,</strong> wer an Privatpersonen vergibt. Stiftungen, die Organisationen, Projekte oder Forschung fördern, sortiert Claude aus.</li>
     <li><strong>Du besorgst:</strong> Leistungsabrechnung, Rechnung, Policen, Steuerunterlagen, Kontoauszüge mit Stichtag, Einkommensnachweise. Das ist der grösste Teil der Arbeit.</li>
     <li><strong>Vor dem ersten Gesuch</strong> führt Claude dich durch die vorrangigen Stellen. Stiftungen setzen diese Wege als ausgeschöpft voraus.</li>
     <li><strong>Diese Seite</strong> ersetzt keine Schulden- oder Rechtsberatung. Lokale Töpfe kennt der Sozialdienst, nicht das Internet.</li>
@@ -84,17 +85,20 @@
 <p><strong>Noch keine Rechnung?</strong> Leistungserbringer rechnen oft erst nach Abschluss der Behandlung ab. Dann fordert Claude eine schriftliche Kostenschätzung oder eine Vereinbarung mit Kostenklausel an — Formulare akzeptieren «Offerte oder Kostenvoranschlag» ausdrücklich. Damit sind die Gesuche sofort entscheidungsreif statt erst Wochen später.</p>
 
 <h2>Wie gesucht wird</h2>
-<p>Welche Stellen in Frage kommen, hängt von Kanton, Gemeinde, Kostenart und persönlicher Lage ab. Darum steht im Ordner keine Namensliste, sondern die Methode:</p>
+<p>Welche Stellen in Frage kommen, hängt von Kanton, Gemeinde, Kostenart und persönlicher Lage ab. Darum steht im Ordner keine Namensliste, sondern die Methode.</p>
+<div class="warn">
+  <p><strong>Nur Stellen, die an Privatpersonen vergeben.</strong> Viele gemeinnützige Stiftungen fördern Organisationen, Institutionen, Projekte oder Forschung — auch wenn ihr Zweck Gesundheit oder Armut nennt. Claude nimmt eine Stiftung, einen Fonds oder ein Hilfswerk nur auf, wenn belegt ist, dass sie an Einzelpersonen vergeben: Website oder Merkblatt nennen Gesuche von Einzelpersonen, es gibt ein Formular dafür, oder das kantonale Verzeichnis führt sie so. Fehlt der Beleg, ist die Stelle eine offene Frage, die ein Anruf klärt — kein Treffer.</p>
+</div>
 <ul>
-  <li><strong>Kantonal, der schnellste Weg:</strong> das PDF-Verzeichnis «Gemeinnützige Stiftungen und Unterstützungsfonds» deines Kantons, meist beim Amt für Soziales oder bei der Stipendienstelle. Dort steht pro Stiftung auch, ob Direktgesuche zulässig sind.</li>
-  <li><strong>In jedem Kanton vorhanden:</strong> Winterhilfe, SRK-Kantonalverband, Gemeinnützige Gesellschaft des Kantons, Hilfsfonds der Kirchgemeinde, Frauenzentrale der Region.</li>
-  <li><strong>Schweizweit:</strong> Stiftungen, deren Website Einzelfallhilfe bei Gesundheitskosten ausdrücklich nennt. Quellen: Verzeichnis der Eidg. Stiftungsaufsicht, stiftungschweiz.ch, Übersichten kantonaler Sozialämter.</li>
+  <li><strong>Kantonal, der schnellste Weg:</strong> das PDF-Verzeichnis «Gemeinnützige Stiftungen und Unterstützungsfonds» deines Kantons, meist beim Amt für Soziales oder bei der Stipendienstelle. Dort steht pro Stiftung auch, ob Direktgesuche zulässig sind. Viele Verzeichnisse mischen Stiftungen für Einzelpersonen mit solchen für Institutionen; nur die ersten zählen.</li>
+  <li><strong>In jedem Kanton vorhanden:</strong> Winterhilfe, SRK-Kantonalverband, Gemeinnützige Gesellschaft des Kantons, Hilfsfonds der Kirchgemeinde, Frauenzentrale der Region. Auch hier prüft Claude, ob es einen Fonds für Einzelpersonen gibt.</li>
+  <li><strong>Schweizweit:</strong> Stiftungen, deren Website Einzelfallhilfe für Privatpersonen bei Gesundheitskosten ausdrücklich nennt. Quellen: Verzeichnis der Eidg. Stiftungsaufsicht, stiftungschweiz.ch, Übersichten kantonaler Sozialämter.</li>
   <li><strong>Anknüpfungspunkte systematisch:</strong> Fast jeder Fonds ist an etwas gebunden — Wohnort, Heimatort und Bürgerrecht, Beruf oder Branche, Alter, Konfession, Kinder, frühere Arbeitgeber, Militär, Vereine. Jeder Treffer öffnet einen eigenen Topf. Fonds für eine bestimmte Krankheit nimmt Claude nur dazu, wenn du das von dir aus willst; er fragt nicht nach der Diagnose.</li>
 </ul>
 <div class="note">
   <p><strong>Zefix nur zum Verifizieren</strong> — exakter Name, Sitz, c/o-Adresse, aktuelle Organe. Das Register hat keine Zwecksuche, blockt automatisierte Zugriffe und listet pro Kanton hunderte Stiftungen, von denen die meisten Personalvorsorge-, Familien- oder Unternehmensstiftungen sind.</p>
 </div>
-<p>Und: Ein Zweckartikel, der Einzelpersonen nennt, heisst nicht, dass die Stiftung an Einzelpersonen vergibt. Im Zweifel anrufen, bevor ein Dossier rausgeht — ein Telefonat spart einen wertlosen Versand.</p>
+<p>Und: Ein Zweckartikel, der Einzelpersonen nennt, heisst nicht, dass die Stelle an Einzelpersonen vergibt. Im Zweifel anrufen, bevor ein Dossier rausgeht — ein Telefonat spart einen wertlosen Versand.</p>
 
 <h2>Was du besorgen musst</h2>
 <p>Das Standarddossier, das praktisch alle Stellen verlangen:</p>
@@ -130,7 +134,7 @@
   winterhilfe/
     2026-09-20_gesuch.pdf           <span class="c">Brief, Verzeichnis und Beilagen in dessen Reihenfolge</span>
     mailtext.md</div>
-<p>In <code>stellen.md</code> steht pro Stelle: Name, Sitz, Reichweite, ob sie Kostenbeteiligung übernimmt, ob Prämien ausgeschlossen sind, Voraussetzungen, Einreichweg, ob das Formular vorhanden oder nur auf Anfrage erhältlich ist, verlangte Beilagen, Sitzungsrhythmus, wann die Adresse geprüft wurde, Passung, Ausschlussgrund und der Link zur Stelle. Am Schluss eine Empfehlung der Reihenfolge.</p>
+<p>In <code>stellen.md</code> steht pro Stelle: Name, Sitz, Reichweite, der Beleg, dass sie an Privatpersonen vergibt, ob sie Kostenbeteiligung übernimmt, ob Prämien ausgeschlossen sind, Voraussetzungen, Einreichweg, ob das Formular vorhanden oder nur auf Anfrage erhältlich ist, verlangte Beilagen, Sitzungsrhythmus, wann die Adresse geprüft wurde, Passung, Ausschlussgrund und der Link zur Stelle. Am Schluss eine Empfehlung der Reihenfolge.</p>
 <div class="note">
   <p>Formulare, die nur auf Anfrage kommen, hält Claude getrennt fest — die müssen sofort bestellt werden, die Zustellung dauert.</p>
 </div>
