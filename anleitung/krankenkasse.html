@@ -31,7 +31,7 @@
 <header class="page">
   <p class="kicker">Aufgaben</p>
   <h1>Krankenkasse wählen</h1>
-  <p class="lead">Franchise, Modell und allenfalls die Kasse der Grundversicherung fürs nächste Jahr. Claude rechnet die Varianten durch, zeigt, was sie im guten und im schlechten Jahr kosten, und bereitet bei einem Wechsel die Kündigung samt Fristen vor. Auch wenn du bei der Kasse im Rückstand bist.</p>
+  <p class="lead">Franchise, Modell und allenfalls die Kasse der Grundversicherung fürs nächste Jahr. Claude rechnet die Varianten durch, zeigt, wie viel du sparen kannst und was sie im guten und im schlechten Jahr kosten, und bereitet bei einem Wechsel die Kündigung samt Fristen vor. Auch wenn du bei der Kasse im Rückstand bist.</p>
 </header>
 
 <div class="summary">
@@ -40,7 +40,7 @@
     <li><strong>Zip:</strong> <a href="https://stayingclean.github.io/ki-tasks/krankenkasse.zip">krankenkasse.zip herunterladen</a>. Entpacken, Ordner in Cowork verbinden, «Was steht an?» schreiben.</li>
     <li><strong>Die erste Frage:</strong> Gibt es offene Prämien oder Kostenbeteiligungen? Dann ist ein Kassenwechsel gesperrt, Franchise und Modell lassen sich aber trotzdem ändern.</li>
     <li><strong>Du legst hin:</strong> die Police dieses Jahres, die Leistungsabrechnungen, den Brief mit der neuen Prämie, allfällige Mahnungen.</li>
-    <li><strong>Es entsteht:</strong> eine Vergleichstabelle mit Empfehlung. Bei einem Wechsel das Kündigungsschreiben und eine Fristenliste, sonst ein Brief an die eigene Kasse.</li>
+    <li><strong>Es entsteht:</strong> zuoberst die mögliche Ersparnis in Franken pro Jahr und pro Monat, darunter die Vergleichstabelle mit Empfehlung. Bei einem Wechsel das Kündigungsschreiben und eine Fristenliste, sonst ein Brief an die eigene Kasse.</li>
     <li><strong>Die wichtigste Frist:</strong> Die Kündigung muss am 30. November bei der alten Kasse sein. Abschicken bis 15. November, eingeschrieben oder mit A-Post Plus.</li>
   </ul>
 </div>
@@ -117,18 +117,22 @@
 3_Zum-Versenden/
   2026-11-05_kuendigung_kasse.pdf
   versand.md                          <span class="c">Adresse und «eingeschrieben oder A-Post Plus»</span></div>
-<p>In <code>vergleich.md</code> stehen zwei Übersichten:</p>
+<div class="warn">
+  <p><strong>Zuerst die Ersparnis.</strong> Ganz oben in <code>vergleich.md</code> steht, was du nächstes Jahr bezahlst, wenn du nichts änderst, was die empfohlene Variante kostet und wie viel du damit sparst, in Franken pro Jahr und pro Monat. Darunter, woher die Ersparnis kommt: Franchise, Modell, Kassenwechsel, Unfalldeckung, je einzeln. So siehst du auch, was ohne Wechsel möglich ist. Mit dieser Zahl beginnt Claude auch im Chat.</p>
+</div>
+<p>Gerechnet wird gegen die <em>neue</em> Prämie deiner heutigen Kasse, nicht gegen die alte. Sonst zeigt die Zahl nur den Prämienaufschlag. Und lohnt sich nichts, steht das genauso deutlich da: Bleiben ist dann richtig. Bist du im Rückstand, zeigt der Block die Ersparnis bei deiner eigenen Kasse und getrennt davon, was ein Wechsel nach dem Bezahlen der Rückstände zusätzlich brächte.</p>
+<p>Darunter stehen zwei Übersichten:</p>
 <div class="grid">
   <div class="card">
     <h3>Jahreskosten pro Franchise</h3>
-    <p>Eine Zeile je Franchise: Prämie, tatsächlicher Rabatt und was ein Jahr kostet, wenn du kaum Kosten hast, wenn es kommt wie erwartet und im schlechten Jahr. Dazu, ab welchen Kosten die tiefere Franchise günstiger ist. Einmal für deine heutige Kasse, einmal für die günstigste im gewünschten Modell.</p>
+    <p>Eine Zeile je Franchise: Prämie, tatsächlicher Rabatt und was ein Jahr kostet, wenn du kaum Kosten hast, wenn es kommt wie erwartet und im schlechten Jahr. Dazu, ab welchen Kosten die tiefere Franchise günstiger ist, und was jede Stufe gegenüber heute spart. Einmal für deine heutige Kasse, einmal für die günstigste im gewünschten Modell.</p>
   </div>
   <div class="card">
     <h3>Kassen im Vergleich</h3>
     <p>Die fünf bis sechs günstigsten Kassen und deine heutige, je mit der passenden Franchise: Jahreskosten, Unterschied zu heute in Franken, ob deine Praxis anerkannt ist. Deine heutige Kasse steht immer drin, auch wenn sie teuer ist: Sie ist der Vergleichspunkt.</p>
   </div>
 </div>
-<p>Darunter steht die Empfehlung in wenigen Sätzen: was du dafür in Kauf nimmst und die zweitbeste Variante mit dem Unterschied in Franken.</p>
+<p>Darunter steht die Empfehlung in wenigen Sätzen: wie viel sie gegenüber heute spart, was du dafür in Kauf nimmst und die zweitbeste Variante mit dem Unterschied in Franken.</p>
 <p><strong>Du wählst, im Chat, in zwei Schritten:</strong> erst die Franchise, dann Kasse und Modell. Du bist nicht auf die Liste beschränkt. Nennst du eine andere Kasse, rechnet Claude sie nach und nimmt sie auf. Auch Bleiben ist eine Wahl. Bist du im Rückstand, gibt es nur die erste Übersicht, für die Modelle deiner eigenen Kasse.</p>
 <p>Die Briefe folgen den <a href="https://www.priminfo.admin.ch/de/downloads/musterbriefe">Musterbriefen des Bundes</a>. Offen bleiben <code>[NAME]</code>, <code>[ADRESSE]</code>, <code>[GEBURTSDATUM]</code> und <code>[VERSICHERTENNUMMER]</code>. Die setzt du am Schluss auf deinem Computer ein, siehe <a href="platzhalter.html">Platzhalter einsetzen</a>. Keine AHV-Nummer, keine IBAN: Eine Kündigung braucht beides nicht.</p>
 <p>Die Anmeldung bei der neuen Kasse machst du selbst, meist online. Claude schreibt dir auf, was du dafür brauchst: Kasse, Modell, Franchise, Unfall ja oder nein, deine Praxis und die Police der alten Kasse.</p>

@@ -2,7 +2,8 @@
 
 Es geht um die Grundversicherung (KVG) für das kommende Kalenderjahr: welche
 Franchise, welches Modell, bei welcher Kasse. Am Ende stehen eine
-Vergleichstabelle mit Empfehlung und, nur wenn gewechselt wird, ein
+Vergleichstabelle mit der möglichen Ersparnis und einer Empfehlung und, nur
+wenn gewechselt wird, ein
 Kündigungsschreiben mit Fristenliste.
 
 Das Wissen hier gilt in allen Kantonen. Was kantonal verschieden ist —
@@ -195,16 +196,43 @@ im Kopf, und prüf eine Zeile von Hand nach.
 
 ## Ablage
 
-`2_Arbeitsstand/vergleich.md` mit einem Kopf und zwei Übersichten. Kopf:
-Prämienregion, Altersklasse, Unfalldeckung, erwartete Kosten mit Herleitung,
-Datum der Prämienabfrage, Quelle.
+`2_Arbeitsstand/vergleich.md` mit der Ersparnis zuoberst, einem Kopf und zwei
+Übersichten.
+
+**Mögliche Ersparnis — der erste Block, vor allem anderen.** Die Person soll auf
+einen Blick sehen, ob sich etwas lohnt und wie viel. Drei bis fünf Zeilen:
+
+- Was sie heute im nächsten Jahr bezahlen würde, wenn sie nichts ändert:
+  Jahreskosten «erwartet» mit der neuen Prämie der heutigen Kasse.
+- Was die empfohlene Variante kostet, und die **Ersparnis in Franken pro Jahr
+  und pro Monat**, fett.
+- Woher die Ersparnis kommt, je Hebel einzeln: Franchise, Modell, Kassenwechsel,
+  Unfalldeckung. So sieht die Person, was sie auch ohne Wechsel erreicht.
+- Was im schlechten Jahr davon übrig bleibt. Kann die Ersparnis bei hohen
+  Kosten ins Minus drehen, steht das gleich daneben, nicht erst in der Tabelle.
+
+Die Ersparnis rechnest du immer gegen die heutige Lösung zur **neuen** Prämie,
+nicht gegen die Prämie des laufenden Jahres — sonst zeigt die Zahl den
+Prämienaufschlag statt der Wirkung der Wahl. Ist der Unterschied klein (unter
+rund 100 Franken im Jahr) oder gibt es keinen, steht das genauso deutlich da:
+«Bleiben ist hier richtig.» Eine Ersparnis schönzurechnen, damit sich die
+Aufgabe gelohnt hat, schadet der Person.
+
+Im Fall mit Ausständen zeigt der Block die Ersparnis bei der eigenen Kasse
+(Franchise, Modell, Unfalldeckung) und, getrennt und klar als «nach der
+Tilgung» bezeichnet, was ein Kassenwechsel zusätzlich bringen würde. Diese
+Zahl ist oft der stärkste Grund, die Ausstände bis 31. Dezember zu begleichen.
+
+Kopf: Prämienregion, Altersklasse, Unfalldeckung, erwartete Kosten mit
+Herleitung, Datum der Prämienabfrage, Quelle.
 
 **Übersicht 1 — Jahreskosten pro Franchise.** Eine Zeile je Franchisestufe,
 alle Stufen, die es für die Altersklasse gibt:
 
 Franchise | Prämie/Monat | Rabatt vs. tiefste Franchise (tatsächlich /
 höchstens) | Jahreskosten kaum Kosten | erwartet | schlechtes Jahr | ab welchen
-Kosten die nächsttiefere Franchise günstiger ist.
+Kosten die nächsttiefere Franchise günstiger ist | Ersparnis gegenüber heute
+pro Jahr («erwartet»).
 
 Diese Übersicht gibt es für die heutige Kasse im heutigen Modell und für die
 günstigste Kasse im gewünschten Modell. So sieht die Person, welche Franchise zu
@@ -221,7 +249,7 @@ Sortiert nach Jahreskosten im Szenario «erwartet». Die heutige Kasse steht imm
 drin, auch wenn sie teuer ist; sie ist der Vergleichspunkt.
 
 Darunter die Empfehlung in drei bis fünf Sätzen: welche Kasse, welches Modell,
-welche Franchise, warum, was die Person dafür in Kauf nimmt (Modellregeln,
+welche Franchise, wie viel das gegenüber heute spart, warum, was die Person dafür in Kauf nimmt (Modellregeln,
 Risiko im schlechten Jahr), und die zweitbeste Variante mit dem Unterschied in
 Franken.
 
@@ -231,7 +259,13 @@ jede Kasse aus dem Prämienrechner wählen, nicht nur die der engeren Wahl; nenn
 sie eine andere, rechnest du sie nach und nimmst sie in die Tabelle auf. Bleiben
 bei der heutigen Kasse ist auch eine Wahl. Ihren Entscheid hältst du in
 `stand.md` fest: Kasse, Modell, Franchise, Unfalldeckung, Jahreskosten
-«erwartet».
+«erwartet» und die Ersparnis gegenüber heute.
+
+**Im Chat beginnst du mit der Ersparnis.** Wenn die Übersichten stehen, ist der
+erste Satz die Zahl: «Mit … sparst du voraussichtlich CHF … im Jahr, rund …
+im Monat.» Erst dann die Tabellen und die Fragen zur Wahl. Dieselbe Zahl steht
+in `stand.md` und, wenn ein Brief entsteht, in `versand.md` als Begründung,
+warum sich der Versand lohnt.
 
 **Im Fall mit Ausständen** entfällt Übersicht 2 und damit die Wahl der Kasse.
 Übersicht 1 gibt es für die eigene Kasse, je Modell, das sie anbietet. Die
@@ -329,7 +363,7 @@ Art. 103 Abs. 3 KVV).
 `3_Zum-Versenden/<datum>_kuendigung_<kasse>.pdf` oder
 `<datum>_aenderung_<kasse>.pdf`, dazu `versand.md`: Empfängeradresse,
 «eingeschrieben oder A-Post Plus bis 15. November», Hinweis, die Quittung
-aufzubewahren. Die Vergleichstabelle geht nicht mit.
+aufzubewahren, und in einem Satz die Ersparnis, um die es geht. Die Vergleichstabelle geht nicht mit.
 
 ## Grenzen
 
