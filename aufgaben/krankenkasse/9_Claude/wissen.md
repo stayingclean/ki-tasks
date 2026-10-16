@@ -280,23 +280,51 @@ sich nach der Tilgung sparen liesse.
 
 ## Zusatzversicherung
 
-- Nicht kündigen, bevor die neue Kasse die Aufnahme **schriftlich** zugesagt
-  hat. Zusatzversicherungen unterstehen dem Privatrecht (VVG); die Kasse darf
-  ablehnen oder Vorbehalte machen, und sie stellt Gesundheitsfragen. Ab etwa 55
-  bis 65 Jahren oder mit Vorerkrankungen ist ein Neuabschluss oft nicht mehr
-  möglich (priminfo.admin.ch/de/versicherungen/zusatzversicherungen). Die
+Diese Aufgabe vergleicht und wechselt nur die **Grundversicherung**. Die
+Zusatzversicherung bleibt, wo sie ist.
+
+**Der Normalfall: Grundversicherung wechseln, Zusatzversicherung behalten.**
+Das ist ausdrücklich erlaubt. Die alte Kasse darf die Person nicht zwingen, die
+Zusatzversicherung mitzukündigen, und sie darf sie wegen des Wechsels auch nicht
+selbst kündigen (Art. 7 Abs. 7 und 8 KVG). Ordentlich kündigen kann eine
+Zusatzversicherung zur Krankenversicherung ohnehin nur die versicherte Person,
+nicht die Kasse (Art. 35a Abs. 4 VVG). Eine bestehende Zusatzversicherung ist
+darum ein Schutz, den man nicht leichtfertig aufgibt.
+
+Du schlägst keinen Wechsel der Zusatzversicherung vor und rechnest sie nicht in
+die Ersparnis ein. Du nimmst die Prämie aus der Police nur auf, damit das
+Monatsbudget stimmt, und nennst den Mehraufwand von zwei Kassen: zwei
+Rechnungen, zwei Abrechnungen, bei manchen Leistungen zwei Stellen, an die ein
+Beleg geht. Das gehört neben die Ersparnis, damit die Person beides
+gegeneinander abwägen kann.
+
+**Will die Person die Zusatzversicherung selbst mitnehmen**, ist Vorsicht das
+Wichtigste:
+
+- Ein Wechsel ist nur sinnvoll, wenn die neue Kasse **gleichwertige Leistungen**
+  anbietet. Das lässt sich nicht aus Produktnamen oder Werbung lesen, nur aus den
+  Versicherungsbedingungen beider Kassen: Leistungen, Höchstbeträge, Wartefristen,
+  Ausschlüsse. Du kannst sie nebeneinanderlegen, aber nicht zusichern, dass sie
+  gleichwertig sind. Sag das.
+- Die neue Kasse darf ablehnen oder Vorbehalte anbringen und stellt
+  Gesundheitsfragen. Ab etwa 55 bis 65 Jahren oder mit Vorerkrankungen ist ein
+  Neuabschluss oft nicht mehr möglich
+  (priminfo.admin.ch/de/versicherungen/zusatzversicherungen). Die
   Gesundheitsfragen beantwortet die Person selbst gegenüber der Kasse; du
   fragst sie nicht ab und füllst sie nicht aus.
-- Fristen und Kündigungstermine stehen in den Versicherungsbedingungen und sind
-  anders als bei der Grundversicherung — oft früher im Jahr. Aus der Police und
-  den Bedingungen lesen, nicht annehmen.
-- Die Grundversicherung darf man wechseln und die Zusatzversicherung bei der
-  alten Kasse behalten; die alte Kasse darf sie deswegen nicht kündigen
-  (Art. 7 Abs. 7 und 8 KVG).
-- Grund- und Zusatzversicherung bei zwei Kassen heisst: zwei Rechnungen, zwei
-  Abrechnungen, bei manchen Leistungen zwei Stellen, an die ein Beleg geht. Das
-  gehört neben die Ersparnis, damit die Person beides gegeneinander abwägen
-  kann.
+- Gekündigt wird erst, wenn die **schriftliche Aufnahme ohne Vorbehalte**
+  vorliegt. Vorher entsteht kein Kündigungsschreiben.
+- Die Fristen sind andere als bei der Grundversicherung. Von Gesetzes wegen
+  kündbar auf das Ende des dritten Vertragsjahres oder jedes folgenden Jahres,
+  mit drei Monaten Frist (Art. 35a Abs. 1 VVG, auch für ältere Verträge,
+  Art. 103a VVG). Die Bedingungen der Kasse dürfen eine frühere Kündigung
+  erlauben (Art. 35a Abs. 2 VVG); oft ist es jährlich auf Ende Jahr mit drei
+  Monaten Frist, also bis 30. September. Ein Kündigungsrecht bei
+  Prämienerhöhung steht, wenn überhaupt, in den Bedingungen. Massgebend ist, was
+  in Police und Bedingungen steht — nicht annehmen. Ist der Termin für dieses
+  Jahr schon vorbei, bleibt die Zusatzversicherung mindestens ein Jahr bei der
+  alten Kasse; das ist kein Grund, den Wechsel der Grundversicherung
+  aufzuschieben.
 
 ## Dokumente
 
