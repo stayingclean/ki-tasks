@@ -213,10 +213,16 @@ einen Blick sehen, ob sich etwas lohnt und wie viel. Drei bis fünf Zeilen:
 
 Die Ersparnis rechnest du immer gegen die heutige Lösung zur **neuen** Prämie,
 nicht gegen die Prämie des laufenden Jahres — sonst zeigt die Zahl den
-Prämienaufschlag statt der Wirkung der Wahl. Ist der Unterschied klein (unter
-rund 100 Franken im Jahr) oder gibt es keinen, steht das genauso deutlich da:
-«Bleiben ist hier richtig.» Eine Ersparnis schönzurechnen, damit sich die
-Aufgabe gelohnt hat, schadet der Person.
+Prämienaufschlag statt der Wirkung der Wahl.
+
+Es gibt keine Grenze, unter der eine Ersparnis nicht zählt. Ob sich ein Betrag
+lohnt, entscheidet die Person; bei knappem Budget zählen auch 50 oder 100
+Franken im Jahr. Du nennst die Zahl, wie sie ist, und daneben, was die Variante
+an Aufwand oder Nachteilen mit sich bringt: Einschreiben, Anmeldung,
+allenfalls eine neue Praxis, Modellregeln, Grund- und Zusatzversicherung bei
+zwei Kassen. Abwägen tut die Person. Gibt es gar keine Ersparnis oder wird sie
+im schlechten Jahr zum Verlust, steht auch das deutlich da. Schönrechnen
+schadet der Person, genauso wie Kleinreden.
 
 Im Fall mit Ausständen zeigt der Block die Ersparnis bei der eigenen Kasse
 (Franchise, Modell, Unfalldeckung) und, getrennt und klar als «nach der
@@ -289,7 +295,8 @@ sich nach der Tilgung sparen liesse.
   (Art. 7 Abs. 7 und 8 KVG).
 - Grund- und Zusatzversicherung bei zwei Kassen heisst: zwei Rechnungen, zwei
   Abrechnungen, bei manchen Leistungen zwei Stellen, an die ein Beleg geht. Das
-  gehört in die Empfehlung, gerade wenn die Ersparnis klein ist.
+  gehört neben die Ersparnis, damit die Person beides gegeneinander abwägen
+  kann.
 
 ## Dokumente
 
