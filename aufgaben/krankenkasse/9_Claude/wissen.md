@@ -88,7 +88,8 @@ der Erinnerung.
   die Leistungsabrechnungen des laufenden Jahres, hochgerechnet aufs Jahr. Wofür
   die Kosten anfallen, muss die Person nicht sagen; frag nicht nach Diagnosen
   oder Behandlungen. Der Betrag reicht für die Rechnung.
-- Zusatzversicherungen, und ob sie bleiben sollen
+- Zusatzversicherungen: welche, bei welcher Kasse, und ob die Person auch sie
+  wechseln möchte (siehe Zusatzversicherung)
 - Arbeitet die Person mindestens 8 Stunden pro Woche beim selben Arbeitgeber?
   Dann ist sie dort gegen Unfall versichert und die Unfalldeckung bei der
   Krankenkasse kann weg; sonst muss sie drin bleiben (priminfo.admin.ch/de/
@@ -280,8 +281,18 @@ sich nach der Tilgung sparen liesse.
 
 ## Zusatzversicherung
 
-Diese Aufgabe vergleicht und wechselt nur die **Grundversicherung**. Die
-Zusatzversicherung bleibt, wo sie ist.
+Diese Aufgabe ist für die **Grundversicherung** gebaut. Die Zusatzversicherung
+kann sie unterstützen, aber nicht so verlässlich vergleichen.
+
+**Der wesentliche Unterschied.** In der Grundversicherung sind die Leistungen
+gesetzlich festgelegt und bei allen Kassen gleich (KVG); verglichen wird nur der
+Preis. In der Zusatzversicherung bestimmt jede Kasse selbst, was versichert ist
+(priminfo.admin.ch/de/versicherungen/zusatzversicherungen). Ein Vergleich beruht
+darum nicht nur auf der Prämie, sondern vor allem auf den Leistungen. Eine
+günstigere Zusatzversicherung ist oft schlicht eine mit weniger Leistung.
+
+Du fragst am Anfang, ob die Person auch die Zusatzversicherung wechseln möchte.
+Sagt sie nein oder ist sie unsicher, bleibt die Zusatzversicherung, wo sie ist.
 
 **Der Normalfall: Grundversicherung wechseln, Zusatzversicherung behalten.**
 Das ist ausdrücklich erlaubt. Die alte Kasse darf die Person nicht zwingen, die
@@ -291,15 +302,31 @@ Zusatzversicherung zur Krankenversicherung ohnehin nur die versicherte Person,
 nicht die Kasse (Art. 35a Abs. 4 VVG). Eine bestehende Zusatzversicherung ist
 darum ein Schutz, den man nicht leichtfertig aufgibt.
 
-Du schlägst keinen Wechsel der Zusatzversicherung vor und rechnest sie nicht in
-die Ersparnis ein. Du nimmst die Prämie aus der Police nur auf, damit das
+Von dir aus schlägst du keinen Wechsel der Zusatzversicherung vor, und in den
+Block «Mögliche Ersparnis» kommt sie nicht. Du nimmst die Prämie aus der Police nur auf, damit das
 Monatsbudget stimmt, und nennst den Mehraufwand von zwei Kassen: zwei
 Rechnungen, zwei Abrechnungen, bei manchen Leistungen zwei Stellen, an die ein
 Beleg geht. Das gehört neben die Ersparnis, damit die Person beides
 gegeneinander abwägen kann.
 
-**Will die Person die Zusatzversicherung selbst mitnehmen**, ist Vorsicht das
-Wichtigste:
+**Will die Person die Zusatzversicherung auch wechseln**, unterstützt du sie,
+mit Vorsicht als Wichtigstem:
+
+- Sag zu Beginn klar, dass die Aufgabe dafür nicht ausgelegt ist: Was du
+  zusammenstellst, ist eine Hilfe zum Lesen, kein verlässlicher Vergleich. Die
+  Angaben muss die Person selbst genau prüfen oder von einer Fachperson prüfen
+  lassen, etwa der Sozialberatung, einer unabhängigen Versicherungsberatung oder
+  der Kasse selbst, mit schriftlicher Antwort. Dieser Hinweis steht auch in der
+  Ablage, nicht nur im Chat.
+- Grundlage sind die Police, die heutigen Versicherungsbedingungen und für jede
+  neue Kasse deren Bedingungen und eine schriftliche Offerte. Werbung,
+  Produktnamen und Vergleichsportale genügen nicht.
+- `2_Arbeitsstand/zusatzversicherung.md`, getrennt von `vergleich.md`: zuoberst
+  der Prüfhinweis, dann je Leistung eine Zeile — Leistung | heute (Betrag,
+  Höchstgrenze, Selbstbehalt) | neue Kasse | Unterschied | Fundstelle in den
+  Bedingungen. Danach erst die Prämien. Was du in den Bedingungen nicht findest
+  oder nicht eindeutig lesen kannst, steht als offene Frage da, nicht als
+  Annahme.
 
 - Ein Wechsel ist nur sinnvoll, wenn die neue Kasse **gleichwertige Leistungen**
   anbietet. Das lässt sich nicht aus Produktnamen oder Werbung lesen, nur aus den
