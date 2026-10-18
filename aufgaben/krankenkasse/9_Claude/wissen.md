@@ -2,7 +2,8 @@
 
 Es geht um die Grundversicherung (KVG) für das kommende Kalenderjahr: welche
 Franchise, welches Modell, bei welcher Kasse. Am Ende stehen eine
-Vergleichstabelle mit Empfehlung und, nur wenn gewechselt wird, ein
+Vergleichstabelle mit der möglichen Ersparnis und einer Empfehlung und, nur
+wenn gewechselt wird, ein
 Kündigungsschreiben mit Fristenliste.
 
 Das Wissen hier gilt in allen Kantonen. Was kantonal verschieden ist —
@@ -87,7 +88,8 @@ der Erinnerung.
   die Leistungsabrechnungen des laufenden Jahres, hochgerechnet aufs Jahr. Wofür
   die Kosten anfallen, muss die Person nicht sagen; frag nicht nach Diagnosen
   oder Behandlungen. Der Betrag reicht für die Rechnung.
-- Zusatzversicherungen, und ob sie bleiben sollen
+- Zusatzversicherungen: welche, bei welcher Kasse, und ob die Person auch sie
+  wechseln möchte (siehe Zusatzversicherung)
 - Arbeitet die Person mindestens 8 Stunden pro Woche beim selben Arbeitgeber?
   Dann ist sie dort gegen Unfall versichert und die Unfalldeckung bei der
   Krankenkasse kann weg; sonst muss sie drin bleiben (priminfo.admin.ch/de/
@@ -195,16 +197,49 @@ im Kopf, und prüf eine Zeile von Hand nach.
 
 ## Ablage
 
-`2_Arbeitsstand/vergleich.md` mit einem Kopf und zwei Übersichten. Kopf:
-Prämienregion, Altersklasse, Unfalldeckung, erwartete Kosten mit Herleitung,
-Datum der Prämienabfrage, Quelle.
+`2_Arbeitsstand/vergleich.md` mit der Ersparnis zuoberst, einem Kopf und zwei
+Übersichten.
+
+**Mögliche Ersparnis — der erste Block, vor allem anderen.** Die Person soll auf
+einen Blick sehen, ob sich etwas lohnt und wie viel. Drei bis fünf Zeilen:
+
+- Was sie heute im nächsten Jahr bezahlen würde, wenn sie nichts ändert:
+  Jahreskosten «erwartet» mit der neuen Prämie der heutigen Kasse.
+- Was die empfohlene Variante kostet, und die **Ersparnis in Franken pro Jahr
+  und pro Monat**, fett.
+- Woher die Ersparnis kommt, je Hebel einzeln: Franchise, Modell, Kassenwechsel,
+  Unfalldeckung. So sieht die Person, was sie auch ohne Wechsel erreicht.
+- Was im schlechten Jahr davon übrig bleibt. Kann die Ersparnis bei hohen
+  Kosten ins Minus drehen, steht das gleich daneben, nicht erst in der Tabelle.
+
+Die Ersparnis rechnest du immer gegen die heutige Lösung zur **neuen** Prämie,
+nicht gegen die Prämie des laufenden Jahres — sonst zeigt die Zahl den
+Prämienaufschlag statt der Wirkung der Wahl.
+
+Es gibt keine Grenze, unter der eine Ersparnis nicht zählt. Ob sich ein Betrag
+lohnt, entscheidet die Person; bei knappem Budget zählen auch 50 oder 100
+Franken im Jahr. Du nennst die Zahl, wie sie ist, und daneben, was die Variante
+an Aufwand oder Nachteilen mit sich bringt: Einschreiben, Anmeldung,
+allenfalls eine neue Praxis, Modellregeln, Grund- und Zusatzversicherung bei
+zwei Kassen. Abwägen tut die Person. Gibt es gar keine Ersparnis oder wird sie
+im schlechten Jahr zum Verlust, steht auch das deutlich da. Schönrechnen
+schadet der Person, genauso wie Kleinreden.
+
+Im Fall mit Ausständen zeigt der Block die Ersparnis bei der eigenen Kasse
+(Franchise, Modell, Unfalldeckung) und, getrennt und klar als «nach der
+Tilgung» bezeichnet, was ein Kassenwechsel zusätzlich bringen würde. Diese
+Zahl ist oft der stärkste Grund, die Ausstände bis 31. Dezember zu begleichen.
+
+Kopf: Prämienregion, Altersklasse, Unfalldeckung, erwartete Kosten mit
+Herleitung, Datum der Prämienabfrage, Quelle.
 
 **Übersicht 1 — Jahreskosten pro Franchise.** Eine Zeile je Franchisestufe,
 alle Stufen, die es für die Altersklasse gibt:
 
 Franchise | Prämie/Monat | Rabatt vs. tiefste Franchise (tatsächlich /
 höchstens) | Jahreskosten kaum Kosten | erwartet | schlechtes Jahr | ab welchen
-Kosten die nächsttiefere Franchise günstiger ist.
+Kosten die nächsttiefere Franchise günstiger ist | Ersparnis gegenüber heute
+pro Jahr («erwartet»).
 
 Diese Übersicht gibt es für die heutige Kasse im heutigen Modell und für die
 günstigste Kasse im gewünschten Modell. So sieht die Person, welche Franchise zu
@@ -221,7 +256,7 @@ Sortiert nach Jahreskosten im Szenario «erwartet». Die heutige Kasse steht imm
 drin, auch wenn sie teuer ist; sie ist der Vergleichspunkt.
 
 Darunter die Empfehlung in drei bis fünf Sätzen: welche Kasse, welches Modell,
-welche Franchise, warum, was die Person dafür in Kauf nimmt (Modellregeln,
+welche Franchise, wie viel das gegenüber heute spart, warum, was die Person dafür in Kauf nimmt (Modellregeln,
 Risiko im schlechten Jahr), und die zweitbeste Variante mit dem Unterschied in
 Franken.
 
@@ -231,7 +266,13 @@ jede Kasse aus dem Prämienrechner wählen, nicht nur die der engeren Wahl; nenn
 sie eine andere, rechnest du sie nach und nimmst sie in die Tabelle auf. Bleiben
 bei der heutigen Kasse ist auch eine Wahl. Ihren Entscheid hältst du in
 `stand.md` fest: Kasse, Modell, Franchise, Unfalldeckung, Jahreskosten
-«erwartet».
+«erwartet» und die Ersparnis gegenüber heute.
+
+**Im Chat beginnst du mit der Ersparnis.** Wenn die Übersichten stehen, ist der
+erste Satz die Zahl: «Mit … sparst du voraussichtlich CHF … im Jahr, rund …
+im Monat.» Erst dann die Tabellen und die Fragen zur Wahl. Dieselbe Zahl steht
+in `stand.md` und, wenn ein Brief entsteht, in `versand.md` als Begründung,
+warum sich der Versand lohnt.
 
 **Im Fall mit Ausständen** entfällt Übersicht 2 und damit die Wahl der Kasse.
 Übersicht 1 gibt es für die eigene Kasse, je Modell, das sie anbietet. Die
@@ -240,22 +281,77 @@ sich nach der Tilgung sparen liesse.
 
 ## Zusatzversicherung
 
-- Nicht kündigen, bevor die neue Kasse die Aufnahme **schriftlich** zugesagt
-  hat. Zusatzversicherungen unterstehen dem Privatrecht (VVG); die Kasse darf
-  ablehnen oder Vorbehalte machen, und sie stellt Gesundheitsfragen. Ab etwa 55
-  bis 65 Jahren oder mit Vorerkrankungen ist ein Neuabschluss oft nicht mehr
-  möglich (priminfo.admin.ch/de/versicherungen/zusatzversicherungen). Die
+Diese Aufgabe ist für die **Grundversicherung** gebaut. Die Zusatzversicherung
+kann sie unterstützen, aber nicht so verlässlich vergleichen.
+
+**Der wesentliche Unterschied.** In der Grundversicherung sind die Leistungen
+gesetzlich festgelegt und bei allen Kassen gleich (KVG); verglichen wird nur der
+Preis. In der Zusatzversicherung bestimmt jede Kasse selbst, was versichert ist
+(priminfo.admin.ch/de/versicherungen/zusatzversicherungen). Ein Vergleich beruht
+darum nicht nur auf der Prämie, sondern vor allem auf den Leistungen. Eine
+günstigere Zusatzversicherung ist oft schlicht eine mit weniger Leistung.
+
+Du fragst am Anfang, ob die Person auch die Zusatzversicherung wechseln möchte.
+Sagt sie nein oder ist sie unsicher, bleibt die Zusatzversicherung, wo sie ist.
+
+**Der Normalfall: Grundversicherung wechseln, Zusatzversicherung behalten.**
+Das ist ausdrücklich erlaubt. Die alte Kasse darf die Person nicht zwingen, die
+Zusatzversicherung mitzukündigen, und sie darf sie wegen des Wechsels auch nicht
+selbst kündigen (Art. 7 Abs. 7 und 8 KVG). Ordentlich kündigen kann eine
+Zusatzversicherung zur Krankenversicherung ohnehin nur die versicherte Person,
+nicht die Kasse (Art. 35a Abs. 4 VVG). Eine bestehende Zusatzversicherung ist
+darum ein Schutz, den man nicht leichtfertig aufgibt.
+
+Von dir aus schlägst du keinen Wechsel der Zusatzversicherung vor, und in den
+Block «Mögliche Ersparnis» kommt sie nicht. Du nimmst die Prämie aus der Police nur auf, damit das
+Monatsbudget stimmt, und nennst den Mehraufwand von zwei Kassen: zwei
+Rechnungen, zwei Abrechnungen, bei manchen Leistungen zwei Stellen, an die ein
+Beleg geht. Das gehört neben die Ersparnis, damit die Person beides
+gegeneinander abwägen kann.
+
+**Will die Person die Zusatzversicherung auch wechseln**, unterstützt du sie,
+mit Vorsicht als Wichtigstem:
+
+- Sag zu Beginn klar, dass die Aufgabe dafür nicht ausgelegt ist: Was du
+  zusammenstellst, ist eine Hilfe zum Lesen, kein verlässlicher Vergleich. Die
+  Angaben muss die Person selbst genau prüfen oder von einer Fachperson prüfen
+  lassen, etwa der Sozialberatung, einer unabhängigen Versicherungsberatung oder
+  der Kasse selbst, mit schriftlicher Antwort. Dieser Hinweis steht auch in der
+  Ablage, nicht nur im Chat.
+- Grundlage sind die Police, die heutigen Versicherungsbedingungen und für jede
+  neue Kasse deren Bedingungen und eine schriftliche Offerte. Werbung,
+  Produktnamen und Vergleichsportale genügen nicht.
+- `2_Arbeitsstand/zusatzversicherung.md`, getrennt von `vergleich.md`: zuoberst
+  der Prüfhinweis, dann je Leistung eine Zeile — Leistung | heute (Betrag,
+  Höchstgrenze, Selbstbehalt) | neue Kasse | Unterschied | Fundstelle in den
+  Bedingungen. Danach erst die Prämien. Was du in den Bedingungen nicht findest
+  oder nicht eindeutig lesen kannst, steht als offene Frage da, nicht als
+  Annahme.
+
+- Ein Wechsel ist nur sinnvoll, wenn die neue Kasse **gleichwertige Leistungen**
+  anbietet. Das lässt sich nicht aus Produktnamen oder Werbung lesen, nur aus den
+  Versicherungsbedingungen beider Kassen: Leistungen, Höchstbeträge, Wartefristen,
+  Ausschlüsse. Du kannst sie nebeneinanderlegen, aber nicht zusichern, dass sie
+  gleichwertig sind. Sag das.
+- Die neue Kasse darf ablehnen oder Vorbehalte anbringen und stellt
+  Gesundheitsfragen. Ab etwa 55 bis 65 Jahren oder mit Vorerkrankungen ist ein
+  Neuabschluss oft nicht mehr möglich
+  (priminfo.admin.ch/de/versicherungen/zusatzversicherungen). Die
   Gesundheitsfragen beantwortet die Person selbst gegenüber der Kasse; du
   fragst sie nicht ab und füllst sie nicht aus.
-- Fristen und Kündigungstermine stehen in den Versicherungsbedingungen und sind
-  anders als bei der Grundversicherung — oft früher im Jahr. Aus der Police und
-  den Bedingungen lesen, nicht annehmen.
-- Die Grundversicherung darf man wechseln und die Zusatzversicherung bei der
-  alten Kasse behalten; die alte Kasse darf sie deswegen nicht kündigen
-  (Art. 7 Abs. 7 und 8 KVG).
-- Grund- und Zusatzversicherung bei zwei Kassen heisst: zwei Rechnungen, zwei
-  Abrechnungen, bei manchen Leistungen zwei Stellen, an die ein Beleg geht. Das
-  gehört in die Empfehlung, gerade wenn die Ersparnis klein ist.
+- Gekündigt wird erst, wenn die **schriftliche Aufnahme ohne Vorbehalte**
+  vorliegt. Vorher entsteht kein Kündigungsschreiben.
+- Die Fristen sind andere als bei der Grundversicherung. Von Gesetzes wegen
+  kündbar auf das Ende des dritten Vertragsjahres oder jedes folgenden Jahres,
+  mit drei Monaten Frist (Art. 35a Abs. 1 VVG, auch für ältere Verträge,
+  Art. 103a VVG). Die Bedingungen der Kasse dürfen eine frühere Kündigung
+  erlauben (Art. 35a Abs. 2 VVG); oft ist es jährlich auf Ende Jahr mit drei
+  Monaten Frist, also bis 30. September. Ein Kündigungsrecht bei
+  Prämienerhöhung steht, wenn überhaupt, in den Bedingungen. Massgebend ist, was
+  in Police und Bedingungen steht — nicht annehmen. Ist der Termin für dieses
+  Jahr schon vorbei, bleibt die Zusatzversicherung mindestens ein Jahr bei der
+  alten Kasse; das ist kein Grund, den Wechsel der Grundversicherung
+  aufzuschieben.
 
 ## Dokumente
 
@@ -329,7 +425,7 @@ Art. 103 Abs. 3 KVV).
 `3_Zum-Versenden/<datum>_kuendigung_<kasse>.pdf` oder
 `<datum>_aenderung_<kasse>.pdf`, dazu `versand.md`: Empfängeradresse,
 «eingeschrieben oder A-Post Plus bis 15. November», Hinweis, die Quittung
-aufzubewahren. Die Vergleichstabelle geht nicht mit.
+aufzubewahren, und in einem Satz die Ersparnis, um die es geht. Die Vergleichstabelle geht nicht mit.
 
 ## Grenzen
 

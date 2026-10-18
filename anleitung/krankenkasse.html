@@ -31,7 +31,7 @@
 <header class="page">
   <p class="kicker">Aufgaben</p>
   <h1>Krankenkasse wählen</h1>
-  <p class="lead">Franchise, Modell und allenfalls die Kasse der Grundversicherung fürs nächste Jahr. Claude rechnet die Varianten durch, zeigt, was sie im guten und im schlechten Jahr kosten, und bereitet bei einem Wechsel die Kündigung samt Fristen vor. Auch wenn du bei der Kasse im Rückstand bist.</p>
+  <p class="lead">Franchise, Modell und allenfalls die Kasse der Grundversicherung fürs nächste Jahr. Claude rechnet die Varianten durch, zeigt, wie viel du sparen kannst und was sie im guten und im schlechten Jahr kosten, und bereitet bei einem Wechsel die Kündigung samt Fristen vor. Auch wenn du bei der Kasse im Rückstand bist.</p>
 </header>
 
 <div class="summary">
@@ -40,7 +40,7 @@
     <li><strong>Zip:</strong> <a href="https://stayingclean.github.io/ki-tasks/krankenkasse.zip">krankenkasse.zip herunterladen</a>. Entpacken, Ordner in Cowork verbinden, «Was steht an?» schreiben.</li>
     <li><strong>Die erste Frage:</strong> Gibt es offene Prämien oder Kostenbeteiligungen? Dann ist ein Kassenwechsel gesperrt, Franchise und Modell lassen sich aber trotzdem ändern.</li>
     <li><strong>Du legst hin:</strong> die Police dieses Jahres, die Leistungsabrechnungen, den Brief mit der neuen Prämie, allfällige Mahnungen.</li>
-    <li><strong>Es entsteht:</strong> eine Vergleichstabelle mit Empfehlung. Bei einem Wechsel das Kündigungsschreiben und eine Fristenliste, sonst ein Brief an die eigene Kasse.</li>
+    <li><strong>Es entsteht:</strong> zuoberst die mögliche Ersparnis in Franken pro Jahr und pro Monat, darunter die Vergleichstabelle mit Empfehlung. Bei einem Wechsel das Kündigungsschreiben und eine Fristenliste, sonst ein Brief an die eigene Kasse.</li>
     <li><strong>Die wichtigste Frist:</strong> Die Kündigung muss am 30. November bei der alten Kasse sein. Abschicken bis 15. November, eingeschrieben oder mit A-Post Plus.</li>
   </ul>
 </div>
@@ -74,7 +74,7 @@
   <li>Heutige Kasse, Modell, Franchise, mit oder ohne Unfall</li>
   <li>Dein Hausarzt oder deine HMO-Praxis</li>
   <li>Was du im nächsten Jahr an Kosten erwartest, als Betrag. Die Leistungsabrechnungen dieses Jahres sind der beste Anhaltspunkt. Wofür die Kosten anfallen, musst du nicht sagen.</li>
-  <li>Ob du Zusatzversicherungen hast und behalten willst</li>
+  <li>Ob du Zusatzversicherungen hast und ob du auch sie wechseln möchtest</li>
   <li>Ob du mindestens 8 Stunden pro Woche beim selben Arbeitgeber arbeitest. Dann bist du dort gegen Unfall versichert und brauchst die Unfalldeckung bei der Krankenkasse nicht.</li>
   <li>Ob du Sozialhilfe oder Ergänzungsleistungen beziehst. Diese Stellen haben eigene Vorgaben zur Prämie, je nach Kanton und Gemeinde verschieden, und die gehen vor.</li>
 </ul>
@@ -101,12 +101,25 @@
 <p>Wer die Regeln des Modells bricht, etwa ohne Überweisung zum Spezialisten geht, riskiert, dass die Kasse nicht zahlt. Wer viele verschiedene Fachpersonen braucht, fährt mit einem Modell oft schlechter, als die Prämie vermuten lässt.</p>
 
 <h2>Zusatzversicherung</h2>
+<p>Die Aufgabe ist für die Grundversicherung gebaut. Bei der Zusatzversicherung kann Claude helfen, aber nicht gleich verlässlich vergleichen, und das hat einen Grund:</p>
+<div class="grid">
+  <div class="card">
+    <h3>Grundversicherung</h3>
+    <p>Die Leistungen sind gesetzlich festgelegt und bei allen Kassen gleich. Verglichen wird nur der Preis.</p>
+  </div>
+  <div class="card">
+    <h3>Zusatzversicherung</h3>
+    <p>Jede Kasse bestimmt selbst, was versichert ist. Verglichen werden muss vor allem, was du bekommst, erst dann, was es kostet. Günstiger heisst oft: weniger Leistung.</p>
+  </div>
+</div>
+<p>Claude fragt dich am Anfang, ob du auch die Zusatzversicherung wechseln möchtest. Sagst du nein oder bist du unsicher, bleibt sie, wo sie ist.</p>
 <ul>
-  <li><strong>Nicht kündigen, bevor die neue Kasse schriftlich zugesagt hat.</strong> Bei der Zusatzversicherung darf eine Kasse ablehnen, sie stellt Gesundheitsfragen. Ab einem gewissen Alter oder mit Vorerkrankungen bekommst du sie vielleicht nirgends mehr.</li>
-  <li>Die Kündigungsfristen stehen in den Versicherungsbedingungen und sind oft früher im Jahr als bei der Grundversicherung.</li>
-  <li>Du darfst die Grundversicherung wechseln und die Zusatzversicherung bei der alten Kasse behalten; kündigen darf sie sie deswegen nicht.</li>
-  <li>Zwei Kassen heisst aber zwei Rechnungen und zwei Abrechnungen. Ist die Ersparnis klein, sagt Claude das.</li>
+  <li><strong>Grundversicherung wechseln, Zusatzversicherung behalten, das ist der Normalfall.</strong> Die alte Kasse darf dich nicht zwingen, sie mitzukündigen, und sie darf sie deswegen auch nicht selbst kündigen. Ordentlich kündigen kannst überhaupt nur du, nicht die Kasse. Diesen Schutz gibst du nicht leichtfertig auf.</li>
+  <li>Zwei Kassen heisst zwei Rechnungen und zwei Abrechnungen. Claude stellt das neben die Ersparnis, damit du beides abwägen kannst. In die ausgewiesene Ersparnis rechnet er die Zusatzversicherung nicht ein.</li>
 </ul>
+<div class="warn">
+  <p><strong>Willst du die Zusatzversicherung auch wechseln, sei vorsichtig.</strong> Claude legt dir die Leistungen nach den Versicherungsbedingungen beider Kassen Zeile für Zeile nebeneinander, in einer eigenen Datei <code>zusatzversicherung.md</code>. Das ist eine Hilfe zum Lesen, kein verlässlicher Vergleich: Die Angaben musst du selbst genau prüfen oder von einer Fachperson prüfen lassen, etwa der Sozialberatung oder einer unabhängigen Versicherungsberatung. Was in den Bedingungen nicht eindeutig steht, bleibt als offene Frage stehen. Die neue Kasse darf dich ablehnen oder Vorbehalte machen und stellt Gesundheitsfragen; ab einem gewissen Alter oder mit Vorerkrankungen bekommst du vielleicht nirgends mehr eine. Gekündigt wird darum erst mit der schriftlichen Aufnahme ohne Vorbehalte. Die Fristen sind andere als bei der Grundversicherung, oft der 30. September; massgebend sind deine Police und die Bedingungen.</p>
+</div>
 
 <h2>Was entsteht</h2>
 <div class="tree">2_Arbeitsstand/
@@ -117,18 +130,22 @@
 3_Zum-Versenden/
   2026-11-05_kuendigung_kasse.pdf
   versand.md                          <span class="c">Adresse und «eingeschrieben oder A-Post Plus»</span></div>
-<p>In <code>vergleich.md</code> stehen zwei Übersichten:</p>
+<div class="warn">
+  <p><strong>Zuerst die Ersparnis.</strong> Ganz oben in <code>vergleich.md</code> steht, was du nächstes Jahr bezahlst, wenn du nichts änderst, was die empfohlene Variante kostet und wie viel du damit sparst, in Franken pro Jahr und pro Monat. Darunter, woher die Ersparnis kommt: Franchise, Modell, Kassenwechsel, Unfalldeckung, je einzeln. So siehst du auch, was ohne Wechsel möglich ist. Mit dieser Zahl beginnt Claude auch im Chat.</p>
+</div>
+<p>Gerechnet wird gegen die <em>neue</em> Prämie deiner heutigen Kasse, nicht gegen die alte. Sonst zeigt die Zahl nur den Prämienaufschlag. Eine Grenze, unter der eine Ersparnis nicht zählt, gibt es nicht: Auch 100 Franken im Jahr sind Geld. Claude nennt die Zahl, wie sie ist, und daneben, was die Variante an Aufwand mit sich bringt. Abwägen tust du. Gibt es gar keine Ersparnis, steht auch das da. Bist du im Rückstand, zeigt der Block die Ersparnis bei deiner eigenen Kasse und getrennt davon, was ein Wechsel nach dem Bezahlen der Rückstände zusätzlich brächte.</p>
+<p>Darunter stehen zwei Übersichten:</p>
 <div class="grid">
   <div class="card">
     <h3>Jahreskosten pro Franchise</h3>
-    <p>Eine Zeile je Franchise: Prämie, tatsächlicher Rabatt und was ein Jahr kostet, wenn du kaum Kosten hast, wenn es kommt wie erwartet und im schlechten Jahr. Dazu, ab welchen Kosten die tiefere Franchise günstiger ist. Einmal für deine heutige Kasse, einmal für die günstigste im gewünschten Modell.</p>
+    <p>Eine Zeile je Franchise: Prämie, tatsächlicher Rabatt und was ein Jahr kostet, wenn du kaum Kosten hast, wenn es kommt wie erwartet und im schlechten Jahr. Dazu, ab welchen Kosten die tiefere Franchise günstiger ist, und was jede Stufe gegenüber heute spart. Einmal für deine heutige Kasse, einmal für die günstigste im gewünschten Modell.</p>
   </div>
   <div class="card">
     <h3>Kassen im Vergleich</h3>
     <p>Die fünf bis sechs günstigsten Kassen und deine heutige, je mit der passenden Franchise: Jahreskosten, Unterschied zu heute in Franken, ob deine Praxis anerkannt ist. Deine heutige Kasse steht immer drin, auch wenn sie teuer ist: Sie ist der Vergleichspunkt.</p>
   </div>
 </div>
-<p>Darunter steht die Empfehlung in wenigen Sätzen: was du dafür in Kauf nimmst und die zweitbeste Variante mit dem Unterschied in Franken.</p>
+<p>Darunter steht die Empfehlung in wenigen Sätzen: wie viel sie gegenüber heute spart, was du dafür in Kauf nimmst und die zweitbeste Variante mit dem Unterschied in Franken.</p>
 <p><strong>Du wählst, im Chat, in zwei Schritten:</strong> erst die Franchise, dann Kasse und Modell. Du bist nicht auf die Liste beschränkt. Nennst du eine andere Kasse, rechnet Claude sie nach und nimmt sie auf. Auch Bleiben ist eine Wahl. Bist du im Rückstand, gibt es nur die erste Übersicht, für die Modelle deiner eigenen Kasse.</p>
 <p>Die Briefe folgen den <a href="https://www.priminfo.admin.ch/de/downloads/musterbriefe">Musterbriefen des Bundes</a>. Offen bleiben <code>[NAME]</code>, <code>[ADRESSE]</code>, <code>[GEBURTSDATUM]</code> und <code>[VERSICHERTENNUMMER]</code>. Die setzt du am Schluss auf deinem Computer ein, siehe <a href="platzhalter.html">Platzhalter einsetzen</a>. Keine AHV-Nummer, keine IBAN: Eine Kündigung braucht beides nicht.</p>
 <p>Die Anmeldung bei der neuen Kasse machst du selbst, meist online. Claude schreibt dir auf, was du dafür brauchst: Kasse, Modell, Franchise, Unfall ja oder nein, deine Praxis und die Police der alten Kasse.</p>
@@ -154,7 +171,7 @@
   <li><strong>Wenn ein Wechsel geplant ist, obwohl etwas offen ist.</strong> Er zeigt, was bezahlt sein müsste und bis wann, und rechnet den Weg ohne Wechsel daneben.</li>
   <li><strong>Bei einer Franchise, die du im Ernstfall nicht zahlen kannst.</strong> Die tiefere Prämie hilft nichts, wenn daraus eine offene Rechnung wird.</li>
   <li><strong>Wenn deine Praxis im gewünschten Modell nicht anerkannt ist.</strong> Das steht als Befund da, nicht versteckt in einer Fussnote.</li>
-  <li><strong>Bei der Zusatzversicherung.</strong> Gekündigt wird erst mit der schriftlichen Zusage der neuen Kasse.</li>
+  <li><strong>Bei der Zusatzversicherung.</strong> Er schlägt von sich aus keinen Wechsel vor und sagt dir, dass die Aufgabe dafür nicht ausgelegt ist. Willst du sie wechseln, wird erst gekündigt, wenn die neue Kasse dich schriftlich und ohne Vorbehalte aufgenommen hat.</li>
   <li><strong>Bei geschätzten Zahlen.</strong> Deine Kosten nimmt er aus den Leistungsabrechnungen, die Prämien aus dem Rechner des Bundes, jeweils mit Datum.</li>
 </ul>
 
