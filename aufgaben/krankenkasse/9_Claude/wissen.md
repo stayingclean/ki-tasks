@@ -381,6 +381,18 @@ Platzhalter: `[NAME]`, `[ADRESSE]`, `[GEBURTSDATUM]`, `[VERSICHERTENNUMMER]`,
 vor dem Versand auf der Website der Kasse **(nachprüfen)**. Keine AHV-Nummer,
 keine IBAN — eine Kündigung braucht beides nicht.
 
+**Online statt Brief.** Manche Kassen nehmen die Änderung von Franchise oder
+Modell im Kundenportal oder per Online-Formular entgegen, einzelne auch die
+Kündigung der Grundversicherung. Schau auf der Website der Kasse nach, ob sie
+das anbietet, und halte es mit Link und Datum in `stand.md` fest
+**(nachprüfen)**. Gibt es den Weg, ist er gleichwertig und meist einfacher; frag
+die Person, welchen sie will. Online gilt nur mit Eingangsbestätigung der Kasse
+(Mail oder Quittung im Portal): Die speichert die Person als PDF in
+`1_Meine-Unterlagen`. Eine Mail an die allgemeine Adresse ohne Bestätigung ist
+kein sicherer Weg. Wählt die Person online, entfällt der Brief; du schreibst
+stattdessen in `versand.md`, wo sie es erledigt und was sie eingibt. Die
+Fristen bleiben dieselben: Auch online nicht bis zum 30. November warten.
+
 **Anmeldung bei der neuen Kasse** macht die Person selbst, meist online. Du
 listest in `stand.md`, was sie dafür braucht: gewählte Kasse, Modell und
 Franchise, Unfalldeckung ja/nein, bei Hausarzt- oder HMO-Modell Name der Praxis,
@@ -397,9 +409,9 @@ dieselben Punkte als offene Punkte in `stand.md`:
 | Was | Bis | Quelle |
 |---|---|---|
 | Neue Prämie der eigenen Kasse liegt vor | 31. Oktober | priminfo, Art. 7 Abs. 2 KVG |
-| Kündigung abschicken, eingeschrieben oder A-Post Plus (empfohlen) | 15. November | priminfo |
+| Kündigung abschicken, eingeschrieben oder A-Post Plus (empfohlen) — oder online, wo die Kasse es anbietet, mit Eingangsbestätigung | 15. November | priminfo |
 | Kündigung muss bei der alten Kasse **eingetroffen** sein | 30. November | priminfo, Art. 7 Abs. 2 KVG |
-| Franchise- oder Modelländerung bei der eigenen Kasse mitteilen | 15. November | priminfo |
+| Franchise- oder Modelländerung bei der eigenen Kasse mitteilen, per Brief oder online | 15. November | priminfo |
 | Anmeldung bei der neuen Kasse | gleichzeitig, spätestens 15. Dezember | priminfo |
 | Alle bis 30.11. gemahnten Ausstände bezahlt (nur wenn es welche gibt) | 31. Dezember | Art. 105l KVV |
 | Bestätigung der alten Kasse und Police der neuen liegen vor | Anfang Januar | Art. 7 Abs. 5 KVG |
@@ -425,7 +437,10 @@ Art. 103 Abs. 3 KVV).
 `3_Zum-Versenden/<datum>_kuendigung_<kasse>.pdf` oder
 `<datum>_aenderung_<kasse>.pdf`, dazu `versand.md`: Empfängeradresse,
 «eingeschrieben oder A-Post Plus bis 15. November», Hinweis, die Quittung
-aufzubewahren, und in einem Satz die Ersparnis, um die es geht. Die Vergleichstabelle geht nicht mit.
+aufzubewahren, und in einem Satz die Ersparnis, um die es geht. Erledigt die
+Person es online, gibt es kein PDF; `versand.md` nennt dann den Link zum Portal
+oder Formular, die Angaben zum Eintragen, die Frist und den Hinweis, die
+Eingangsbestätigung als PDF in `1_Meine-Unterlagen` zu legen. Die Vergleichstabelle geht nicht mit.
 
 ## Grenzen
 
