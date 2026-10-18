@@ -43,6 +43,7 @@ aufgaben/
 build.py                      Grundgerüst + Aufgabe → dist/<aufgabe>.zip, dazu index.html
 platzhalter/                  Programm für Windows und Mac: [Platzhalter] in Word-Dateien einsetzen (uv)
 anleitung/                    Ordner, Platzhalter, je Aufgabe eine Seite (holt der Toolbox-Deploy)
+fristen/                      Fristen je Kanton für die Spalte «Jetzt fällig» (nur Download-Seite)
 ```
 
 `build.py` legt das Grundgerüst hin und die Aufgaben-Schicht darüber — eine reine
@@ -60,6 +61,45 @@ bewusst getrennt vom konkreten Auftrag: Das Wissen ist für alle gleich und wird
 mitgeliefert, der Auftrag entsteht im Gespräch und landet in `stand.md`. Wer eine
 Aufgabe herunterlädt, muss deshalb nichts ausfüllen.
 
+## Jetzt fällig
+
+Manche Aufgaben haben eine Saison. Die Download-Seite zeigt dann rechts eine
+Spalte «Jetzt fällig» und markiert die Karte. Ist nichts fällig, fehlt die
+Spalte ganz und die Seite sieht aus wie immer.
+
+Zwei Quellen:
+
+```
+aufgaben/<name>/INFO.md      faellig: 10-01 bis 11-30          → Fenster, jedes Jahr gleich
+                             faellig-text: Kündigung bis …      → Satz in der Spalte
+fristen/<name>.json          kantone: [{kanton, name, art, frist: "MM-TT", jahr, notiz, quelle}]
+```
+
+Ein Fenster darf über Neujahr gehen (`12-01 bis 01-31`). In `fristen/<name>.json`
+erscheinen nur Kantone mit `art: "datum"`, und nur wenn die Frist in den
+nächsten `vorlauf_tage` Tagen liegt (Vorgabe 60); `jahr` (`vorjahr`,
+`anspruchsjahr`, `folgejahr`) ergibt das Jahr in Klammern. Kantone ohne festes
+Datum stehen trotzdem in der Datei, damit klar ist, dass sie geprüft sind.
+
+Die Datei ist für die Download-Seite, nicht für Claude: Sie kommt in kein Zip.
+Claude sucht die Frist im Gespräch auf der Seite des Kantons (siehe
+`wissen.md`), weil sich Fristen ändern. Darum trägt jeder Eintrag Quelle und
+Prüfdatum, und die Datei gehört einmal im Jahr nachgeprüft, am besten im Herbst,
+wenn die Kantone das neue Jahr publizieren.
+
+Ob etwas fällig ist, entscheidet der Browser mit dem heutigen Datum — die Seite
+wird nur bei einem Push gebaut. Zum Ausprobieren: `index.html?heute=2026-11-20`.
+
+Gerechnet wird an einer einzigen Stelle: `build.py` schreibt `dist/faellig.js`
+(Daten und Darstellung) und `dist/faellig.json` (nur Daten). Die Download-Seite
+bindet `faellig.js` ein, ebenso `anleitung/aufgaben.html` — absolut von
+`stayingclean.github.io/ki-tasks/`, gleiche Origin wie die Toolbox. Dort füllt
+das Skript die Spalte, markiert die Karten, setzt einen Punkt in die
+Seitenleiste und ein Band auf die Aufgabenseite. Die Stile dafür und das
+Einbinden auf allen Anleitungsseiten gehören in die Toolbox (`stil.css`,
+`anleitung.js`); was genau, steht in
+`docs/superpowers/plans/2026-10-18-toolbox-faellig.md`.
+
 ## Lokal bauen
 
 ```
@@ -68,7 +108,7 @@ python build.py
 
 Keine Abhängigkeiten ausser Python 3.10+. Das Ergebnis liegt in `dist/`
 (gitignored): ein Zip pro Aufgabe, `grundgeruest.zip` für eine eigene Aufgabe,
-dazu `index.html` und `aufgaben.json`.
+dazu `index.html`, `aufgaben.json`, `faellig.js` und `faellig.json`.
 
 ## Platzhalter-Tool
 
