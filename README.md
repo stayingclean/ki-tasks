@@ -92,12 +92,12 @@ wird nur bei einem Push gebaut. Zum Ausprobieren: `index.html?heute=2026-11-20`.
 
 Gerechnet wird an einer einzigen Stelle: `build.py` schreibt `dist/faellig.js`
 (Daten und Darstellung) und `dist/faellig.json` (nur Daten). Die Download-Seite
-bindet `faellig.js` ein, ebenso `anleitung/aufgaben.html` — absolut von
-`stayingclean.github.io/ki-tasks/`, gleiche Origin wie die Toolbox. Dort füllt
-das Skript die Spalte, markiert die Karten, setzt einen Punkt in die
-Seitenleiste und ein Band auf die Aufgabenseite. Die Stile dafür und das
-Einbinden auf allen Anleitungsseiten gehören in die Toolbox (`stil.css`,
-`anleitung.js`); was genau, steht in
+bindet `faellig.js` ein. In der Anleitung lädt `anleitung.js` der Toolbox es auf
+jeder Seite, absolut von `stayingclean.github.io/ki-tasks/` (gleiche Origin).
+Dort legt das Skript dieselbe rechte Spalte an, markiert die Karten auf
+`aufgaben.html` und setzt einen Punkt in die Seitenleiste. Die Seiten in
+`anleitung/` brauchen dafür nichts Eigenes. Stile und Einbinden gehören in die
+Toolbox (`stil.css`, `anleitung.js`); was genau, steht in
 `docs/superpowers/plans/2026-10-18-toolbox-faellig.md`.
 
 ## Lokal bauen

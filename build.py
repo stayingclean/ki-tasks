@@ -121,8 +121,8 @@ def schreibe_faellig(infos: list[dict[str, str]]) -> None:
     """faellig.json (Daten) und faellig.js (Daten + Darstellung) nach dist/.
 
     faellig.js ist die einzige Stelle, die rechnet, was fällig ist. Die
-    Download-Seite bindet es ein, ebenso anleitung/aufgaben.html und — über
-    anleitung.js — jede Seite der Anleitung (gleiche Origin stayingclean.github.io).
+    Download-Seite bindet es ein; in der Anleitung lädt es anleitung.js auf
+    jeder Seite (gleiche Origin stayingclean.github.io).
     """
     daten = {
         "aufgaben": [
@@ -216,11 +216,13 @@ FAELLIG_JS = """/* «Jetzt fällig» — gebaut von stayingclean/ki-tasks (build
    Push neu gebaut werden. Zum Ausprobieren: ?heute=2026-11-20
 
    Was das Skript auf einer Seite tut, hängt davon ab, was es vorfindet:
-   - <aside id="faellig" data-rahmen="…">: füllt die Spalte und gibt dem Rahmen
-     die Klasse mit-spalte. Ist nichts fällig, bleibt sie hidden.
+   - <aside id="faellig" data-rahmen="…"> (Download-Seite): füllt die Spalte und
+     gibt dem Rahmen die Klasse mit-spalte.
+   - Seite der Anleitung (.layout, geladen von anleitung.js): legt dieselbe Spalte
+     selbst an, auf jeder Unterseite gleich.
    - Karten (.card[data-aufgabe] oder .card mit Link auf <name>.html): Abzeichen.
    - Seitenleiste der Anleitung (.nav a[href="<name>.html"]): Klasse ist-faellig.
-   - Aufgabenseite der Anleitung (<name>.html mit header.page): Band unter dem Kopf. */
+   Ist nichts fällig, tut es nichts. */
 (function () {
   if (window.faelligGeladen) { return; }
   window.faelligGeladen = true;
@@ -290,6 +292,13 @@ FAELLIG_JS = """/* «Jetzt fällig» — gebaut von stayingclean/ki-tasks (build
   if (!faellig.length) { return; }
 
   var spalte = document.getElementById('faellig');
+  var layout = document.querySelector('.layout');
+  if (!spalte && layout) {
+    // Anleitung: rechts neben main, als drittes Kind von .layout (Stile in stil.css)
+    layout.insertAdjacentHTML('beforeend', '<aside class="spalte" id="faellig" data-rahmen=".layout" hidden ' +
+      'aria-labelledby="faellig-titel"><h2 id="faellig-titel">Jetzt fällig</h2></aside>');
+    spalte = document.getElementById('faellig');
+  }
   if (spalte) {
     spalte.insertAdjacentHTML('beforeend', faellig.map(function (e) { return kopf(e.name) + e.inhalt; }).join(''));
     spalte.hidden = false;
@@ -297,7 +306,6 @@ FAELLIG_JS = """/* «Jetzt fällig» — gebaut von stayingclean/ki-tasks (build
     if (rahmen) { rahmen.classList.add('mit-spalte'); }
   }
 
-  var datei = location.pathname.split('/').pop();
   faellig.forEach(function (e) {
     var karte = document.querySelector('.card[data-aufgabe="' + e.name + '"]');
     if (!karte) {
@@ -310,11 +318,6 @@ FAELLIG_JS = """/* «Jetzt fällig» — gebaut von stayingclean/ki-tasks (build
     }
     var nav = document.querySelector('.nav a[href="' + e.name + '.html"]');
     if (nav) { nav.classList.add('ist-faellig'); }
-    var kopfzeile = document.querySelector('header.page');
-    if (datei === e.name + '.html' && kopfzeile) {
-      kopfzeile.insertAdjacentHTML('afterend',
-        '<div class="faellig-band"><p class="kicker">Jetzt fällig</p>' + e.inhalt + '</div>');
-    }
   });
 })();
 """
