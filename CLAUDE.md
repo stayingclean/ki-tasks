@@ -32,9 +32,11 @@ Beim Arbeiten an diesem Repo:
 - Saisonale Aufgaben: `faellig:` und `faellig-text:` in `INFO.md`, Fristen je
   Kanton in `fristen/<name>.json` (gehört nicht in den Aufgabenordner und in
   kein Zip). Daraus baut `build.py` `faellig.js`, die einzige Stelle, die
-  rechnet; Download-Seite und `anleitung/aufgaben.html` binden es ein und zeigen
-  die Spalte «Jetzt fällig»; ohne fälligen Eintrag bleibt sie weg. Jeder Kantonseintrag mit `quelle` und
-  `geprueft`; nichts eintragen, was nicht auf der Seite des Kantons steht.
+  rechnet. Die Download-Seite bindet es ein, in der Anleitung lädt es
+  `anleitung.js` der Toolbox auf jeder Seite; beide zeigen die Spalte «Jetzt
+  fällig», ohne fälligen Eintrag bleibt sie weg. Die Seiten in `anleitung/`
+  brauchen dafür nichts. Jeder Kantonseintrag mit `quelle` und `geprueft`;
+  nichts eintragen, was nicht auf der Seite des Kantons steht.
 - Inhalte: Deutsch (Schweiz), Du-Form, keine echten Personendaten, keine
   Beispiele mit Klarnamen.
 - `anleitung/` enthält `der-ordner.html` und `platzhalter.html` (beschreiben den

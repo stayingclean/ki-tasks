@@ -14,15 +14,15 @@ Toolbox bleibt, wie sie ist.
   Darstellung. Das ist die einzige Stelle, die ausrechnet, was fällig ist.
 
 Weil Toolbox und ki-tasks auf derselben Origin liegen (`stayingclean.github.io`),
-kann jede Anleitungsseite das Skript laden. Je nachdem, was es auf der Seite
-findet, tut es Folgendes:
+lädt `anleitung.js` das Skript auf jeder Seite der Anleitung. Dort tut es:
 
 | findet | tut |
 |---|---|
-| `<aside id="faellig" data-rahmen=".layout">` (nur `aufgaben.html`, kommt aus ki-tasks) | füllt die Spalte, gibt `.layout` die Klasse `mit-spalte` |
+| `.layout` | hängt `<aside class="spalte" id="faellig">` als drittes Kind an und gibt `.layout` die Klasse `mit-spalte`, auf jeder Unterseite gleich |
 | `.card` mit Link auf `<name>.html` | Abzeichen «Jetzt fällig», Klasse `ist-faellig` |
 | `.nav a[href="<name>.html"]` | Klasse `ist-faellig` (Punkt in der Seitenleiste) |
-| Seite `<name>.html` mit `header.page` | Band `.faellig-band` unter dem Kopf |
+
+Die Seiten selbst, hier wie in ki-tasks, brauchen dafür nichts.
 
 Ist nichts fällig, tut das Skript nichts: Die Spalte bleibt `hidden`, das Layout
 bleibt zweispaltig.
@@ -43,9 +43,9 @@ ausgeblendeten Elementen nehmen.
 .spalte h3 { font-size: .95rem; margin: 16px 0 4px; }
 .spalte h3 a { text-decoration: none; }
 .spalte h3 a:hover { text-decoration: underline; }
-.spalte p, .faellig-band p { margin: 0 0 6px; }
-.spalte ul, .faellig-band ul { list-style: none; margin: 6px 0; padding: 0; }
-.spalte li, .faellig-band li { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; margin: 0; border-top: 1px solid var(--border); }
+.spalte p { margin: 0 0 6px; }
+.spalte ul { list-style: none; margin: 6px 0; padding: 0; }
+.spalte li { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; margin: 0; border-top: 1px solid var(--border); }
 .spalte li a { color: var(--text); text-decoration: none; }
 .spalte li a:hover { color: var(--accent); }
 .rest { color: var(--muted); white-space: nowrap; }
@@ -56,8 +56,6 @@ ausgeblendeten Elementen nehmen.
 .card.ist-faellig { border-color: #F2D3B0; box-shadow: inset 0 3px 0 var(--warn); }
 .nav a.ist-faellig::after { content: ''; display: inline-block; width: 7px; height: 7px; margin-left: 7px;
   border-radius: 50%; background: var(--warn); vertical-align: middle; }
-.faellig-band { border-left: 4px solid var(--warn); background: var(--warn-tint); padding: 12px 16px; border-radius: 0 12px 12px 0; margin: 0 0 24px; font-size: .95rem; }
-.faellig-band .kicker { color: var(--warn); }
 /* Zu schmal für drei Spalten: Spalte über den Inhalt, Seitenleiste über beide Zeilen */
 @media (max-width: 1180px) {
   .layout.mit-spalte { grid-template-columns: var(--sidebar) minmax(0, 1fr); }
@@ -85,11 +83,10 @@ Am Ende der IIFE, nach der Seitenleiste (das Skript markiert Links darin, die
 Leiste muss also schon stehen):
 
 ```js
-  /* «Jetzt fällig» kommt aus stayingclean/ki-tasks (build.py → faellig.js):
-     Punkt in der Seitenleiste, Band auf der Aufgabenseite, Spalte auf
-     aufgaben.html. Gleiche Origin, darum kein CORS. aufgaben.html bindet das
-     Skript zusätzlich selbst ein; es läuft trotzdem nur einmal
-     (window.faelligGeladen). Ohne Netz fehlt nur die Markierung. */
+  /* «Jetzt faellig» kommt aus stayingclean/ki-tasks (build.py -> faellig.js):
+     rechte Spalte auf jeder Seite der Anleitung, Abzeichen auf den Karten,
+     Punkt in der Seitenleiste. Gleiche Origin, darum kein CORS. Ist nichts
+     faellig oder fehlt das Netz, bleibt die Seite wie sie ist. */
   var faellig = document.createElement('script');
   faellig.src = 'https://stayingclean.github.io/ki-tasks/faellig.js';
   faellig.async = true;
@@ -108,18 +105,16 @@ bei jedem Laden der Seite frisch von ki-tasks geholt.
 
 ## Reihenfolge beim Ausrollen
 
-1. Toolbox: `stil.css` und `anleitung.js` auf `master`. Ohne `faellig.js`
-   drüben lädt das Skript ins Leere (404), sonst ändert sich nichts.
-2. ki-tasks: Branch `download-faellig` mergen. Der Deploy veröffentlicht
-   `faellig.js` und stösst den Toolbox-Deploy an, der das neue
-   `aufgaben.html` mit der Spalte übernimmt.
-
-Umgekehrt stünde die Spalte auf `aufgaben.html` kurz ohne Stil unter dem Inhalt.
+Die Reihenfolge spielt keine Rolle. Kommt die Toolbox zuerst, lädt
+`anleitung.js` ins Leere (404) und nichts ändert sich. Kommt ki-tasks zuerst,
+liegt `faellig.js` bereit, aber in der Anleitung lädt es noch niemand. Sichtbar
+wird die Spalte, sobald beide gemergt sind.
 
 ## Prüfen
 
 `aufgaben.html?heute=2026-11-15`: Spalte mit Krankenkasse und fünf Kantonen
 (31. Dezember), Karten markiert, Punkt bei Krankenkasse und Prämienverbilligung.
-`krankenkasse.html?heute=2026-11-15`: Band unter dem Kopf.
+`index.html?heute=2026-11-15` und jede andere Unterseite: dieselbe Spalte,
+Punkte in der Seitenleiste.
 `aufgaben.html?heute=2026-06-05`: keine Spalte, zweispaltig wie bisher.
 Breiten 1400, 1000 und 375 px.
